@@ -1,0 +1,10 @@
+{
+	"code": 1000,
+	"msg": "",
+	"data": {
+		"newVersion": "101",
+		"minVersion": "100",
+		"apkUrl": "http://sitgomnc.gl/stjd",
+		"description": "版本更新101"
+	}
+}
