@@ -1,0 +1,10 @@
+{
+	"code": 1000,
+	"msg": "",
+	"data": {
+		"newVersion": "100",
+		"minVersion": "100",
+		"apkUrl": "https://play.google.com/store/apps/details?id=com.editbook.audioeditor",
+		"description": "1、版本更新"
+	}
+}
