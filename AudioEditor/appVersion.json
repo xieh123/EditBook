@@ -2,9 +2,9 @@
 	"code": 1000,
 	"msg": "",
 	"data": {
-		"newVersion": "100",
-		"minVersion": "100",
-		"apkUrl": "http://sitgomnc.gl/stjd",
-		"description": "版本更新100"
+		"newVersion": "119",
+		"minVersion": "115",
+		"apkUrl": "https://www.pgyer.com/EditBook-AudioEditor",
+		"description": "1、优化裁剪、剪辑；\n2、分割增加试听；\n3、修复已知问题。"
 	}
 }
