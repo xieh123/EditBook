@@ -2,9 +2,9 @@
 	"code": 1000,
 	"msg": "",
 	"data": {
-		"newVersion": "121",
-		"minVersion": "118",
+		"newVersion": "125",
+		"minVersion": "121",
 		"apkUrl": "https://www.pgyer.com/EditBook-AudioEditor",
-		"description": "1、优化裁剪、剪辑；\n2、修复已知问题。"
+		"description": "1、修复已知问题。"
 	}
 }
