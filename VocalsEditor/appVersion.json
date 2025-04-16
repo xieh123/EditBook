@@ -1,0 +1,11 @@
+{
+	"code": 1000,
+	"msg": "",
+	"data": {
+		"newVersion": "106",
+		"minVersion": "106",
+		"apkUrl": "https://www.pgyer.com/EditBook-VocalsEditor",
+                "apkUrlList": ["https://www.pgyer.com/EditBook-VocalsEditor"],
+		"description": "1、修复已知问题。"
+	}
+}

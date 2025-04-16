@@ -2,9 +2,10 @@
 	"code": 1000,
 	"msg": "",
 	"data": {
-		"newVersion": "125",
-		"minVersion": "121",
+		"newVersion": "130",
+		"minVersion": "128",
 		"apkUrl": "https://www.pgyer.com/EditBook-AudioEditor",
+                "apkUrlList": ["https://www.pgyer.com/EditBook-AudioEditor"],
 		"description": "1、修复已知问题。"
 	}
 }

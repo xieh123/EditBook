@@ -2,9 +2,10 @@
 	"code": 1000,
 	"msg": "",
 	"data": {
-		"newVersion": "100",
-		"minVersion": "100",
-		"apkUrl": "http://sitgomnc.gl/stjd",
-		"description": "版本更新100"
+		"newVersion": "116",
+		"minVersion": "116",
+		"apkUrl": "https://www.pgyer.com/EditBook-VideoEditor",
+                "apkUrlList": ["https://www.pgyer.com/EditBook-VideoEditor"],
+		"description": "1、修复已知问题。"
 	}
 }
