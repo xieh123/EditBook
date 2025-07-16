@@ -1,0 +1,13 @@
+{
+	"code": 1000,
+	"msg": "",
+	"data": {
+		"isShowPayDialog": true,
+		"isShowGooglePlayDialog": false,
+		"isGooglePlayForced": false,
+		"limitSaveTimes": "3",
+		"audioEditor": "https://www.pgyer.com/EditBook-AudioEditor",
+        "videoEditor": "https://www.pgyer.com/EditBook-VideoEditor",
+        "vocalsEditor": "https://www.pgyer.com/EditBook-VocalsEditor"
+	}
+}
