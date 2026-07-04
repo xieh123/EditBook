@@ -2,8 +2,8 @@
 	"code": 1000,
 	"msg": "",
 	"data": {
-		"newVersion": "156",
-		"minVersion": "150",
+		"newVersion": "161",
+		"minVersion": "156",
 		"apkUrl": "https://play.google.com/store/apps/details?id=com.editbook.audioeditor",
 		"description": "1. New version."
 	}
