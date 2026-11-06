@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>技术支持 - EditBook-AudioEditor</title>
+<style>
+:root{--primary:#007aff;--bg:#f2f2f7;--card:#fff;--text:#1c1c1e;--sub:#8e8e93;--line:#e5e5ea;--soft:#f2f2f2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans Arabic","Noto Sans Thai","Noto Sans Devanagari","Noto Sans JP","Noto Sans KR",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:20px;-webkit-font-smoothing:antialiased}
+.page{max-width:600px;margin:0 auto;padding-top:44px}
+.lang-picker{position:absolute;top:16px;inset-inline-end:20px;z-index:50}
+.lang-btn{display:flex;align-items:center;gap:8px;border:1px solid var(--primary);border-radius:999px;padding:7px 12px;background:#fff;color:var(--primary);font:inherit;font-size:14px;line-height:1.2;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.lang-btn svg{width:17px;height:17px;fill:var(--primary);flex:none}
+.lang-btn .cur{max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lang-btn .chev{border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--primary);transition:transform .15s}
+.lang-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.lang-menu{display:none;position:absolute;top:calc(100% + 6px);inset-inline-end:0;width:220px;max-width:calc(100vw - 32px);max-height:min(60vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.lang-menu.open{display:block}
+.lang-menu li{margin:0;padding:11px 14px;border-radius:8px;font-size:15px;line-height:1.3;cursor:pointer;color:var(--text);-webkit-tap-highlight-color:transparent}
+.lang-menu li:hover{background:var(--soft)}
+.lang-menu li[aria-selected="true"]{background:#eaf3ff;color:var(--primary);font-weight:600}
+.header{text-align:center;padding:30px 0}
+.header h1{font-size:24px;font-weight:700;margin-bottom:8px}
+.header p{color:var(--sub);font-size:15px}
+.card{background:var(--card);border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.contact-highlight{text-align:center;border:2px solid var(--primary)}
+.contact-highlight h2{font-size:18px;margin-bottom:12px}
+.contact-highlight .desc{margin-bottom:16px;font-size:14px;color:#666}
+.contact-highlight a{display:inline-block;font-size:20px;font-weight:600;color:var(--primary);text-decoration:none;padding:10px 20px;background:rgba(0,122,255,.1);border-radius:8px;word-break:break-all}
+.contact-highlight a:active{background:rgba(0,122,255,.2)}
+.faq h3{font-size:18px;margin-bottom:16px;color:var(--text)}
+details{border-bottom:1px solid var(--line);padding:12px 0}
+details:last-child{border-bottom:none;padding-bottom:0}
+summary{font-weight:500;cursor:pointer;list-style:none;position:relative;padding-right:24px;outline:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:20px;color:var(--sub)}
+details[open] summary::after{content:"-"}
+details p{margin-top:10px;font-size:14px;color:var(--sub)}
+.footer{text-align:center;font-size:13px;color:var(--sub);margin-top:40px;padding-bottom:20px}
+@media(max-width:479px){body{padding:16px}.page{padding-top:52px}.header h1{font-size:22px}.contact-highlight a{font-size:18px}}
+</style>
+</head>
+<body>
+
+<div class="lang-picker" id="langPicker">
+<button type="button" class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a8.1 8.1 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26Zm.81 2h2.95c.32 1.25.78 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16Zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.6 15.6 0 0 0 8.02 8ZM12 19.96a13.7 13.7 0 0 1-1.91-3.96h3.82A13.7 13.7 0 0 1 12 19.96ZM14.34 14H9.66a14.6 14.6 0 0 1 0-4h4.68a14.6 14.6 0 0 1 0 4Zm.26 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.5 16.5 0 0 0 0-4h3.38a8.1 8.1 0 0 1 0 4h-3.38Z"/></svg>
+<span class="cur" id="langCur"></span><span class="chev" aria-hidden="true"></span>
+</button>
+<ul class="lang-menu" id="langMenu" role="listbox" tabindex="-1"></ul>
+</div>
+
+<main class="page" id="app"></main>
+
+<script>
+const LANGUAGES=[
+{code:'en',label:'English'},{code:'ar',label:'العربية'},{code:'de',label:'Deutsch'},{code:'es',label:'Español'},
+{code:'fr',label:'Français'},{code:'hi',label:'हिन्दी'},{code:'id',label:'Bahasa Indonesia'},{code:'it',label:'Italiano'},
+{code:'ja',label:'日本語'},{code:'ko',label:'한국어'},{code:'pt',label:'Português'},{code:'ru',label:'Русский'},
+{code:'th',label:'ไทย'},{code:'tr',label:'Türkçe'},{code:'vi',label:'Tiếng Việt'},{code:'zh-Hans',label:'简体中文'},{code:'zh-Hant',label:'繁體中文'}
+];
+
+const EMAIL='xieh6888@gmail.com';
+
+const I18N={
+/* ============================ 简体中文 ============================ */
+'zh-Hans':{dir:'ltr',subtitle:'官方技术支持与帮助中心',helpTitle:'需要帮助？',
+helpDesc:'如果您遇到任何问题或有功能建议，请随时联系我们，我们通常在 24 小时内回复。',
+faqTitle:'常见问题 (FAQ)',faqs:[
+['如何恢复之前的内购/高级版？','如果您更换了设备或重装了应用，请确保使用相同的 Apple ID 登录 App Store。打开 EditBook-AudioEditor，进入设置页面，点击“恢复购买”按钮即可恢复您的权益。'],
+['支持导出哪些音频格式？','当前版本支持导出 MP3、AAC、WAV 等主流音频格式，您可以在导出设置中进行选择。'],
+['遇到闪退或功能异常怎么办？','请尝试重启 App 或更新至最新版本。如果问题依然存在，请通过上方的邮箱联系我们，并附上您的设备型号（如 iPhone 15）和 iOS 版本号，以便我们快速定位问题。']
+],footer:'© 2026 EditBook-AudioEditor. All rights reserved.'},
+
+/* ============================ 繁體中文 ============================ */
+'zh-Hant':{dir:'ltr',subtitle:'官方技術支援與說明中心',helpTitle:'需要協助？',
+helpDesc:'如果您遇到任何問題或有功能建議，請隨時與我們聯絡，我們通常會在 24 小時內回覆。',
+faqTitle:'常見問題 (FAQ)',faqs:[
+['如何恢復先前的內購／進階版？','如果您更換了裝置或重新安裝了應用程式，請確認使用相同的 Apple ID 登入 App Store。開啟 EditBook-AudioEditor，進入設定頁面，點擊「恢復購買」按鈕即可恢復您的權益。'],
+['支援匯出哪些音訊格式？','目前版本支援匯出 MP3、AAC、WAV 等主流音訊格式，您可以在匯出設定中進行選擇。'],
+['遇到閃退或功能異常怎麼辦？','請嘗試重新啟動 App 或更新至最新版本。如果問題仍然存在，請透過上方的電子郵件與我們聯絡，並附上您的裝置型號（如 iPhone 15）和 iOS 版本號，以便我們快速定位問題。']
+],footer:'© 2026 EditBook-AudioEditor. All rights reserved.'},
+
+/* ============================ English ============================ */
+en:{dir:'ltr',subtitle:'Official Technical Support & Help Center',helpTitle:'Need Help?',
+helpDesc:'If you encounter any issues or have feature suggestions, please contact us anytime. We usually reply within 24 hours.',
+faqTitle:'Frequently Asked Questions (FAQ)',faqs:[
+['How do I restore my previous in-app purchase / premium version?','If you changed devices or reinstalled the app, make sure you are signed in to the App Store with the same Apple ID. Open EditBook-AudioEditor, go to Settings, and tap “Restore Purchases” to restore your entitlements.'],
+['Which audio formats can be exported?','The current version supports exporting MP3, AAC, WAV and other common audio formats. You can choose in the export settings.'],
+['What should I do if the app crashes or a feature misbehaves?','Please try restarting the app or updating to the latest version. If the problem persists, contact us via the email above and include your device model (e.g. iPhone 15) and iOS version so we can locate the issue quickly.']
+],footer:'© 2026 EditBook-AudioEditor. All rights reserved.'},
+
+/* ============================ العربية ============================ */
+ar:{dir:'rtl',subtitle:'مركز الدعم الفني والمساعدة الرسمي',helpTitle:'هل تحتاج إلى مساعدة؟',
+helpDesc:'إذا واجهت أي مشكلة أو لديك اقتراحات حول الميزات، فيرجى التواصل معنا في أي وقت. نرد عادةً خلال 24 ساعة.',
+faqTitle:'الأسئلة الشائعة (FAQ)',faqs:[
+['كيف يمكنني استعادة عملية الشراء داخل التطبيق / النسخة المميزة السابقة؟','إذا قمت بتغيير الجهاز أو أعدت تثبيت التطبيق، فتأكد من تسجيل الدخول إلى App Store بنفس Apple ID. افتح EditBook-AudioEditor، وانتقل إلى صفحة الإعدادات، واضغط على زر «استعادة المشتريات» لاستعادة حقوقك.'],
+['ما تنسيقات الصوت المدعومة للتصدير؟','يدعم الإصدار الحالي تصدير MP3 وAAC وWAV وغيرها من تنسيقات الصوت الشائعة، ويمكنك الاختيار من إعدادات التصدير.'],
+['ماذا أفعل إذا تعطل التطبيق أو حدث خطأ في إحدى الميزات؟','يرجى محاولة إعادة تشغيل التطبيق أو التحديث إلى أحدث إصدار. إذا استمرت المشكلة، فتواصل معنا عبر البريد الإلكتروني أعلاه مع ذكر طراز جهازك (مثل iPhone 15) وإصدار iOS حتى نتمكن من تحديد المشكلة بسرعة.']
+],footer:'© 2026 EditBook-AudioEditor. جميع الحقوق محفوظة.'},
+
+/* ============================ Deutsch ============================ */
+de:{dir:'ltr',subtitle:'Offizieller technischer Support & Hilfe-Center',helpTitle:'Brauchen Sie Hilfe?',
+helpDesc:'Wenn Sie Probleme haben oder Funktionsvorschläge haben, kontaktieren Sie uns jederzeit. Wir antworten in der Regel innerhalb von 24 Stunden.',
+faqTitle:'Häufig gestellte Fragen (FAQ)',faqs:[
+['Wie stelle ich meinen früheren In-App-Kauf / meine Premium-Version wieder her?','Wenn Sie das Gerät gewechselt oder die App neu installiert haben, stellen Sie sicher, dass Sie mit derselben Apple ID beim App Store angemeldet sind. Öffnen Sie EditBook-AudioEditor, gehen Sie zu den Einstellungen und tippen Sie auf „Käufe wiederherstellen“, um Ihre Ansprüche wiederherzustellen.'],
+['Welche Audioformate können exportiert werden?','Die aktuelle Version unterstützt den Export von MP3, AAC, WAV und anderen gängigen Audioformaten. Sie können dies in den Exporteinstellungen auswählen.'],
+['Was tun, wenn die App abstürzt oder eine Funktion fehlerhaft ist?','Bitte versuchen Sie, die App neu zu starten oder auf die neueste Version zu aktualisieren. Wenn das Problem weiterhin besteht, kontaktieren Sie uns über die oben genannte E-Mail und geben Sie Ihr Gerätemodell (z. B. iPhone 15) und Ihre iOS-Version an, damit wir das Problem schnell lokalisieren können.']
+],footer:'© 2026 EditBook-AudioEditor. Alle Rechte vorbehalten.'},
+
+/* ============================ Español ============================ */
+es:{dir:'ltr',subtitle:'Centro oficial de soporte técnico y ayuda',helpTitle:'¿Necesita ayuda?',
+helpDesc:'Si tiene algún problema o sugerencia sobre funciones, contáctenos en cualquier momento. Normalmente respondemos en un plazo de 24 horas.',
+faqTitle:'Preguntas frecuentes (FAQ)',faqs:[
+['¿Cómo restauro mi compra anterior dentro de la app / versión premium?','Si cambió de dispositivo o reinstaló la app, asegúrese de iniciar sesión en el App Store con el mismo Apple ID. Abra EditBook-AudioEditor, vaya a la página de Ajustes y toque “Restaurar compras” para recuperar sus derechos.'],
+['¿Qué formatos de audio se pueden exportar?','La versión actual admite la exportación en MP3, AAC, WAV y otros formatos de audio comunes. Puede elegirlo en los ajustes de exportación.'],
+['¿Qué hago si la app se cierra inesperadamente o una función no responde?','Intente reiniciar la app o actualizarla a la última versión. Si el problema persiste, contáctenos a través del correo indicado arriba e incluya el modelo de su dispositivo (p. ej. iPhone 15) y la versión de iOS para que podamos localizar el problema rápidamente.']
+],footer:'© 2026 EditBook-AudioEditor. Todos los derechos reservados.'},
+
+/* ============================ Français ============================ */
+fr:{dir:'ltr',subtitle:'Centre officiel d’assistance technique et d’aide',helpTitle:'Besoin d’aide ?',
+helpDesc:'Si vous rencontrez un problème ou avez des suggestions de fonctionnalités, contactez-nous à tout moment. Nous répondons généralement sous 24 heures.',
+faqTitle:'Questions fréquentes (FAQ)',faqs:[
+['Comment restaurer mon achat intégré précédent / ma version premium ?','Si vous avez changé d’appareil ou réinstallé l’application, assurez-vous d’être connecté à l’App Store avec le même identifiant Apple. Ouvrez EditBook-AudioEditor, accédez à la page Réglages et appuyez sur « Restaurer les achats » pour récupérer vos droits.'],
+['Quels formats audio peuvent être exportés ?','La version actuelle prend en charge l’exportation MP3, AAC, WAV et d’autres formats audio courants. Vous pouvez choisir dans les paramètres d’exportation.'],
+['Que faire en cas de plantage ou d’anomalie d’une fonctionnalité ?','Veuillez essayer de redémarrer l’application ou de la mettre à jour vers la dernière version. Si le problème persiste, contactez-nous via l’e-mail ci-dessus en précisant le modèle de votre appareil (ex. iPhone 15) et la version d’iOS afin que nous puissions identifier le problème rapidement.']
+],footer:'© 2026 EditBook-AudioEditor. Tous droits réservés.'},
+
+/* ============================ हिन्दी ============================ */
+hi:{dir:'ltr',subtitle:'आधिकारिक तकनीकी सहायता और सहायता केंद्र',helpTitle:'सहायता चाहिए?',
+helpDesc:'यदि आपको कोई समस्या आती है या आपके पास सुविधा संबंधी सुझाव हैं, तो कृपया हमसे कभी भी संपर्क करें। हम सामान्यतः 24 घंटों के भीतर उत्तर देते हैं।',
+faqTitle:'अक्सर पूछे जाने वाले प्रश्न (FAQ)',faqs:[
+['मैं अपनी पिछली इन-ऐप खरीदारी / प्रीमियम संस्करण कैसे बहाल करूँ?','यदि आपने डिवाइस बदला है या ऐप को फिर से इंस्टॉल किया है, तो सुनिश्चित करें कि आप उसी Apple ID से App Store में साइन इन हैं। EditBook-AudioEditor खोलें, सेटिंग्स पृष्ठ पर जाएँ और अपने अधिकार बहाल करने के लिए “खरीदारी बहाल करें” बटन पर टैप करें।'],
+['कौन-से ऑडियो प्रारूप निर्यात किए जा सकते हैं?','वर्तमान संस्करण MP3, AAC, WAV और अन्य सामान्य ऑडियो प्रारूपों में निर्यात का समर्थन करता है। आप निर्यात सेटिंग्स में चयन कर सकते हैं।'],
+['यदि ऐप क्रैश हो जाए या किसी सुविधा में गड़बड़ी हो तो क्या करें?','कृपया ऐप को पुनः आरंभ करने या नवीनतम संस्करण में अपडेट करने का प्रयास करें। यदि समस्या बनी रहती है, तो ऊपर दिए गए ईमेल के माध्यम से हमसे संपर्क करें और अपने डिवाइस मॉडल (जैसे iPhone 15) और iOS संस्करण बताएँ ताकि हम समस्या का शीघ्र पता लगा सकें।']
+],footer:'© 2026 EditBook-AudioEditor. सर्वाधिकार सुरक्षित।'},
+
+/* ============================ Bahasa Indonesia ============================ */
+id:{dir:'ltr',subtitle:'Pusat Dukungan Teknis & Bantuan Resmi',helpTitle:'Butuh Bantuan?',
+helpDesc:'Jika Anda mengalami masalah atau memiliki saran fitur, silakan hubungi kami kapan saja. Kami biasanya membalas dalam 24 jam.',
+faqTitle:'Pertanyaan yang Sering Diajukan (FAQ)',faqs:[
+['Bagaimana cara memulihkan pembelian dalam aplikasi / versi premium saya sebelumnya?','Jika Anda mengganti perangkat atau menginstal ulang aplikasi, pastikan Anda masuk ke App Store dengan Apple ID yang sama. Buka EditBook-AudioEditor, masuk ke halaman Pengaturan, dan ketuk tombol “Pulihkan Pembelian” untuk memulihkan hak Anda.'],
+['Format audio apa yang dapat diekspor?','Versi saat ini mendukung ekspor MP3, AAC, WAV, dan format audio umum lainnya. Anda dapat memilihnya di pengaturan ekspor.'],
+['Apa yang harus dilakukan jika aplikasi mogok atau ada fitur yang tidak berfungsi?','Silakan coba mulai ulang aplikasi atau perbarui ke versi terbaru. Jika masalah berlanjut, hubungi kami melalui email di atas dan sertakan model perangkat Anda (mis. iPhone 15) serta versi iOS agar kami dapat menemukan masalah dengan cepat.']
+],footer:'© 2026 EditBook-AudioEditor. Hak cipta dilindungi undang-undang.'},
+
+/* ============================ Italiano ============================ */
+it:{dir:'ltr',subtitle:'Centro ufficiale di supporto tecnico e assistenza',helpTitle:'Hai bisogno di aiuto?',
+helpDesc:'Se riscontri problemi o hai suggerimenti sulle funzionalità, contattaci in qualsiasi momento. Di solito rispondiamo entro 24 ore.',
+faqTitle:'Domande frequenti (FAQ)',faqs:[
+['Come ripristino il mio precedente acquisto in-app / versione premium?','Se hai cambiato dispositivo o reinstallato l’app, assicurati di aver effettuato l’accesso all’App Store con lo stesso Apple ID. Apri EditBook-AudioEditor, vai alla pagina Impostazioni e tocca “Ripristina acquisti” per ripristinare i tuoi diritti.'],
+['Quali formati audio si possono esportare?','La versione attuale supporta l’esportazione in MP3, AAC, WAV e altri formati audio comuni. Puoi scegliere nelle impostazioni di esportazione.'],
+['Cosa devo fare se l’app si blocca o una funzione non funziona correttamente?','Prova a riavviare l’app o ad aggiornarla all’ultima versione. Se il problema persiste, contattaci tramite l’email sopra indicata e includi il modello del tuo dispositivo (es. iPhone 15) e la versione di iOS, così possiamo individuare rapidamente il problema.']
+],footer:'© 2026 EditBook-AudioEditor. Tutti i diritti riservati.'},
+
+/* ============================ 日本語 ============================ */
+ja:{dir:'ltr',subtitle:'公式テクニカルサポート＆ヘルプセンター',helpTitle:'お困りですか？',
+helpDesc:'問題が発生した場合や機能のご提案がある場合は、いつでもお問い合わせください。通常24時間以内に返信いたします。',
+faqTitle:'よくある質問（FAQ）',faqs:[
+['以前のアプリ内課金／プレミアム版を復元するには？','機種変更やアプリの再インストールを行った場合は、同じApple IDでApp Storeにサインインしていることを確認してください。EditBook-AudioEditorを開き、設定ページに移動して「購入の復元」ボタンをタップすると、権利が復元されます。'],
+['書き出し可能なオーディオ形式は？','現在のバージョンでは、MP3、AAC、WAVなどの一般的なオーディオ形式への書き出しに対応しています。書き出し設定で選択できます。'],
+['アプリがクラッシュしたり、機能が正常に動作しない場合は？','アプリの再起動、または最新バージョンへのアップデートをお試しください。問題が解決しない場合は、上記のメールアドレスまで、お使いの機種（例：iPhone 15）とiOSバージョンをお知らせください。迅速に問題を特定いたします。']
+],footer:'© 2026 EditBook-AudioEditor. All rights reserved.'},
+
+/* ============================ 한국어 ============================ */
+ko:{dir:'ltr',subtitle:'공식 기술 지원 및 도움말 센터',helpTitle:'도움이 필요하신가요?',
+helpDesc:'문제가 발생하거나 기능 제안이 있으시면 언제든지 문의해 주세요. 보통 24시간 이내에 답변드립니다.',
+faqTitle:'자주 묻는 질문(FAQ)',faqs:[
+['이전 인앱 구매/프리미엄 버전을 복원하려면 어떻게 하나요?','기기를 변경하거나 앱을 재설치한 경우 동일한 Apple ID로 App Store에 로그인되어 있는지 확인하세요. EditBook-AudioEditor를 열고 설정 페이지로 이동한 후 “구매 복원” 버튼을 눌러 권한을 복원할 수 있습니다.'],
+['어떤 오디오 형식으로 내보낼 수 있나요?','현재 버전은 MP3, AAC, WAV 등 주요 오디오 형식으로 내보내기를 지원하며, 내보내기 설정에서 선택할 수 있습니다.'],
+['앱이 비정상 종료되거나 기능에 문제가 생기면 어떻게 해야 하나요?','앱을 다시 시작하거나 최신 버전으로 업데이트해 보세요. 문제가 계속되면 위 이메일로 기기 모델(예: iPhone 15)과 iOS 버전을 포함하여 문의해 주시면 신속히 문제를 파악하겠습니다.']
+],footer:'© 2026 EditBook-AudioEditor. All rights reserved.'},
+
+/* ============================ Português ============================ */
+pt:{dir:'ltr',subtitle:'Central oficial de suporte técnico e ajuda',helpTitle:'Precisa de ajuda?',
+helpDesc:'Se você encontrar algum problema ou tiver sugestões de recursos, entre em contato conosco a qualquer momento. Normalmente respondemos em até 24 horas.',
+faqTitle:'Perguntas frequentes (FAQ)',faqs:[
+['Como restauro minha compra anterior no app / versão premium?','Se você trocou de dispositivo ou reinstalou o app, verifique se está conectado à App Store com o mesmo Apple ID. Abra o EditBook-AudioEditor, vá para a página de Ajustes e toque em “Restaurar compras” para recuperar seus direitos.'],
+['Quais formatos de áudio podem ser exportados?','A versão atual oferece suporte à exportação em MP3, AAC, WAV e outros formatos de áudio comuns. Você pode escolher nas configurações de exportação.'],
+['O que devo fazer se o app travar ou uma função apresentar erro?','Tente reiniciar o app ou atualizá-lo para a versão mais recente. Se o problema persistir, entre em contato pelo e-mail acima e inclua o modelo do seu dispositivo (ex.: iPhone 15) e a versão do iOS para que possamos localizar o problema rapidamente.']
+],footer:'© 2026 EditBook-AudioEditor. Todos os direitos reservados.'},
+
+/* ============================ Русский ============================ */
+ru:{dir:'ltr',subtitle:'Официальный центр технической поддержки и помощи',helpTitle:'Нужна помощь?',
+helpDesc:'Если у вас возникли проблемы или есть предложения по функциям, свяжитесь с нами в любое время. Обычно мы отвечаем в течение 24 часов.',
+faqTitle:'Часто задаваемые вопросы (FAQ)',faqs:[
+['Как восстановить предыдущую встроенную покупку / премиум-версию?','Если вы сменили устройство или переустановили приложение, убедитесь, что вы вошли в App Store с тем же Apple ID. Откройте EditBook-AudioEditor, перейдите на страницу «Настройки» и нажмите кнопку «Восстановить покупки», чтобы восстановить свои права.'],
+['Какие аудиоформаты можно экспортировать?','Текущая версия поддерживает экспорт в MP3, AAC, WAV и другие распространённые аудиоформаты. Вы можете выбрать формат в настройках экспорта.'],
+['Что делать, если приложение вылетает или функция работает неправильно?','Попробуйте перезапустить приложение или обновить его до последней версии. Если проблема сохраняется, свяжитесь с нами по указанной выше электронной почте и укажите модель вашего устройства (например, iPhone 15) и версию iOS, чтобы мы могли быстро найти причину.']
+],footer:'© 2026 EditBook-AudioEditor. Все права защищены.'},
+
+/* ============================ ไทย ============================ */
+th:{dir:'ltr',subtitle:'ศูนย์สนับสนุนด้านเทคนิคและช่วยเหลืออย่างเป็นทางการ',helpTitle:'ต้องการความช่วยเหลือหรือไม่?',
+helpDesc:'หากคุณพบปัญหาใด ๆ หรือมีข้อเสนอแนะเกี่ยวกับฟีเจอร์ โปรดติดต่อเราได้ตลอดเวลา เรามักจะตอบกลับภายใน 24 ชั่วโมง',
+faqTitle:'คำถามที่พบบ่อย (FAQ)',faqs:[
+['ฉันจะกู้คืนการซื้อในแอป / เวอร์ชันพรีเมียมก่อนหน้านี้ได้อย่างไร?','หากคุณเปลี่ยนอุปกรณ์หรือติดตั้งแอปใหม่ โปรดตรวจสอบว่าคุณลงชื่อเข้าใช้ App Store ด้วย Apple ID เดียวกัน เปิด EditBook-AudioEditor ไปที่หน้าตั้งค่า แล้วแตะปุ่ม “กู้คืนการซื้อ” เพื่อกู้คืนสิทธิ์ของคุณ'],
+['รองรับการส่งออกไฟล์เสียงรูปแบบใดบ้าง?','เวอร์ชันปัจจุบันรองรับการส่งออกเป็น MP3, AAC, WAV และรูปแบบเสียงทั่วไปอื่น ๆ คุณสามารถเลือกได้ในการตั้งค่าการส่งออก'],
+['หากแอป crashes หรือฟีเจอร์ทำงานผิดปกติควรทำอย่างไร?','โปรดลองรีสตาร์ทแอปหรืออัปเดตเป็นเวอร์ชันล่าสุด หากปัญหายังคงอยู่ โปรดติดต่อเราผ่านอีเมลด้านบนพร้อมระบุรุ่นอุปกรณ์ (เช่น iPhone 15) และเวอร์ชัน iOS เพื่อให้เราระบุปัญหาได้อย่างรวดเร็ว']
+],footer:'© 2026 EditBook-AudioEditor สงวนลิขสิทธิ์'},
+
+/* ============================ Türkçe ============================ */
+tr:{dir:'ltr',subtitle:'Resmî Teknik Destek ve Yardım Merkezi',helpTitle:'Yardıma mı ihtiyacınız var?',
+helpDesc:'Herhangi bir sorunla karşılaşırsanız veya özellik önerileriniz varsa, lütfen istediğiniz zaman bizimle iletişime geçin. Genellikle 24 saat içinde yanıt veririz.',
+faqTitle:'Sıkça Sorulan Sorular (SSS)',faqs:[
+['Önceki uygulama içi satın alımımı / premium sürümümü nasıl geri yüklerim?','Cihaz değiştirdiyseniz veya uygulamayı yeniden yüklediyseniz, App Store’a aynı Apple ID ile giriş yaptığınızdan emin olun. EditBook-AudioEditor’ü açın, Ayarlar sayfasına gidin ve haklarınızı geri yüklemek için “Satın Alımları Geri Yükle” düğmesine dokunun.'],
+['Hangi ses formatları dışa aktarılabilir?','Mevcut sürüm MP3, AAC, WAV ve diğer yaygın ses formatlarında dışa aktarmayı destekler. Dışa aktarma ayarlarından seçim yapabilirsiniz.'],
+['Uygulama çökerse veya bir özellik düzgün çalışmazsa ne yapmalıyım?','Lütfen uygulamayı yeniden başlatmayı veya en son sürüme güncellemeyi deneyin. Sorun devam ederse, yukarıdaki e-posta aracılığıyla cihaz modelinizi (ör. iPhone 15) ve iOS sürümünüzü belirterek bizimle iletişime geçin; sorunu hızlıca tespit edebilelim.']
+],footer:'© 2026 EditBook-AudioEditor. Tüm hakları saklıdır.'},
+
+/* ============================ Tiếng Việt ============================ */
+vi:{dir:'ltr',subtitle:'Trung tâm hỗ trợ kỹ thuật và trợ giúp chính thức',helpTitle:'Bạn cần trợ giúp?',
+helpDesc:'Nếu bạn gặp bất kỳ vấn đề gì hoặc có góp ý về tính năng, vui lòng liên hệ với chúng tôi bất cứ lúc nào. Chúng tôi thường phản hồi trong vòng 24 giờ.',
+faqTitle:'Câu hỏi thường gặp (FAQ)',faqs:[
+['Làm cách nào để khôi phục giao dịch mua trong ứng dụng / phiên bản cao cấp trước đó?','Nếu bạn đã đổi thiết bị hoặc cài lại ứng dụng, hãy đảm bảo bạn đăng nhập App Store bằng cùng Apple ID. Mở EditBook-AudioEditor, vào trang Cài đặt và nhấn nút “Khôi phục giao dịch mua” để khôi phục quyền lợi của bạn.'],
+['Những định dạng âm thanh nào có thể xuất?','Phiên bản hiện tại hỗ trợ xuất MP3, AAC, WAV và các định dạng âm thanh phổ biến khác. Bạn có thể chọn trong cài đặt xuất.'],
+['Tôi nên làm gì nếu ứng dụng bị treo hoặc một tính năng hoạt động không bình thường?','Vui lòng thử khởi động lại ứng dụng hoặc cập nhật lên phiên bản mới nhất. Nếu sự cố vẫn tiếp diễn, hãy liên hệ với chúng tôi qua email ở trên và kèm theo kiểu máy (ví dụ iPhone 15) cùng phiên bản iOS để chúng tôi nhanh chóng xác định vấn đề.']
+],footer:'© 2026 EditBook-AudioEditor. Bảo lưu mọi quyền.'}
+};
+
+/* ---------- language resolution: URL ?lang= > browser languages > English ---------- */
+const DEFAULT_LANG='en';
+const ALIAS={zh:'zh-Hans','zh-hans':'zh-Hans','zh-cn':'zh-Hans','zh-sg':'zh-Hans','zh-my':'zh-Hans','zh-hant':'zh-Hant','zh-tw':'zh-Hant','zh-hk':'zh-Hant','zh-mo':'zh-Hant'};
+const SUPPORTED=LANGUAGES.reduce((m,l)=>(m[l.code.toLowerCase()]=l.code,m),{});
+function normalizeLang(raw){
+  if(!raw)return null;
+  const v=String(raw).trim().toLowerCase().replace(/_/g,'-');
+  if(!v)return null;
+  if(ALIAS[v])return ALIAS[v];
+  if(SUPPORTED[v])return SUPPORTED[v];
+  if(v.startsWith('zh-hant'))return 'zh-Hant';
+  if(v.startsWith('zh'))return 'zh-Hans';
+  const b=v.split('-')[0];
+  return SUPPORTED[b]||null;
+}
+function detectLang(){
+  try{const p=normalizeLang(new URLSearchParams(location.search).get('lang'));if(p)return p;}catch(e){}
+  try{
+    const list=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language];
+    for(const n of list){const m=normalizeLang(n);if(m)return m;}
+  }catch(e){}
+  return DEFAULT_LANG;
+}
+
+/* ---------- rendering ---------- */
+const app=document.getElementById('app');
+const btn=document.getElementById('langBtn'),menu=document.getElementById('langMenu'),cur=document.getElementById('langCur'),picker=document.getElementById('langPicker');
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function render(code){
+  const key=I18N[code]?code:DEFAULT_LANG;
+  const d=I18N[key];
+  document.documentElement.lang=key;
+  document.documentElement.dir=d.dir;
+  document.title=d.helpTitle+' - EditBook-AudioEditor';
+  app.innerHTML=
+    '<div class="header"><h1>EditBook-AudioEditor</h1><p>'+esc(d.subtitle)+'</p></div>'+
+    '<div class="card contact-highlight"><h2>'+esc(d.helpTitle)+'</h2><p class="desc">'+esc(d.helpDesc)+'</p><a href="mailto:'+EMAIL+'">'+EMAIL+'</a></div>'+
+    '<div class="card faq"><h3>'+esc(d.faqTitle)+'</h3>'+
+      d.faqs.map(f=>'<details><summary>'+esc(f[0])+'</summary><p>'+esc(f[1])+'</p></details>').join('')+
+    '</div>'+
+    '<div class="footer">'+esc(d.footer)+'</div>';
+  setSelected(code);
+}
+function syncUrl(code){
+  const u=new URL(location.href);
+  if(code===DEFAULT_LANG&&!u.searchParams.has('lang'))return;
+  u.searchParams.set('lang',code);
+  try{history.replaceState(null,'',u.toString());}catch(e){}
+}
+function setSelected(code){
+  const l=LANGUAGES.find(x=>x.code===code)||LANGUAGES[2];
+  cur.textContent=l.label;
+  menu.querySelectorAll('li').forEach(li=>li.setAttribute('aria-selected',li.dataset.code===code?'true':'false'));
+}
+function openMenu(o){
+  menu.classList.toggle('open',o);
+  btn.setAttribute('aria-expanded',o?'true':'false');
+  if(o){const s=menu.querySelector('[aria-selected="true"]');if(s)menu.scrollTop=s.offsetTop-menu.clientHeight/2+s.offsetHeight/2;}
+}
+LANGUAGES.forEach(l=>{
+  const li=document.createElement('li');
+  li.setAttribute('role','option');li.dataset.code=l.code;li.lang=l.code;li.textContent=l.label;
+  menu.appendChild(li);
+});
+let current=detectLang();
+render(current);syncUrl(current);
+btn.addEventListener('click',e=>{e.stopPropagation();openMenu(!menu.classList.contains('open'));});
+menu.addEventListener('click',e=>{
+  const li=e.target.closest('li');if(!li)return;
+  current=li.dataset.code;render(current);syncUrl(current);openMenu(false);
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.addEventListener('click',e=>{if(!picker.contains(e.target))openMenu(false);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){openMenu(false);btn.focus();}});
+</script>
+</body>
+</html>
