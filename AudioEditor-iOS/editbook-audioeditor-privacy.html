@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="Privacy Policy of EditBook-AudioEditor — available in 17 languages.">
+<title>Privacy Policy · EditBook-AudioEditor</title>
+<style>
+  :root{
+    --accent:#1e6c93;
+    --accent-2:#2f8fbd;
+    --text:#1f2933;
+    --muted:#65727f;
+    --line:#e6edf3;
+    --card:#ffffff;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 50% -280px, #d9ecf6 0%, transparent 70%),
+      #f2f5f8;
+    color:var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      "Noto Sans", "Noto Sans Arabic", "Noto Sans Thai", "Noto Sans Devanagari",
+      "Noto Sans JP", "Noto Sans KR", "Noto Sans SC", "Noto Sans TC",
+      "Hiragino Sans", "Yu Gothic UI", "Microsoft YaHei", "Malgun Gothic", sans-serif;
+    font-size:16px;
+    line-height:1.78;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(135deg,#15597c 0%, #1e6c93 45%, #2f8fbd 100%);
+    color:#fff;
+    padding:56px 20px 88px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:auto -10% -60px -10%;
+    height:120px;
+    background:radial-gradient(closest-side, rgba(255,255,255,.28), transparent);
+    filter:blur(6px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:880px;
+    margin:0 auto;
+    position:relative;
+    text-align:center;
+  }
+  .hero h1{
+    margin:0 0 18px;
+    font-size:clamp(26px, 5vw, 40px);
+    font-weight:600;
+    letter-spacing:.2px;
+    line-height:1.25;
+    text-wrap:balance;
+  }
+  .dates{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 14px;
+    justify-content:center;
+    font-size:14px;
+    color:rgba(255,255,255,.92);
+  }
+  .dates span{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    padding:5px 13px;
+    border-radius:999px;
+    backdrop-filter:blur(4px);
+  }
+
+  /* ---------- Language picker ---------- */
+  .lang-picker{
+    position:absolute;
+    inset-inline-end:20px;
+    top:20px;
+    z-index:5;
+  }
+  .lang-picker .wrap{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;
+    padding:6px 12px;
+    backdrop-filter:blur(6px);
+    transition:background .2s ease;
+  }
+  .lang-picker .wrap:hover{background:rgba(255,255,255,.26);}
+  .lang-picker svg{width:17px;height:17px;fill:#fff;flex:none;opacity:.9;}
+  .lang-picker select{
+    appearance:none;
+    -webkit-appearance:none;
+    border:0;
+    background:transparent;
+    color:#fff;
+    font:inherit;
+    font-size:14px;
+    padding-inline-end:16px;
+    cursor:pointer;
+    outline:none;
+    max-width:190px;
+  }
+  .lang-picker select option{color:#1f2933;background:#fff;}
+  .lang-picker .chev{
+    position:absolute;
+    inset-inline-end:12px;
+    top:50%;
+    transform:translateY(-50%);
+    width:0;height:0;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    border-top:5px solid rgba(255,255,255,.9);
+    pointer-events:none;
+  }
+
+  /* ---------- Card ---------- */
+  .container{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 20px 72px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:0 18px 50px -18px rgba(23,66,92,.28), 0 2px 8px rgba(23,66,92,.06);
+    padding:clamp(24px, 5vw, 52px);
+    margin-top:-52px;
+    position:relative;
+    border:1px solid rgba(255,255,255,.7);
+  }
+  .content > :first-child{margin-top:0;}
+  .content p{
+    margin:0 0 16px;
+    color:#33414f;
+    text-align:start;
+  }
+  .content h2{
+    margin:38px 0 16px;
+    font-size:clamp(18px, 2.6vw, 21px);
+    font-weight:600;
+    color:var(--accent);
+    line-height:1.4;
+    padding-inline-start:14px;
+    border-inline-start:4px solid var(--accent-2);
+    border-radius:2px;
+    text-align:start;
+  }
+  .content h3{
+    margin:26px 0 10px;
+    font-size:clamp(16px, 2.2vw, 17.5px);
+    font-weight:600;
+    color:#2a5d78;
+    text-align:start;
+  }
+  .content ul{
+    margin:0 0 20px;
+    padding-inline-start:22px;
+    list-style:none;
+  }
+  .content ul li{
+    position:relative;
+    margin:0 0 9px;
+    padding-inline-start:20px;
+    color:#33414f;
+  }
+  .content ul li::before{
+    content:"";
+    position:absolute;
+    inset-inline-start:0;
+    top:.72em;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--accent-2);
+    opacity:.65;
+  }
+  .content a{
+    color:var(--accent);
+    text-decoration:underline;
+    text-underline-offset:2px;
+    word-break:break-word;
+  }
+  .content a:hover{color:var(--accent-2);}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 20px 56px;
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .footer .dot{opacity:.5;margin:0 8px;}
+
+  /* ---------- RTL tweaks ---------- */
+  [dir="rtl"] .lang-picker select{padding-inline-end:16px;padding-inline-start:2px;}
+  [dir="rtl"] .content h2{border-radius:2px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:600px){
+    .hero{padding:66px 16px 74px;}
+    .lang-picker{inset-inline-end:auto;inset-inline-start:50%;top:14px;transform:translateX(-50%);}
+    [dir="rtl"] .lang-picker{transform:translateX(50%);}
+    .lang-picker select{max-width:210px;font-size:13.5px;}
+    .card{margin-top:-44px;border-radius:16px;}
+    .content ul{padding-inline-start:8px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="lang-picker">
+    <div class="wrap">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a8.1 8.1 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26Zm.81 2h2.95c.32 1.25.78 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16Zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.6 15.6 0 0 0 8.02 8ZM12 19.96a13.7 13.7 0 0 1-1.91-3.96h3.82A13.7 13.7 0 0 1 12 19.96ZM14.34 14H9.66a14.6 14.6 0 0 1 0-4h4.68a14.6 14.6 0 0 1 0 4Zm.26 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.5 16.5 0 0 0 0-4h3.38a8.1 8.1 0 0 1 0 4h-3.38Z"/></svg>
+      <select id="langSelect" aria-label="Language"></select>
+      <span class="chev" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="hero-inner">
+    <h1 id="pageTitle">Privacy Policy</h1>
+    <div class="dates">
+      <span id="updated"></span>
+      <span id="effective"></span>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article class="card">
+    <div class="content" id="content"></div>
+  </article>
+</main>
+
+<footer class="footer">
+  <span>EditBook-AudioEditor</span>
+  <span class="dot">·</span>
+  <a href="mailto:xieh6888@gmail.com" style="color:inherit;">xieh6888@gmail.com</a>
+</footer>
+
+<script>
+/* ==========================================================================
+   1. 语言元数据
+   ========================================================================== */
+const LANGUAGES = [
+  { code:'ar',    label:'العربية' },
+  { code:'de',    label:'Deutsch' },
+  { code:'en',    label:'English' },
+  { code:'es',    label:'Español' },
+  { code:'fr',    label:'Français' },
+  { code:'hi',    label:'हिन्दी' },
+  { code:'id',    label:'Bahasa Indonesia' },
+  { code:'it',    label:'Italiano' },
+  { code:'ja',    label:'日本語' },
+  { code:'ko',    label:'한국어' },
+  { code:'pt',    label:'Português' },
+  { code:'ru',    label:'Русский' },
+  { code:'th',    label:'ไทย' },
+  { code:'tr',    label:'Türkçe' },
+  { code:'vi',    label:'Tiếng Việt' },
+  { code:'zh-Hans', label:'简体中文' },
+  { code:'zh-Hant', label:'繁體中文' }
+];
+
+/* ==========================================================================
+   2. 多语言内容
+   blocks: ['p', 文本] | ['h', 标题] | ['h3', 小标题] | ['ul', [条目...]]
+   ========================================================================== */
+const I18N = {
+
+  /* ---------------- English ---------------- */
+  en: {
+    dir:'ltr', title:'Privacy Policy',
+    updated:'Update date: 2026/11/1', effective:'Effective date: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor is a product provided by Mr. Xie (hereinafter referred to as “we”). When you use our services, we may collect and use your relevant information. We hope to use this Privacy Policy to explain to you how we collect, use, store and share this information when you use our services, and how we provide you with access, update, control and protection of this information. This “Privacy Policy” is closely related to the EditBook-AudioEditor Tools service you use. We hope you read it carefully and, when necessary, follow the guidelines of this “Privacy Policy” to make the choices you deem appropriate. We try to express the relevant technical terms involved in this Privacy Policy as concisely as possible and provide links to further explanations to facilitate your understanding.'],
+      ['p','Your use or continued use of our services means that you agree to our collection, use, storage and sharing of your relevant information in accordance with this Privacy Policy.'],
+      ['p','If you have any questions about this Privacy Policy or related matters, please contact us at xieh6888@gmail.com.'],
+
+      ['h','1. Information we collect'],
+      ['p','When we or our third-party partners provide services, we may collect, store and use the following information about you. If you do not provide relevant information, you may not be able to register as our user or enjoy some of the services we provide, or you may not be able to achieve the intended effects of the relevant services.'],
+      ['p','Personal information: the relevant personal information you provide to us when registering an account or using our services, such as phone number, email, etc.'],
+      ['p','Log information: information that the system may collect through cookies, identifiers and related technologies when you use our services, including your device information, browsing information and click information, and stores this information as log information to provide you with a personalized user experience and ensure service security. You can refuse or manage the use of cookies, identifiers or related technologies through your browser settings.'],
+      ['p','Third-party SDKs we access:'],
+      ['ul',['Umeng statistics','Bugly']],
+
+      ['h','2. Storage of information'],
+      ['h3','2.1 Method and period of information storage'],
+      ['p','We will store your information in a secure manner, including local storage (such as using the APP for data caching), databases and server logs.'],
+      ['p','Generally, we will only store your personal information for the time necessary to achieve the purpose of the service or under the conditions specified by laws and regulations.'],
+      ['h3','2.2 Region where information is stored'],
+      ['p','We will store user personal information collected within China in accordance with laws and regulations.'],
+      ['p','We currently do not transfer or store your personal information across borders. If cross-border transmission or storage is required in the future, we will inform you of the purpose of the information transfer, recipients, security assurance measures and security risks, and obtain your consent.'],
+      ['h3','2.3 Notice when products or services cease operation'],
+      ['p','When our products or services cease operations, we will notify you in the form of push notifications, announcements, etc., and delete or anonymize your personal information within a reasonable period, unless otherwise provided by laws and regulations.'],
+
+      ['h','3. Information security'],
+      ['p','We use a variety of security technologies and procedures to protect information from loss, improper use, unauthorized access or disclosure. For example, in some services, we will utilize encryption technology (such as SSL) to protect the personal information you provide. However, please understand that due to technical limitations and various possible malicious means, in the Internet industry, even if we do our best to strengthen security measures, it is impossible to always guarantee 100% information security. You need to understand that the systems and communication networks you use to access our services may have problems due to factors beyond our control.'],
+
+      ['h','4. How we use information'],
+      ['p','We may use the information collected in the process of providing services to you for the following purposes:'],
+      ['ul',[
+        'Provide services to you;',
+        'When we provide services, for identity verification, customer service, security, fraud monitoring, archiving and backup purposes, to ensure the security of the products and services we provide to you;',
+        'Help us design new services and improve our existing services;',
+        'Let us better understand how you access and use our services, so as to respond to your personalized needs, such as language settings, location settings, personalized help services and instructions, or make other recommendations to you and other users;',
+        'Provide you with advertisements that are more relevant to you in place of generally delivered advertisements;',
+        'Evaluate the effectiveness of advertising and other promotions on our Services and improve them;',
+        'Software certification or management of software upgrades;',
+        'To allow you to participate in surveys about our products and services.'
+      ]],
+
+      ['h','5. Information sharing'],
+      ['p','At present, we will not actively share or transfer your personal information to third parties. If there is other sharing or transfer of your personal information, or you need us to share or transfer your personal information to a third party, we will directly obtain your express consent to the above actions or confirm that the third party has obtained it.'],
+      ['p','In order to serve ads and evaluate and optimize ad delivery effects, we need to share some of your data with third-party partners such as advertisers and their agents, and require them to strictly abide by our data privacy protection measures and requirements, including but not limited to data protection agreements, commitment letters and relevant data processing policies, to avoid identifying personal identities and ensure privacy security.'],
+      ['p','We do not share information that personally identifies you (such as your name or email address) with our partners unless you expressly authorize it.'],
+      ['p','We will not publicly disclose the personal information we collect. If public disclosure is necessary, we will inform you of the purpose of the public disclosure, the type of information disclosed and the sensitive information that may be involved, and obtain your express consent.'],
+      ['p','As our business continues to develop, we may conduct mergers, acquisitions, asset transfers and other transactions. We will inform you of the relevant situations and continue to protect or require the new controller to continue to protect your personal information in accordance with laws and regulations and standards no lower than those required by this Privacy Policy.'],
+      ['p','In addition, in accordance with relevant laws, regulations and national standards, we may share, transfer and publicly disclose personal information in the following circumstances without obtaining your prior authorization and consent:'],
+      ['ul',[
+        'Directly related to national security and national defense security;',
+        'Directly related to public safety, public health and major public interests;',
+        'Directly related to criminal investigation, prosecution, trial and judgment execution;',
+        'To protect the life, property and other major legitimate rights and interests of the personal information subject or other individuals where it is difficult to obtain the consent of the individual;',
+        'The personal information subject discloses personal information to the public on their own initiative;',
+        'Collecting personal information from legally publicly disclosed information, such as legal news reports, government information disclosure and other channels.'
+      ]],
+
+      ['h','6. Your rights'],
+      ['p','During your use of our services, we may provide you with corresponding operation settings depending on the specific circumstances of the product so that you can query, delete, correct or withdraw your relevant personal information. You can refer to the corresponding specific guidelines for operation. In addition, we have also set up a complaint reporting channel, and your opinions will be handled in a timely manner. If you are unable to exercise your personal information subject rights through the above channels and methods, you can make your request through the contact information provided in this Privacy Policy, and we will provide feedback in accordance with laws and regulations.'],
+      ['p','When you decide to no longer use our products or services, you can apply to cancel your account. After canceling your account, we will delete or anonymize your personal information unless otherwise provided by laws and regulations.'],
+
+      ['h','7. Changes'],
+      ['p','We may revise the terms of this Privacy Policy from time to time. When changes occur, we will prompt you with the new Privacy Policy when the version is updated and explain the effective date to you. Please read the changed “Privacy Policy” carefully. If you continue to use our services, you agree that we process your personal information in accordance with the updated “Privacy Policy”.'],
+
+      ['h','8. Protection of minors'],
+      ['p','We encourage parents or guardians to instruct minors under the age of eighteen in using our Services. We recommend that minors encourage their parents or guardians to read this Privacy Policy and that minors seek the consent and guidance of their parents or guardians before submitting personal information.']
+    ]
+  },
+
+  /* ---------------- 简体中文 ---------------- */
+  'zh-Hans': {
+    dir:'ltr', title:'隐私政策',
+    updated:'更新日期：2026/11/1', effective:'生效日期：2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor 是由谢先生（以下简称“我们”）提供的产品。当您使用我们的服务时，我们可能会收集和使用您的相关信息。我们希望借助本隐私政策向您说明，在您使用我们的服务时，我们如何收集、使用、存储和共享这些信息，以及我们如何为您提供访问、更新、控制和保护这些信息的方式。本《隐私政策》与您所使用的 EditBook-AudioEditor 工具服务密切相关。希望您仔细阅读，并在必要时按照本《隐私政策》的指引做出您认为适当的选择。我们尽量将本隐私政策涉及的相关技术术语表达得尽可能简明扼要，并提供进一步说明的链接，以方便您的理解。'],
+      ['p','您使用或继续使用我们的服务，即意味着您同意我们按照本隐私政策收集、使用、存储和共享您的相关信息。'],
+      ['p','如您对本隐私政策或相关事宜有任何疑问，请通过 xieh6888@gmail.com 与我们联系。'],
+
+      ['h','1. 我们收集的信息'],
+      ['p','在我们或我们的第三方合作伙伴提供服务时，我们可能会收集、存储和使用下列与您有关的信息。如果您不提供相关信息，您可能无法注册成为我们的用户或享受我们提供的部分服务，或者无法达到相关服务拟达到的效果。'],
+      ['p','个人信息，即您在注册账户或使用我们的服务时向我们提供的相关个人信息，例如电话号码、电子邮箱等。'],
+      ['p','日志信息，指您使用我们的服务时，系统可能通过 Cookie、标识符及相关技术收集的信息，包括您的设备信息、浏览信息、点击信息，并将该等信息存储为日志信息，以为您提供个性化的用户体验并保障服务安全。您可以通过浏览器设置拒绝或管理 Cookie、标识符或相关技术的使用。'],
+      ['p','我们接入的第三方 SDK：'],
+      ['ul',['友盟统计','Bugly']],
+
+      ['h','2. 信息的存储'],
+      ['h3','2.1 信息存储的方式和期限'],
+      ['p','我们将以安全的方式存储您的信息，包括本地存储（例如使用 APP 进行数据缓存）、数据库和服务器日志。'],
+      ['p','通常情况下，我们仅在为实现服务目的所必需的时间内或法律法规规定的条件下存储您的个人信息。'],
+      ['h3','2.2 信息存储的地域'],
+      ['p','我们会按照法律法规规定，将在中国境内收集的用户个人信息存储于中国境内。'],
+      ['p','我们目前不会将您的个人信息传输或存储至境外。如未来需要跨境传输或存储，我们会告知您信息出境的目的、接收方、安全保障措施和安全风险，并征得您的同意。'],
+      ['h3','2.3 产品或服务停止运营时的通知'],
+      ['p','当我们的产品或服务停止运营时，我们将以推送通知、公告等形式通知您，并在合理期限内删除或匿名化处理您的个人信息，但法律法规另有规定的除外。'],
+
+      ['h','3. 信息安全'],
+      ['p','我们采用多种安全技术和程序来保护信息免遭丢失、不当使用、未经授权的访问或披露。例如，在某些服务中，我们将利用加密技术（如 SSL）来保护您提供的个人信息。但请您理解，由于技术限制以及各种可能的恶意手段，在互联网行业，即便我们尽力加强安全措施，也无法始终保证信息百分之百的安全。您需要了解，您接入我们服务所用的系统和通信网络，有可能因我们可控范围之外的因素而出现问题。'],
+
+      ['h','4. 我们如何使用信息'],
+      ['p','我们可能将在向您提供服务的过程中所收集的信息用于以下目的：'],
+      ['ul',[
+        '向您提供服务；',
+        '在我们提供服务时，用于身份验证、客户服务、安全、欺诈监测、存档和备份等用途，以确保我们向您提供的产品和服务的安全性；',
+        '帮助我们设计新服务，改善我们现有的服务；',
+        '使我们更了解您如何接入和使用我们的服务，从而针对性地回应您的个性化需求，例如语言设置、位置设置、个性化帮助服务和指示，或对您和其他用户做出其他方面的回应；',
+        '向您提供与您更加相关的广告以替代普遍投放的广告；',
+        '评估我们服务中的广告和其他促销及推广活动的效果，并加以改善；',
+        '软件认证或管理软件升级；',
+        '让您参与有关我们产品和服务的调查。'
+      ]],
+
+      ['h','5. 信息共享'],
+      ['p','目前，我们不会主动将您的个人信息共享或转让给第三方。如存在其他共享或转让您的个人信息的情形，或需要我们将您的个人信息共享或转让给第三方的，我们将直接或确认第三方征得您对上述行为的明示同意。'],
+      ['p','为了投放广告、评估和优化广告投放效果，我们需要与广告主及其代理等第三方合作伙伴共享部分您的数据，并要求他们严格遵守我们的数据隐私保护措施和要求，包括但不限于数据保护协议、承诺书及相关数据处理政策，以避免识别个人身份并确保隐私安全。'],
+      ['p','除非您明确授权，否则我们不会与合作伙伴共享可识别您个人身份的信息（如您的姓名或电子邮箱地址）。'],
+      ['p','我们不会对外公开披露所收集的个人信息。如必须公开披露时，我们会向您告知此次公开披露的目的、披露信息的类型及可能涉及的敏感信息，并征得您的明示同意。'],
+      ['p','随着我们业务的持续发展，我们有可能进行合并、收购、资产转让等交易，我们将告知您相关情形，并按照法律法规及不低于本隐私政策所要求的标准继续保护或要求新的控制者继续保护您的个人信息。'],
+      ['p','另外，根据相关法律法规及国家标准，以下情形中，我们可能会在不征得您事先授权同意的情况下共享、转让、公开披露个人信息：'],
+      ['ul',[
+        '与国家安全、国防安全直接相关的；',
+        '与公共安全、公共卫生、重大公共利益直接相关的；',
+        '与犯罪侦查、起诉、审判和判决执行等直接相关的；',
+        '为维护个人信息主体或其他个人的生命、财产等重大合法权益但难以取得本人同意的；',
+        '个人信息主体自行向社会公众公开个人信息的；',
+        '从合法公开披露的信息中收集个人信息的，如合法的新闻报道、政府信息公开等渠道。'
+      ]],
+
+      ['h','6. 您的权利'],
+      ['p','在您使用我们的服务期间，我们可能会根据产品的具体情况为您提供相应的操作设置，以便您可以查询、删除、更正或撤回您的相关个人信息。您可以参考相应的具体指引进行操作。此外，我们还设置了投诉举报渠道，您的意见将会得到及时的处理。如您无法通过上述渠道和方式行使您的个人信息主体权利，您可以通过本隐私政策提供的联系方式提出您的要求，我们将按照法律法规的规定予以反馈。'],
+      ['p','当您决定不再使用我们的产品或服务时，您可以申请注销账户。注销账户后，我们将删除或匿名化处理您的个人信息，但法律法规另有规定的除外。'],
+
+      ['h','7. 变更'],
+      ['p','我们可能会不时修订本隐私政策的条款。当发生变更时，我们将在版本更新时以新的隐私政策向您提示，并向您说明生效日期。请您仔细阅读变更后的《隐私政策》。如果您继续使用我们的服务，即表示您同意我们按照更新后的《隐私政策》处理您的个人信息。'],
+
+      ['h','8. 未成年人保护'],
+      ['p','我们鼓励父母或监护人指导未满十八周岁的未成年人使用我们的服务。我们建议未成年人鼓励其父母或监护人阅读本隐私政策，并在提交个人信息前取得父母或监护人的同意和指导。']
+    ]
+  },
+
+  /* ---------------- 繁體中文 ---------------- */
+  'zh-Hant': {
+    dir:'ltr', title:'隱私權政策',
+    updated:'更新日期：2026/11/1', effective:'生效日期：2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor 是由謝先生（以下簡稱「我們」）提供的產品。當您使用我們的服務時，我們可能會蒐集並使用您的相關資訊。我們希望透過本隱私權政策向您說明，在您使用我們的服務時，我們如何蒐集、使用、儲存及分享這些資訊，以及我們如何為您提供存取、更新、控制與保護這些資訊的方式。本《隱私權政策》與您所使用的 EditBook-AudioEditor 工具服務密切相關。希望您仔細閱讀，並於必要時依本《隱私權政策》的指引做出您認為適當的選擇。我們盡量將本隱私權政策涉及的相關技術術語表達得盡可能簡明扼要，並提供進一步說明的連結，以方便您的理解。'],
+      ['p','您使用或繼續使用我們的服務，即意味著您同意我們依本隱私權政策蒐集、使用、儲存及分享您的相關資訊。'],
+      ['p','如您對本隱私權政策或相關事宜有任何疑問，請透過 xieh6888@gmail.com 與我們聯繫。'],
+
+      ['h','1. 我們蒐集的資訊'],
+      ['p','在我們或我們的第三方合作夥伴提供服務時，我們可能會蒐集、儲存及使用下列與您有關的資訊。如果您不提供相關資訊，您可能無法註冊成為我們的用戶或享有我們提供的部分服務，或者無法達到相關服務擬達到的效果。'],
+      ['p','個人資訊，即您在註冊帳戶或使用我們的服務時向我們提供的相關個人資訊，例如電話號碼、電子郵件等。'],
+      ['p','日誌資訊，指您使用我們的服務時，系統可能透過 Cookie、識別碼及相關技術蒐集的資訊，包括您的裝置資訊、瀏覽資訊、點擊資訊，並將該等資訊儲存為日誌資訊，以為您提供個人化的使用者體驗並保障服務安全。您可以透過瀏覽器設定拒絕或管理 Cookie、識別碼或相關技術的使用。'],
+      ['p','我們接入的第三方 SDK：'],
+      ['ul',['友盟統計','Bugly']],
+
+      ['h','2. 資訊的儲存'],
+      ['h3','2.1 資訊儲存的方式與期限'],
+      ['p','我們將以安全的方式儲存您的資訊，包括本機儲存（例如使用 APP 進行資料快取）、資料庫與伺服器日誌。'],
+      ['p','通常情況下，我們僅在為實現服務目的所必需的時間內或法律法規規定的條件下儲存您的個人資訊。'],
+      ['h3','2.2 資訊儲存的地域'],
+      ['p','我們會依法律法規規定，將在中國境內蒐集的使用者個人資訊儲存於中國境內。'],
+      ['p','我們目前不會將您的個人資訊傳輸或儲存至境外。如未來需要跨境傳輸或儲存，我們會告知您資訊出境的目的、接收方、安全保障措施與安全風險，並徵得您的同意。'],
+      ['h3','2.3 產品或服務停止營運時的通知'],
+      ['p','當我們的產品或服務停止營運時，我們將以推播通知、公告等形式通知您，並於合理期限內刪除或匿名化處理您的個人資訊，但法律法規另有規定者除外。'],
+
+      ['h','3. 資訊安全'],
+      ['p','我們採用多種安全技術與程序來保護資訊免於遺失、不當使用、未經授權的存取或揭露。例如，在某些服務中，我們將利用加密技術（如 SSL）來保護您提供的個人資訊。但請您理解，由於技術限制以及各種可能的惡意手段，在網際網路產業，即便我們盡力加強安全措施，也無法始終保證資訊百分之百的安全。您需要了解，您接取我們服務所用的系統與通訊網路，有可能因我們可控範圍之外的因素而出現問題。'],
+
+      ['h','4. 我們如何使用資訊'],
+      ['p','我們可能將在向您提供服務的過程中蒐集的資訊用於以下目的：'],
+      ['ul',[
+        '向您提供服務；',
+        '在我們提供服務時，用於身分驗證、客戶服務、安全、詐欺監測、歸檔與備份等用途，以確保我們向您提供的產品與服務的安全性；',
+        '協助我們設計新服務、改善我們現有的服務；',
+        '使我們更了解您如何接取與使用我們的服務，從而針對性地回應您的個人化需求，例如語言設定、位置設定、個人化協助服務與指示，或對您與其他使用者做出其他方面的回應；',
+        '向您提供與您更相關的廣告以替代普遍投放的廣告；',
+        '評估我們服務中的廣告與其他促銷及推廣活動的效果，並加以改善；',
+        '軟體認證或管理軟體升級；',
+        '讓您參與有關我們產品與服務的調查。'
+      ]],
+
+      ['h','5. 資訊分享'],
+      ['p','目前，我們不會主動將您的個人資訊分享或轉讓給第三方。如存在其他分享或轉讓您的個人資訊的情形，或需要我們將您的個人資訊分享或轉讓給第三方者，我們將直接或確認第三方徵得您對上述行為的明示同意。'],
+      ['p','為了投放廣告、評估與優化廣告投放效果，我們需要與廣告主及其代理商等第三方合作夥伴分享部分您的資料，並要求他們嚴格遵守我們的資料隱私保護措施與要求，包括但不限於資料保護協議、承諾書及相關資料處理政策，以避免識別個人身分並確保隱私安全。'],
+      ['p','除非您明確授權，否則我們不會與合作夥伴分享可識別您個人身分的資訊（如您的姓名或電子郵件地址）。'],
+      ['p','我們不會對外公開揭露所蒐集的個人資訊。如必須公開揭露時，我們會向您告知此次公開揭露的目的、揭露資訊的類型及可能涉及的敏感資訊，並徵得您的明示同意。'],
+      ['p','隨著我們業務的持續發展，我們有可能進行合併、收購、資產轉讓等交易，我們將告知您相關情形，並依法律法規及不低於本隱私權政策所要求的標準繼續保護或要求新的控制者繼續保護您的個人資訊。'],
+      ['p','另外，根據相關法律法規及國家標準，以下情形中，我們可能會在不徵得您事先授權同意的情況下分享、轉讓、公開揭露個人資訊：'],
+      ['ul',[
+        '與國家安全、國防安全直接相關者；',
+        '與公共安全、公共衛生、重大公共利益直接相關者；',
+        '與犯罪偵查、起訴、審判與判決執行等直接相關者；',
+        '為維護個人資訊主體或其他個人的生命、財產等重大合法權益但難以取得本人同意者；',
+        '個人資訊主體自行向社會大眾公開個人資訊者；',
+        '從合法公開揭露的資訊中蒐集個人資訊者，如合法的新聞報導、政府資訊公開等管道。'
+      ]],
+
+      ['h','6. 您的權利'],
+      ['p','在您使用我們的服務期間，我們可能會依產品的具體情況為您提供相應的操作設定，以便您可以查詢、刪除、更正或撤回您的相關個人資訊。您可以參考相應的具體指引進行操作。此外，我們也設置了投訴檢舉管道，您的意見將會得到及時的處理。如您無法透過上述管道與方式行使您的個人資訊主體權利，您可以透過本隱私權政策提供的聯絡方式提出您的要求，我們將依法律法規的規定予以回饋。'],
+      ['p','當您決定不再使用我們的產品或服務時，您可以申請註銷帳戶。註銷帳戶後，我們將刪除或匿名化處理您的個人資訊，但法律法規另有規定者除外。'],
+
+      ['h','7. 變更'],
+      ['p','我們可能會不時修訂本隱私權政策的條款。當發生變更時，我們將在版本更新時以新的隱私權政策向您提示，並向您說明生效日期。請您仔細閱讀變更後的《隱私權政策》。如果您繼續使用我們的服務，即表示您同意我們依更新後的《隱私權政策》處理您的個人資訊。'],
+
+      ['h','8. 未成年人保護'],
+      ['p','我們鼓勵父母或監護人指導未滿十八歲的未成年人使用我們的服務。我們建議未成年人鼓勵其父母或監護人閱讀本隱私權政策，並在提交個人資訊前取得父母或監護人的同意與指導。']
+    ]
+  },
+
+  /* ---------------- العربية ---------------- */
+  ar: {
+    dir:'rtl', title:'سياسة الخصوصية',
+    updated:'تاريخ التحديث: 2026/11/1', effective:'تاريخ السريان: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor هو منتج يقدمه السيد Xie (المشار إليه فيما يلي بـ «نحن»). عند استخدامك لخدماتنا، قد نجمع ونستخدم معلوماتك ذات الصلة. نأمل أن نوضح لك من خلال سياسة الخصوصية هذه كيفية جمع هذه المعلومات واستخدامها وتخزينها ومشاركتها عند استخدامك لخدماتنا، وكيف نوفر لك إمكانية الوصول إليها وتحديثها والتحكم فيها وحمايتها. ترتبط «سياسة الخصوصية» هذه ارتباطًا وثيقًا بخدمة أداة EditBook-AudioEditor التي تستخدمها. نأمل أن تقرأها بعناية، وأن تتخذ عند الضرورة الخيارات التي تراها مناسبة وفقًا لإرشادات «سياسة الخصوصية» هذه. نحاول التعبير عن المصطلحات التقنية ذات الصلة الواردة في سياسة الخصوصية هذه بأكبر قدر ممكن من الإيجاز وتوفير روابط لمزيد من التوضيح لتسهيل فهمك.'],
+      ['p','يعني استخدامك لخدماتنا أو استمرارك في استخدامها أنك توافق على قيامنا بجمع معلوماتك ذات الصلة واستخدامها وتخزينها ومشاركتها وفقًا لسياسة الخصوصية هذه.'],
+      ['p','إذا كانت لديك أي أسئلة حول سياسة الخصوصية هذه أو الأمور ذات الصلة، يرجى الاتصال بنا على xieh6888@gmail.com.'],
+
+      ['h','1. المعلومات التي نجمعها'],
+      ['p','عندما نقدم الخدمات أو يقدمها شركاؤنا من الأطراف الثالثة، قد نجمع المعلومات التالية المتعلقة بك ونخزنها ونستخدمها. إذا لم تقدم المعلومات ذات الصلة، فقد لا تتمكن من التسجيل كمستخدم لدينا أو الاستفادة من بعض الخدمات التي نقدمها، أو قد لا تتمكن من تحقيق النتائج المقصودة من الخدمات ذات الصلة.'],
+      ['p','المعلومات الشخصية، وهي المعلومات الشخصية ذات الصلة التي تقدمها لنا عند تسجيل حساب أو استخدام خدماتنا، مثل رقم الهاتف والبريد الإلكتروني وغيرها.'],
+      ['p','معلومات السجل، وهي المعلومات التي قد يجمعها النظام من خلال ملفات تعريف الارتباط والمعرفات والتقنيات ذات الصلة عند استخدامك لخدماتنا، بما في ذلك معلومات جهازك ومعلومات التصفح ومعلومات النقر، ويخزن هذه المعلومات كمعلومات سجل لتزويدك بتجربة مستخدم مخصصة وضمان أمان الخدمة. يمكنك رفض أو إدارة استخدام ملفات تعريف الارتباط أو المعرفات أو التقنيات ذات الصلة من خلال إعدادات المتصفح.'],
+      ['p','حزم SDK التابعة لأطراف ثالثة التي نصل إليها:'],
+      ['ul',['إحصاءات Umeng','Bugly']],
+
+      ['h','2. تخزين المعلومات'],
+      ['h3','2.1 طريقة تخزين المعلومات ومدتها'],
+      ['p','سنخزن معلوماتك بطريقة آمنة، بما في ذلك التخزين المحلي (مثل استخدام التطبيق لتخزين البيانات مؤقتًا) وقواعد البيانات وسجلات الخادم.'],
+      ['p','بشكل عام، سنخزن معلوماتك الشخصية فقط للمدة اللازمة لتحقيق الغرض من الخدمة أو في الظروف المنصوص عليها في القوانين واللوائح.'],
+      ['h3','2.2 المنطقة التي تُخزن فيها المعلومات'],
+      ['p','سنخزن المعلومات الشخصية للمستخدمين التي نجمعها داخل الصين في الصين وفقًا للقوانين واللوائح.'],
+      ['p','لا نقوم حاليًا بنقل أو تخزين معلوماتك الشخصية عبر الحدود. إذا كان النقل أو التخزين عبر الحدود مطلوبًا في المستقبل، فسنبلغك بالغرض من نقل المعلومات والمتلقين وتدابير ضمان الأمان والمخاطر الأمنية، ونحصل على موافقتك.'],
+      ['h3','2.3 الإشعار عند توقف المنتجات أو الخدمات عن العمل'],
+      ['p','عندما تتوقف منتجاتنا أو خدماتنا عن العمل، سنبلغك عن طريق الإشعارات الفورية أو الإعلانات أو ما شابه ذلك، وسنحذف معلوماتك الشخصية أو نجعلها مجهولة الهوية خلال فترة معقولة، ما لم تنص القوانين واللوائح على خلاف ذلك.'],
+
+      ['h','3. أمن المعلومات'],
+      ['p','نستخدم مجموعة متنوعة من تقنيات وإجراءات الأمان لحماية المعلومات من الفقدان أو الاستخدام غير السليم أو الوصول غير المصرح به أو الإفصاح. على سبيل المثال، في بعض الخدمات، سنستخدم تقنيات التشفير (مثل SSL) لحماية المعلومات الشخصية التي تقدمها. ومع ذلك، يرجى التفهم أنه نظرًا للقيود التقنية والوسائل الخبيثة المحتملة المختلفة، ففي صناعة الإنترنت، حتى لو بذلنا قصارى جهدنا لتعزيز التدابير الأمنية، فمن المستحيل ضمان أمان المعلومات بنسبة 100% دائمًا. عليك أن تفهم أن الأنظمة وشبكات الاتصالات التي تستخدمها للوصول إلى خدماتنا قد تواجه مشكلات بسبب عوامل خارجة عن سيطرتنا.'],
+
+      ['h','4. كيف نستخدم المعلومات'],
+      ['p','قد نستخدم المعلومات التي تم جمعها في عملية تقديم الخدمات لك للأغراض التالية:'],
+      ['ul',[
+        'تقديم الخدمات لك؛',
+        'عند تقديمنا للخدمات، لأغراض التحقق من الهوية وخدمة العملاء والأمان ومراقبة الاحتيال والأرشفة والنسخ الاحتياطي، لضمان أمان المنتجات والخدمات التي نقدمها لك؛',
+        'مساعدتنا في تصميم خدمات جديدة وتحسين خدماتنا الحالية؛',
+        'مساعدتنا على فهم كيفية وصولك إلى خدماتنا واستخدامها بشكل أفضل، وذلك للاستجابة لاحتياجاتك المخصصة، مثل إعدادات اللغة وإعدادات الموقع وخدمات المساعدة والتعليمات المخصصة، أو تقديم توصيات أخرى لك وللمستخدمين الآخرين؛',
+        'تزويدك بإعلانات أكثر صلة بك بدلاً من الإعلانات العامة؛',
+        'تقييم فعالية الإعلانات وغيرها من العروض الترويجية في خدماتنا وتحسينها؛',
+        'شهادة البرمجيات أو إدارة ترقيات البرمجيات؛',
+        'السماح لك بالمشاركة في استبيانات حول منتجاتنا وخدماتنا.'
+      ]],
+
+      ['h','5. مشاركة المعلومات'],
+      ['p','حاليًا، لن نشارك معلوماتك الشخصية بنشاط أو ننقلها إلى أطراف ثالثة. إذا كانت هناك حالات أخرى لمشاركة أو نقل معلوماتك الشخصية، أو إذا كنت بحاجة إلينا لمشاركة أو نقل معلوماتك الشخصية إلى طرف ثالث، فسنحصل بشكل مباشر على موافقتك الصريحة على الإجراءات المذكورة أعلاه أو نؤكد حصول الطرف الثالث عليها.'],
+      ['p','من أجل عرض الإعلانات وتقييم وتحسين فعالية عرض الإعلانات، نحتاج إلى مشاركة بعض بياناتك مع شركاء من أطراف ثالثة مثل المعلنين ووكلائهم، ونطلب منهم الالتزام الصارم بتدابير ومتطلبات حماية خصوصية البيانات لدينا، بما في ذلك على سبيل المثال لا الحصر اتفاقيات حماية البيانات وخطابات الالتزام وسياسات معالجة البيانات ذات الصلة، لتجنب تحديد الهوية الشخصية وضمان أمان الخصوصية.'],
+      ['p','لا نشارك معلومات تحدد هويتك شخصيًا (مثل اسمك أو عنوان بريدك الإلكتروني) مع شركائنا ما لم تأذن بذلك صراحةً.'],
+      ['p','لن نكشف علنًا عن المعلومات الشخصية التي نجمعها. إذا كان الكشف العلني ضروريًا، فسنبلغك بالغرض من الكشف العلني ونوع المعلومات التي تم الكشف عنها والمعلومات الحساسة التي قد تكون متضمنة، ونحصل على موافقتك الصريحة.'],
+      ['p','مع التطور المستمر لأعمالنا، قد نقوم بعمليات اندماج واستحواذ ونقل أصول وغيرها من المعاملات. سنبلغك بالحالات ذات الصلة ونستمر في حماية معلوماتك الشخصية أو نطلب من المتحكم الجديد حمايتها وفقًا للقوانين واللوائح والمعايير التي لا تقل عن تلك المطلوبة بموجب سياسة الخصوصية هذه.'],
+      ['p','بالإضافة إلى ذلك، وفقًا للقوانين واللوائح والمعايير الوطنية ذات الصلة، قد نشارك المعلومات الشخصية وننقلها ونكشف عنها علنًا في الحالات التالية دون الحصول على إذنك وموافقتك المسبقين:'],
+      ['ul',[
+        'ما يتعلق مباشرة بالأمن القومي وأمن الدفاع الوطني؛',
+        'ما يتعلق مباشرة بالسلامة العامة والصحة العامة والمصالح العامة الكبرى؛',
+        'ما يتعلق مباشرة بالتحقيق الجنائي والملاحقة القضائية والمحاكمة وتنفيذ الأحكام؛',
+        'لحماية الحياة والممتلكات وغيرها من الحقوق والمصالح المشروعة الكبرى لصاحب البيانات الشخصية أو الأفراد الآخرين ولكن يصعب الحصول على موافقة الفرد؛',
+        'أن يكشف صاحب البيانات الشخصية عن معلوماته الشخصية للجمهور بمبادرة منه؛',
+        'جمع المعلومات الشخصية من المعلومات المعلنة علنًا بشكل قانوني، مثل التقارير الإخبارية القانونية والكشف عن المعلومات الحكومية وغيرها من القنوات.'
+      ]],
+
+      ['h','6. حقوقك'],
+      ['p','أثناء استخدامك لخدماتنا، قد نوفر لك إعدادات تشغيل مقابلة وفقًا للظروف المحددة للمنتج حتى تتمكن من الاستعلام عن معلوماتك الشخصية ذات الصلة أو حذفها أو تصحيحها أو سحبها. يمكنك الرجوع إلى الإرشادات المحددة المقابلة للعمل. بالإضافة إلى ذلك، أنشأنا أيضًا قناة لتقديم الشكاوى والإبلاغ، وسيتم التعامل مع آرائك في الوقت المناسب. إذا لم تتمكن من ممارسة حقوقك كصاحب بيانات شخصية من خلال القنوات والطرق المذكورة أعلاه، يمكنك تقديم طلبك من خلال معلومات الاتصال الواردة في سياسة الخصوصية هذه، وسنقدم لك ردًا وفقًا للقوانين واللوائح.'],
+      ['p','عندما تقرر عدم استخدام منتجاتنا أو خدماتنا بعد الآن، يمكنك التقدم لإلغاء حسابك. بعد إلغاء حسابك، سنحذف معلوماتك الشخصية أو نجعلها مجهولة الهوية، ما لم تنص القوانين واللوائح على خلاف ذلك.'],
+
+      ['h','7. التغييرات'],
+      ['p','قد نراجع شروط سياسة الخصوصية هذه من وقت لآخر. عند حدوث تغييرات، سنقوم بتنبيهك بسياسة الخصوصية الجديدة عند تحديث الإصدار ونوضح لك تاريخ السريان. يرجى قراءة «سياسة الخصوصية» المعدلة بعناية. إذا استمررت في استخدام خدماتنا، فإنك توافق على أننا نعالج معلوماتك الشخصية وفقًا لـ «سياسة الخصوصية» المحدثة.'],
+
+      ['h','8. حماية القُصّر'],
+      ['p','نشجع الآباء أو الأوصياء على توجيه القُصّر الذين تقل أعمارهم عن ثمانية عشر عامًا في استخدام خدماتنا. نوصي بأن يشجع القُصّر آباءهم أو أوصياءهم على قراءة سياسة الخصوصية هذه، وأن يحصلوا على موافقة وتوجيه آبائهم أو أوصيائهم قبل تقديم المعلومات الشخصية.']
+    ]
+  },
+
+  /* ---------------- Deutsch ---------------- */
+  de: {
+    dir:'ltr', title:'Datenschutzerklärung',
+    updated:'Aktualisierungsdatum: 2026/11/1', effective:'Inkrafttreten: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor ist ein Produkt von Herrn Xie (nachfolgend „wir“). Wenn Sie unsere Dienste nutzen, erheben und verwenden wir möglicherweise Ihre relevanten Informationen. Mit dieser Datenschutzerklärung möchten wir Ihnen erläutern, wie wir diese Informationen bei der Nutzung unserer Dienste erheben, verwenden, speichern und weitergeben und wie wir Ihnen den Zugriff, die Aktualisierung, die Kontrolle und den Schutz dieser Informationen ermöglichen. Diese „Datenschutzerklärung“ steht in engem Zusammenhang mit dem von Ihnen genutzten Dienst des EditBook-AudioEditor-Tools. Wir hoffen, dass Sie sie sorgfältig lesen und bei Bedarf gemäß den Hinweisen dieser „Datenschutzerklärung“ die Entscheidungen treffen, die Sie für angemessen halten. Wir bemühen uns, die in dieser Datenschutzerklärung enthaltenen technischen Fachbegriffe so prägnant wie möglich zu formulieren und Links zu weiteren Erläuterungen bereitzustellen, um Ihr Verständnis zu erleichtern.'],
+      ['p','Ihre Nutzung oder fortgesetzte Nutzung unserer Dienste bedeutet, dass Sie der Erhebung, Verwendung, Speicherung und Weitergabe Ihrer relevanten Informationen gemäß dieser Datenschutzerklärung zustimmen.'],
+      ['p','Wenn Sie Fragen zu dieser Datenschutzerklärung oder damit zusammenhängenden Angelegenheiten haben, kontaktieren Sie uns bitte unter xieh6888@gmail.com.'],
+
+      ['h','1. Informationen, die wir erheben'],
+      ['p','Wenn wir oder unsere Drittanbieter Dienste bereitstellen, erheben, speichern und verwenden wir möglicherweise die folgenden Informationen über Sie. Wenn Sie die relevanten Informationen nicht bereitstellen, können Sie sich möglicherweise nicht als unser Nutzer registrieren oder einige unserer Dienste nicht nutzen oder die beabsichtigten Wirkungen der betreffenden Dienste nicht erzielen.'],
+      ['p','Personenbezogene Daten, d. h. relevante personenbezogene Informationen, die Sie uns bei der Registrierung eines Kontos oder der Nutzung unserer Dienste bereitstellen, wie Telefonnummer, E-Mail-Adresse usw.'],
+      ['p','Protokollinformationen bezeichnen Informationen, die das System bei der Nutzung unserer Dienste über Cookies, Kennungen und verwandte Technologien erheben kann, einschließlich Ihrer Geräteinformationen, Browserinformationen und Klickinformationen, und die als Protokollinformationen gespeichert werden, um Ihnen ein personalisiertes Nutzererlebnis zu bieten und die Dienstsicherheit zu gewährleisten. Sie können die Verwendung von Cookies, Kennungen oder verwandten Technologien über Ihre Browsereinstellungen ablehnen oder verwalten.'],
+      ['p','Von uns eingebundene SDKs von Drittanbietern:'],
+      ['ul',['Umeng-Statistik','Bugly']],
+
+      ['h','2. Speicherung von Informationen'],
+      ['h3','2.1 Art und Dauer der Informationsspeicherung'],
+      ['p','Wir speichern Ihre Informationen auf sichere Weise, einschließlich lokaler Speicherung (z. B. Datenzwischenspeicherung über die App), Datenbanken und Serverprotokollen.'],
+      ['p','In der Regel speichern wir Ihre personenbezogenen Daten nur so lange, wie es für den Zweck des Dienstes erforderlich ist oder unter den gesetzlich vorgeschriebenen Bedingungen.'],
+      ['h3','2.2 Region, in der Informationen gespeichert werden'],
+      ['p','Wir speichern die in China erhobenen personenbezogenen Daten der Nutzer gemäß den gesetzlichen Vorschriften in China.'],
+      ['p','Derzeit übermitteln oder speichern wir Ihre personenbezogenen Daten nicht grenzüberschreitend. Sollte künftig eine grenzüberschreitende Übermittlung oder Speicherung erforderlich sein, informieren wir Sie über den Zweck der Datenübermittlung, die Empfänger, die Sicherheitsmaßnahmen und die Sicherheitsrisiken und holen Ihre Einwilligung ein.'],
+      ['h3','2.3 Benachrichtigung bei Einstellung des Betriebs von Produkten oder Diensten'],
+      ['p','Wenn unsere Produkte oder Dienste den Betrieb einstellen, benachrichtigen wir Sie per Push-Benachrichtigung, Ankündigung usw. und löschen oder anonymisieren Ihre personenbezogenen Daten innerhalb eines angemessenen Zeitraums, sofern gesetzliche Vorschriften nichts anderes vorsehen.'],
+
+      ['h','3. Informationssicherheit'],
+      ['p','Wir setzen eine Vielzahl von Sicherheitstechnologien und -verfahren ein, um Informationen vor Verlust, unsachgemäßer Verwendung, unbefugtem Zugriff oder Offenlegung zu schützen. In einigen Diensten nutzen wir beispielsweise Verschlüsselungstechnologien (wie SSL), um die von Ihnen bereitgestellten personenbezogenen Daten zu schützen. Bitte beachten Sie jedoch, dass aufgrund technischer Beschränkungen und verschiedener möglicher bösartiger Methoden in der Internetbranche selbst bei größten Anstrengungen zur Stärkung der Sicherheitsmaßnahmen eine 100-prozentige Informationssicherheit nicht immer gewährleistet werden kann. Sie müssen verstehen, dass die Systeme und Kommunikationsnetze, die Sie für den Zugriff auf unsere Dienste nutzen, aufgrund von Faktoren außerhalb unserer Kontrolle Probleme aufweisen können.'],
+
+      ['h','4. Wie wir Informationen verwenden'],
+      ['p','Wir können die im Rahmen der Bereitstellung unserer Dienste erhobenen Informationen für folgende Zwecke verwenden:'],
+      ['ul',[
+        'Ihnen Dienste bereitzustellen;',
+        'bei der Erbringung unserer Dienste für Zwecke der Identitätsüberprüfung, des Kundendienstes, der Sicherheit, der Betrugsüberwachung, der Archivierung und der Datensicherung, um die Sicherheit der von uns bereitgestellten Produkte und Dienste zu gewährleisten;',
+        'uns bei der Gestaltung neuer Dienste und der Verbesserung unserer bestehenden Dienste zu helfen;',
+        'uns besser zu verstehen, wie Sie auf unsere Dienste zugreifen und sie nutzen, um auf Ihre individuellen Bedürfnisse einzugehen, z. B. Spracheinstellungen, Standorteinstellungen, personalisierte Hilfsdienste und Anweisungen oder andere Empfehlungen für Sie und andere Nutzer;',
+        'Ihnen anstelle von allgemein ausgestrahlten Werbeanzeigen für Sie relevantere Werbung bereitzustellen;',
+        'die Wirksamkeit von Werbung und anderen Werbe- und Marketingaktionen in unseren Diensten zu bewerten und zu verbessern;',
+        'Softwarezertifizierung oder Verwaltung von Software-Upgrades;',
+        'Ihnen die Teilnahme an Umfragen zu unseren Produkten und Diensten zu ermöglichen.'
+      ]],
+
+      ['h','5. Weitergabe von Informationen'],
+      ['p','Derzeit geben wir Ihre personenbezogenen Daten nicht aktiv an Dritte weiter oder übertragen sie. Sollten andere Fälle der Weitergabe oder Übertragung Ihrer personenbezogenen Daten vorliegen oder benötigen Sie, dass wir Ihre personenbezogenen Daten an einen Dritten weitergeben oder übertragen, holen wir direkt Ihre ausdrückliche Einwilligung ein oder bestätigen, dass der Dritte diese eingeholt hat.'],
+      ['p','Um Werbung zu schalten und die Wirksamkeit der Werbung zu bewerten und zu optimieren, müssen wir einen Teil Ihrer Daten mit Drittanbietern wie Werbetreibenden und deren Agenturen teilen und verlangen von ihnen die strikte Einhaltung unserer Datenschutzmaßnahmen und -anforderungen, einschließlich, aber nicht beschränkt auf Datenschutzvereinbarungen, Verpflichtungserklärungen und relevante Datenverarbeitungsrichtlinien, um die Identifizierung von Personen zu vermeiden und die Privatsphäre zu schützen.'],
+      ['p','Wir geben keine Informationen, die Sie persönlich identifizieren (z. B. Ihren Namen oder Ihre E-Mail-Adresse), an unsere Partner weiter, es sei denn, Sie haben dies ausdrücklich genehmigt.'],
+      ['p','Wir werden die von uns erhobenen personenbezogenen Daten nicht öffentlich bekannt geben. Ist eine öffentliche Bekanntgabe erforderlich, informieren wir Sie über den Zweck, die Art der offengelegten Informationen und die möglicherweise betroffenen sensiblen Informationen und holen Ihre ausdrückliche Einwilligung ein.'],
+      ['p','Im Zuge der Weiterentwicklung unseres Geschäfts können wir Fusionen, Übernahmen, Vermögensübertragungen und andere Transaktionen durchführen. Wir werden Sie über die relevanten Umstände informieren und Ihre personenbezogenen Daten weiterhin schützen bzw. den neuen Verantwortlichen verpflichten, sie gemäß den Gesetzen und Vorschriften und nach Standards zu schützen, die nicht unter den in dieser Datenschutzerklärung geforderten liegen.'],
+      ['p','Darüber hinaus können wir gemäß den einschlägigen Gesetzen, Vorschriften und nationalen Standards personenbezogene Daten in den folgenden Fällen ohne Ihre vorherige Genehmigung und Einwilligung weitergeben, übertragen und öffentlich bekannt geben:'],
+      ['ul',[
+        'In direktem Zusammenhang mit der nationalen Sicherheit und der Verteidigungssicherheit;',
+        'In direktem Zusammenhang mit der öffentlichen Sicherheit, der öffentlichen Gesundheit und wichtigen öffentlichen Interessen;',
+        'In direktem Zusammenhang mit strafrechtlichen Ermittlungen, Strafverfolgung, Gerichtsverfahren und Urteilsvollstreckung;',
+        'Zum Schutz des Lebens, des Eigentums und anderer wichtiger legitimer Rechte und Interessen der betroffenen Person oder anderer Personen, wenn die Einwilligung der Person nur schwer zu erlangen ist;',
+        'Die betroffene Person gibt ihre personenbezogenen Daten selbst aktiv der Öffentlichkeit bekannt;',
+        'Erhebung personenbezogener Daten aus rechtmäßig öffentlich bekannt gegebenen Informationen, wie rechtmäßige Nachrichtenberichte, staatliche Informationsoffenlegung und andere Kanäle.'
+      ]],
+
+      ['h','6. Ihre Rechte'],
+      ['p','Während Ihrer Nutzung unserer Dienste stellen wir Ihnen je nach den spezifischen Gegebenheiten des Produkts möglicherweise entsprechende Einstellungen zur Verfügung, damit Sie Ihre relevanten personenbezogenen Daten abfragen, löschen, berichtigen oder widerrufen können. Die entsprechenden spezifischen Anleitungen können Sie zur Bedienung heranziehen. Darüber hinaus haben wir einen Beschwerde- und Meldekanal eingerichtet, und Ihre Meinungen werden zeitnah bearbeitet. Wenn Sie Ihre Rechte als betroffene Person nicht über die oben genannten Kanäle und Methoden ausüben können, können Sie Ihre Anfrage über die in dieser Datenschutzerklärung angegebenen Kontaktinformationen stellen, und wir werden gemäß den gesetzlichen Vorschriften Rückmeldung geben.'],
+      ['p','Wenn Sie entscheiden, unsere Produkte oder Dienste nicht mehr zu nutzen, können Sie die Löschung Ihres Kontos beantragen. Nach der Kontolöschung löschen oder anonymisieren wir Ihre personenbezogenen Daten, sofern gesetzliche Vorschriften nichts anderes vorsehen.'],
+
+      ['h','7. Änderungen'],
+      ['p','Wir können die Bedingungen dieser Datenschutzerklärung von Zeit zu Zeit überarbeiten. Bei Änderungen weisen wir Sie bei der Aktualisierung der Version auf die neue Datenschutzerklärung hin und erläutern Ihnen das Datum des Inkrafttretens. Bitte lesen Sie die geänderte „Datenschutzerklärung“ sorgfältig. Wenn Sie unsere Dienste weiterhin nutzen, stimmen Sie zu, dass wir Ihre personenbezogenen Daten gemäß der aktualisierten „Datenschutzerklärung“ verarbeiten.'],
+
+      ['h','8. Schutz Minderjähriger'],
+      ['p','Wir ermutigen Eltern oder Erziehungsberechtigte, Minderjährige unter achtzehn Jahren bei der Nutzung unserer Dienste anzuleiten. Wir empfehlen Minderjährigen, ihre Eltern oder Erziehungsberechtigten zu ermutigen, diese Datenschutzerklärung zu lesen, und vor der Übermittlung personenbezogener Daten die Zustimmung und Anleitung ihrer Eltern oder Erziehungsberechtigten einzuholen.']
+    ]
+  },
+
+  /* ---------------- Español ---------------- */
+  es: {
+    dir:'ltr', title:'Política de Privacidad',
+    updated:'Fecha de actualización: 2026/11/1', effective:'Fecha de entrada en vigor: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor es un producto proporcionado por el Sr. Xie (en adelante, «nosotros»). Cuando utiliza nuestros servicios, podemos recopilar y utilizar su información relevante. Deseamos utilizar esta Política de Privacidad para explicarle cómo recopilamos, utilizamos, almacenamos y compartimos esta información cuando utiliza nuestros servicios, y cómo le proporcionamos acceso, actualización, control y protección de esta información. Esta «Política de Privacidad» está estrechamente relacionada con el servicio de la herramienta EditBook-AudioEditor que utiliza. Esperamos que la lea detenidamente y, cuando sea necesario, siga las pautas de esta «Política de Privacidad» para tomar las decisiones que considere apropiadas. Intentamos expresar los términos técnicos relevantes involucrados en esta Política de Privacidad de la manera más concisa posible y proporcionar enlaces a explicaciones adicionales para facilitar su comprensión.'],
+      ['p','Su uso o uso continuado de nuestros servicios significa que acepta nuestra recopilación, uso, almacenamiento y compartición de su información relevante de acuerdo con esta Política de Privacidad.'],
+      ['p','Si tiene alguna pregunta sobre esta Política de Privacidad o asuntos relacionados, comuníquese con nosotros en xieh6888@gmail.com.'],
+
+      ['h','1. Información que recopilamos'],
+      ['p','Cuando nosotros o nuestros socios terceros prestamos servicios, podemos recopilar, almacenar y utilizar la siguiente información sobre usted. Si no proporciona la información relevante, es posible que no pueda registrarse como nuestro usuario o disfrutar de algunos de los servicios que ofrecemos, o es posible que no pueda lograr los efectos previstos de los servicios relevantes.'],
+      ['p','Información personal: la información personal relevante que nos proporciona al registrar una cuenta o utilizar nuestros servicios, como número de teléfono, correo electrónico, etc.'],
+      ['p','Información de registro: información que el sistema puede recopilar a través de cookies, identificadores y tecnologías relacionadas cuando utiliza nuestros servicios, incluida la información de su dispositivo, información de navegación e información de clics, y que almacena como información de registro para brindarle una experiencia de usuario personalizada y garantizar la seguridad del servicio. Puede rechazar o gestionar el uso de cookies, identificadores o tecnologías relacionadas a través de la configuración de su navegador.'],
+      ['p','SDK de terceros a los que accedemos:'],
+      ['ul',['Estadísticas de Umeng','Bugly']],
+
+      ['h','2. Almacenamiento de la información'],
+      ['h3','2.1 Forma y plazo de almacenamiento de la información'],
+      ['p','Almacenaremos su información de forma segura, incluido el almacenamiento local (como el uso de la APP para el almacenamiento en caché de datos), bases de datos y registros del servidor.'],
+      ['p','Por lo general, solo almacenaremos su información personal durante el tiempo necesario para lograr el propósito del servicio o bajo las condiciones estipuladas por las leyes y regulaciones.'],
+      ['h3','2.2 Región donde se almacena la información'],
+      ['p','Almacenaremos en China la información personal de los usuarios recopilada dentro de China, de conformidad con las leyes y regulaciones.'],
+      ['p','Actualmente no transferimos ni almacenamos su información personal transfronterizamente. Si en el futuro se requiere transmisión o almacenamiento transfronterizo, le informaremos el propósito de la transferencia de información, los destinatarios, las medidas de garantía de seguridad y los riesgos de seguridad, y obtendremos su consentimiento.'],
+      ['h3','2.3 Aviso cuando los productos o servicios cesen sus operaciones'],
+      ['p','Cuando nuestros productos o servicios cesen sus operaciones, se lo notificaremos mediante notificaciones push, anuncios, etc., y eliminaremos o anonimizaremos su información personal dentro de un período razonable, a menos que las leyes y regulaciones dispongan lo contrario.'],
+
+      ['h','3. Seguridad de la información'],
+      ['p','Utilizamos diversas tecnologías y procedimientos de seguridad para proteger la información contra pérdida, uso indebido, acceso no autorizado o divulgación. Por ejemplo, en algunos servicios, utilizaremos tecnología de cifrado (como SSL) para proteger la información personal que nos proporciona. Sin embargo, comprenda que debido a las limitaciones técnicas y a los diversos medios maliciosos posibles, en la industria de Internet, incluso si hacemos todo lo posible por reforzar las medidas de seguridad, es imposible garantizar siempre el 100 % de seguridad de la información. Debe comprender que los sistemas y las redes de comunicación que utiliza para acceder a nuestros servicios pueden presentar problemas debido a factores fuera de nuestro control.'],
+
+      ['h','4. Cómo utilizamos la información'],
+      ['p','Podemos utilizar la información recopilada en el proceso de prestación de servicios para los siguientes propósitos:'],
+      ['ul',[
+        'Proporcionarle servicios;',
+        'Cuando prestamos servicios, para fines de verificación de identidad, atención al cliente, seguridad, monitoreo de fraudes, archivo y respaldo, a fin de garantizar la seguridad de los productos y servicios que le proporcionamos;',
+        'Ayudarnos a diseñar nuevos servicios y mejorar nuestros servicios existentes;',
+        'Permitirnos comprender mejor cómo accede y utiliza nuestros servicios, a fin de responder a sus necesidades personalizadas, como configuración de idioma, configuración de ubicación, servicios de ayuda personalizados e instrucciones, o hacer otras recomendaciones a usted y a otros usuarios;',
+        'Proporcionarle anuncios más relevantes para usted en lugar de anuncios de difusión general;',
+        'Evaluar la eficacia de los anuncios y otras promociones en nuestros Servicios y mejorarlas;',
+        'Certificación de software o gestión de actualizaciones de software;',
+        'Permitirle participar en encuestas sobre nuestros productos y servicios.'
+      ]],
+
+      ['h','5. Intercambio de información'],
+      ['p','Actualmente, no compartiremos ni transferiremos activamente su información personal a terceros. Si existe otro intercambio o transferencia de su información personal o necesita que compartamos o transfiramos su información personal a un tercero, obtendremos directamente su consentimiento expreso para las acciones anteriores o confirmaremos que el tercero lo ha obtenido.'],
+      ['p','Para publicar anuncios y evaluar y optimizar el efecto de la publicidad, necesitamos compartir parte de sus datos con socios terceros como anunciantes y sus agentes, y exigirles que cumplan estrictamente con nuestras medidas y requisitos de protección de la privacidad de los datos, incluidos, entre otros, acuerdos de protección de datos, cartas de compromiso y políticas relevantes de tratamiento de datos, para evitar la identificación de identidades personales y garantizar la seguridad de la privacidad.'],
+      ['p','No compartimos información que lo identifique personalmente (como su nombre o dirección de correo electrónico) con nuestros socios a menos que usted lo autorice expresamente.'],
+      ['p','No divulgaremos públicamente la información personal que recopilamos. Si es necesaria la divulgación pública, le informaremos el propósito de la divulgación pública, el tipo de información divulgada y la información sensible que pueda estar involucrada, y obtendremos su consentimiento expreso.'],
+      ['p','A medida que nuestro negocio continúa desarrollándose, podemos realizar fusiones, adquisiciones, transferencias de activos y otras transacciones. Le informaremos las situaciones relevantes y continuaremos protegiendo o exigiendo al nuevo responsable que continúe protegiendo su información personal de conformidad con las leyes, regulaciones y estándares no inferiores a los exigidos por esta Política de Privacidad.'],
+      ['p','Además, de conformidad con las leyes, regulaciones y estándares nacionales relevantes, podemos compartir, transferir y divulgar públicamente información personal en las siguientes circunstancias sin obtener su autorización y consentimiento previos:'],
+      ['ul',[
+        'Directamente relacionadas con la seguridad nacional y la seguridad de la defensa nacional;',
+        'Directamente relacionadas con la seguridad pública, la salud pública y los importantes intereses públicos;',
+        'Directamente relacionadas con la investigación criminal, el enjuiciamiento, el juicio y la ejecución de sentencias;',
+        'Para proteger la vida, la propiedad y otros derechos e intereses legítimos importantes del titular de la información personal u otras personas, pero resulta difícil obtener el consentimiento del individuo;',
+        'El titular de la información personal divulga su información personal al público por iniciativa propia;',
+        'Recopilar información personal de información divulgada públicamente de forma legal, como reportajes de noticias legales, divulgación de información gubernamental y otros canales.'
+      ]],
+
+      ['h','6. Sus derechos'],
+      ['p','Durante su uso de nuestros servicios, podemos proporcionarle configuraciones de operación correspondientes según las circunstancias específicas del producto para que pueda consultar, eliminar, corregir o retirar su información personal relevante. Puede consultar las pautas específicas correspondientes para operar. Además, también hemos establecido un canal de quejas y denuncias, y sus opiniones se tramitarán de manera oportuna. Si no puede ejercer sus derechos como titular de la información personal a través de los canales y métodos anteriores, puede presentar su solicitud a través de la información de contacto proporcionada en esta Política de Privacidad, y le daremos respuesta de conformidad con las leyes y regulaciones.'],
+      ['p','Cuando decida dejar de utilizar nuestros productos o servicios, puede solicitar la cancelación de su cuenta. Después de cancelar su cuenta, eliminaremos o anonimizaremos su información personal, a menos que las leyes y regulaciones dispongan lo contrario.'],
+
+      ['h','7. Cambios'],
+      ['p','Podemos revisar los términos de esta Política de Privacidad de vez en cuando. Cuando se produzcan cambios, le avisaremos con la nueva Política de Privacidad cuando se actualice la versión y le explicaremos la fecha de entrada en vigor. Lea atentamente la «Política de Privacidad» modificada. Si continúa utilizando nuestros servicios, acepta que procesemos su información personal de acuerdo con la «Política de Privacidad» actualizada.'],
+
+      ['h','8. Protección de menores'],
+      ['p','Alentamos a los padres o tutores a instruir a los menores de dieciocho años en el uso de nuestros Servicios. Recomendamos que los menores alienten a sus padres o tutores a leer esta Política de Privacidad y que obtengan el consentimiento y la orientación de sus padres o tutores antes de enviar información personal.']
+    ]
+  },
+
+  /* ---------------- Français ---------------- */
+  fr: {
+    dir:'ltr', title:'Politique de confidentialité',
+    updated:'Date de mise à jour : 2026/11/1', effective:'Date d’entrée en vigueur : 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor est un produit fourni par M. Xie (ci-après dénommé « nous »). Lorsque vous utilisez nos services, nous pouvons collecter et utiliser vos informations pertinentes. Nous souhaitons, au moyen de la présente Politique de confidentialité, vous expliquer comment nous collectons, utilisons, stockons et partageons ces informations lorsque vous utilisez nos services, ainsi que la manière dont nous vous offrons l’accès, la mise à jour, le contrôle et la protection de ces informations. La présente « Politique de confidentialité » est étroitement liée au service de l’outil EditBook-AudioEditor que vous utilisez. Nous espérons que vous la lirez attentivement et que, si nécessaire, vous ferez les choix que vous jugez appropriés conformément aux directives de la présente « Politique de confidentialité ». Nous nous efforçons d’exprimer les termes techniques concernés de manière aussi concise que possible et de fournir des liens vers des explications complémentaires afin de faciliter votre compréhension.'],
+      ['p','Votre utilisation ou votre utilisation continue de nos services signifie que vous acceptez que nous collections, utilisions, stockions et partagions vos informations pertinentes conformément à la présente Politique de confidentialité.'],
+      ['p','Si vous avez des questions concernant la présente Politique de confidentialité ou des questions connexes, veuillez nous contacter à l’adresse xieh6888@gmail.com.'],
+
+      ['h','1. Informations que nous collectons'],
+      ['p','Lorsque nous ou nos partenaires tiers fournissons des services, nous pouvons collecter, stocker et utiliser les informations suivantes vous concernant. Si vous ne fournissez pas les informations pertinentes, vous pourriez ne pas pouvoir vous inscrire en tant qu’utilisateur ou bénéficier de certains des services que nous proposons, ou ne pas pouvoir atteindre les effets escomptés des services concernés.'],
+      ['p','Informations personnelles : les informations personnelles pertinentes que vous nous fournissez lors de l’inscription d’un compte ou de l’utilisation de nos services, telles que le numéro de téléphone, l’adresse e-mail, etc.'],
+      ['p','Informations de journal : informations que le système peut collecter au moyen de cookies, d’identifiants et de technologies associées lorsque vous utilisez nos services, notamment les informations relatives à votre appareil, les informations de navigation et les informations de clics, et qui sont stockées en tant qu’informations de journal afin de vous offrir une expérience utilisateur personnalisée et de garantir la sécurité du service. Vous pouvez refuser ou gérer l’utilisation des cookies, des identifiants ou des technologies associées via les paramètres de votre navigateur.'],
+      ['p','SDK tiers auxquels nous accédons :'],
+      ['ul',['Statistiques Umeng','Bugly']],
+
+      ['h','2. Stockage des informations'],
+      ['h3','2.1 Mode et durée de stockage des informations'],
+      ['p','Nous stockons vos informations de manière sécurisée, notamment par le stockage local (par exemple, la mise en cache des données via l’application), les bases de données et les journaux du serveur.'],
+      ['p','En règle générale, nous ne conservons vos informations personnelles que pendant la durée nécessaire à la réalisation de la finalité du service ou dans les conditions prévues par les lois et règlements.'],
+      ['h3','2.2 Région de stockage des informations'],
+      ['p','Nous stockons en Chine les informations personnelles des utilisateurs collectées en Chine, conformément aux lois et règlements.'],
+      ['p','Nous ne transférons ni ne stockons actuellement vos informations personnelles au-delà des frontières. Si un transfert ou un stockage transfrontalier s’avère nécessaire à l’avenir, nous vous informerons de la finalité du transfert des informations, des destinataires, des mesures de garantie de sécurité et des risques de sécurité, et nous obtiendrons votre consentement.'],
+      ['h3','2.3 Notification en cas de cessation d’activité des produits ou services'],
+      ['p','Lorsque nos produits ou services cessent leurs activités, nous vous en informerons par notification push, annonce, etc., et supprimerons ou anonymiserons vos informations personnelles dans un délai raisonnable, sauf disposition contraire des lois et règlements.'],
+
+      ['h','3. Sécurité des informations'],
+      ['p','Nous utilisons diverses technologies et procédures de sécurité pour protéger les informations contre la perte, l’utilisation abusive, l’accès non autorisé ou la divulgation. Par exemple, dans certains services, nous utilisons des technologies de chiffrement (telles que SSL) pour protéger les informations personnelles que vous fournissez. Toutefois, veuillez comprendre qu’en raison des limites techniques et des divers moyens malveillants possibles, dans le secteur d’Internet, même si nous faisons de notre mieux pour renforcer les mesures de sécurité, il est impossible de garantir toujours une sécurité à 100 %. Vous devez comprendre que les systèmes et réseaux de communication que vous utilisez pour accéder à nos services peuvent rencontrer des problèmes dus à des facteurs échappant à notre contrôle.'],
+
+      ['h','4. Comment nous utilisons les informations'],
+      ['p','Nous pouvons utiliser les informations collectées dans le cadre de la fourniture de nos services aux fins suivantes :'],
+      ['ul',[
+        'Vous fournir des services ;',
+        'Lorsque nous fournissons des services, à des fins de vérification d’identité, de service client, de sécurité, de surveillance des fraudes, d’archivage et de sauvegarde, afin de garantir la sécurité des produits et services que nous vous fournissons ;',
+        'Nous aider à concevoir de nouveaux services et à améliorer nos services existants ;',
+        'Nous permettre de mieux comprendre comment vous accédez à nos services et les utilisez, afin de répondre à vos besoins personnalisés, tels que les paramètres de langue, les paramètres de localisation, les services d’aide personnalisés et les instructions, ou de formuler d’autres recommandations à votre intention et à celle d’autres utilisateurs ;',
+        'Vous fournir des publicités plus pertinentes pour vous au lieu de publicités diffusées de manière générale ;',
+        'Évaluer l’efficacité des publicités et autres promotions sur nos Services et les améliorer ;',
+        'La certification logicielle ou la gestion des mises à niveau logicielles ;',
+        'Vous permettre de participer à des enquêtes sur nos produits et services.'
+      ]],
+
+      ['h','5. Partage des informations'],
+      ['p','À l’heure actuelle, nous ne partageons ni ne transférons pas activement vos informations personnelles à des tiers. S’il existe d’autres cas de partage ou de transfert de vos informations personnelles, ou si vous avez besoin que nous partagions ou transférions vos informations personnelles à un tiers, nous obtiendrons directement votre consentement exprès pour les actions susmentionnées ou nous vérifierons que le tiers l’a obtenu.'],
+      ['p','Afin de diffuser des publicités, d’évaluer et d’optimiser l’efficacité de la diffusion publicitaire, nous devons partager une partie de vos données avec des partenaires tiers tels que les annonceurs et leurs agents, et exiger qu’ils respectent strictement nos mesures et exigences de protection de la confidentialité des données, y compris, mais sans s’y limiter, les accords de protection des données, les lettres d’engagement et les politiques de traitement des données pertinentes, afin d’éviter l’identification des personnes et de garantir la sécurité de la vie privée.'],
+      ['p','Nous ne partageons pas avec nos partenaires les informations qui vous identifient personnellement (telles que votre nom ou votre adresse e-mail), sauf si vous l’autorisez expressément.'],
+      ['p','Nous ne divulguerons pas publiquement les informations personnelles que nous collectons. Si une divulgation publique est nécessaire, nous vous informerons de la finalité de cette divulgation publique, du type d’informations divulguées et des informations sensibles éventuellement concernées, et nous obtiendrons votre consentement exprès.'],
+      ['p','Avec le développement continu de nos activités, nous pouvons procéder à des fusions, acquisitions, transferts d’actifs et autres transactions. Nous vous informerons des situations concernées et continuerons à protéger, ou exigerons du nouveau responsable du traitement qu’il continue à protéger, vos informations personnelles conformément aux lois et règlements et selon des normes non inférieures à celles exigées par la présente Politique de confidentialité.'],
+      ['p','En outre, conformément aux lois, règlements et normes nationales pertinents, nous pouvons partager, transférer et divulguer publiquement des informations personnelles dans les circonstances suivantes sans obtenir votre autorisation et votre consentement préalables :'],
+      ['ul',[
+        'Directement liées à la sécurité nationale et à la sécurité de la défense nationale ;',
+        'Directement liées à la sécurité publique, à la santé publique et aux intérêts publics majeurs ;',
+        'Directement liées aux enquêtes pénales, aux poursuites, aux procès et à l’exécution des jugements ;',
+        'Pour protéger la vie, les biens et autres droits et intérêts légitimes majeurs de la personne concernée ou d’autres personnes, lorsqu’il est difficile d’obtenir le consentement de la personne ;',
+        'La personne concernée divulgue elle-même ses informations personnelles au public ;',
+        'La collecte d’informations personnelles à partir d’informations légalement divulguées au public, telles que les reportages légitimes, la divulgation d’informations gouvernementales et d’autres canaux.'
+      ]],
+
+      ['h','6. Vos droits'],
+      ['p','Pendant votre utilisation de nos services, nous pouvons mettre à votre disposition des paramètres de fonctionnement correspondants en fonction des circonstances spécifiques du produit, afin que vous puissiez consulter, supprimer, corriger ou retirer vos informations personnelles pertinentes. Vous pouvez vous référer aux directives spécifiques correspondantes pour effectuer les opérations. En outre, nous avons également mis en place un canal de plaintes et de signalements, et vos avis seront traités en temps utile. Si vous ne pouvez pas exercer vos droits de personne concernée par les canaux et méthodes susmentionnés, vous pouvez adresser votre demande via les coordonnées fournies dans la présente Politique de confidentialité, et nous vous répondrons conformément aux lois et règlements.'],
+      ['p','Lorsque vous décidez de ne plus utiliser nos produits ou services, vous pouvez demander la suppression de votre compte. Après la suppression de votre compte, nous supprimerons ou anonymiserons vos informations personnelles, sauf disposition contraire des lois et règlements.'],
+
+      ['h','7. Modifications'],
+      ['p','Nous pouvons réviser les conditions de la présente Politique de confidentialité de temps à autre. En cas de modification, nous vous informerons de la nouvelle Politique de confidentialité lors de la mise à jour de la version et vous préciserons la date d’entrée en vigueur. Veuillez lire attentivement la « Politique de confidentialité » modifiée. Si vous continuez à utiliser nos services, vous acceptez que nous traitions vos informations personnelles conformément à la « Politique de confidentialité » mise à jour.'],
+
+      ['h','8. Protection des mineurs'],
+      ['p','Nous encourageons les parents ou tuteurs à guider les mineurs de moins de dix-huit ans dans l’utilisation de nos Services. Nous recommandons aux mineurs d’encourager leurs parents ou tuteurs à lire la présente Politique de confidentialité et d’obtenir le consentement et les conseils de leurs parents ou tuteurs avant de soumettre des informations personnelles.']
+    ]
+  },
+
+  /* ---------------- हिन्दी ---------------- */
+  hi: {
+    dir:'ltr', title:'गोपनीयता नीति',
+    updated:'अद्यतन तिथि: 2026/11/1', effective:'प्रभावी तिथि: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor श्री Xie (इसके बाद «हम» के रूप में संदर्भित) द्वारा प्रदान किया गया एक उत्पाद है। जब आप हमारी सेवाओं का उपयोग करते हैं, तो हम आपकी प्रासंगिक जानकारी एकत्र और उपयोग कर सकते हैं। हम इस गोपनीयता नीति का उपयोग करके आपको यह समझाना चाहते हैं कि जब आप हमारी सेवाओं का उपयोग करते हैं तो हम इस जानकारी को कैसे एकत्र, उपयोग, संग्रहीत और साझा करते हैं, और हम आपको इस जानकारी तक पहुँच, अद्यतन, नियंत्रण और सुरक्षा कैसे प्रदान करते हैं। यह «गोपनीयता नीति» आपके द्वारा उपयोग की जाने वाली EditBook-AudioEditor टूल सेवा से निकटता से संबंधित है। हम आशा करते हैं कि आप इसे ध्यान से पढ़ेंगे और आवश्यकता पड़ने पर इस «गोपनीयता नीति» के दिशानिर्देशों के अनुसार उपयुक्त विकल्प चुनेंगे। हम इस गोपनीयता नीति में शामिल प्रासंगिक तकनीकी शब्दों को यथासंभव संक्षिप्त रूप में व्यक्त करने और आपकी समझ को सुविधाजनक बनाने के लिए आगे के स्पष्टीकरण के लिंक प्रदान करने का प्रयास करते हैं।'],
+      ['p','हमारी सेवाओं का आपका उपयोग या निरंतर उपयोग इसका अर्थ है कि आप इस गोपनीयता नीति के अनुसार अपनी प्रासंगिक जानकारी के हमारे संग्रह, उपयोग, भंडारण और साझाकरण से सहमत हैं।'],
+      ['p','यदि इस गोपनीयता नीति या संबंधित मामलों के बारे में आपके कोई प्रश्न हैं, तो कृपया xieh6888@gmail.com पर हमसे संपर्क करें।'],
+
+      ['h','1. हम जो जानकारी एकत्र करते हैं'],
+      ['p','जब हम या हमारे तृतीय-पक्ष साझेदार सेवाएँ प्रदान करते हैं, तो हम आपके बारे में निम्नलिखित जानकारी एकत्र, संग्रहीत और उपयोग कर सकते हैं। यदि आप प्रासंगिक जानकारी प्रदान नहीं करते हैं, तो आप हमारे उपयोगकर्ता के रूप में पंजीकरण नहीं कर पाएँगे या हमारी प्रदान की गई कुछ सेवाओं का लाभ नहीं उठा पाएँगे, या प्रासंगिक सेवाओं के इच्छित प्रभावों को प्राप्त नहीं कर पाएँगे।'],
+      ['p','व्यक्तिगत जानकारी: वह प्रासंगिक व्यक्तिगत जानकारी जो आप खाता पंजीकृत करते समय या हमारी सेवाओं का उपयोग करते समय हमें प्रदान करते हैं, जैसे फ़ोन नंबर, ईमेल आदि।'],
+      ['p','लॉग जानकारी: वह जानकारी जो सिस्टम आपके द्वारा हमारी सेवाओं का उपयोग करते समय कुकीज़, पहचानकर्ताओं और संबंधित तकनीकों के माध्यम से एकत्र कर सकता है, जिसमें आपकी डिवाइस जानकारी, ब्राउज़िंग जानकारी और क्लिक जानकारी शामिल है, और इस जानकारी को लॉग जानकारी के रूप में संग्रहीत करता है ताकि आपको व्यक्तिगत उपयोगकर्ता अनुभव प्रदान किया जा सके और सेवा सुरक्षा सुनिश्चित की जा सके। आप अपने ब्राउज़र सेटिंग्स के माध्यम से कुकीज़, पहचानकर्ताओं या संबंधित तकनीकों के उपयोग को अस्वीकार या प्रबंधित कर सकते हैं।'],
+      ['p','हमारे द्वारा एक्सेस किए गए तृतीय-पक्ष SDK:'],
+      ['ul',['Umeng सांख्यिकी','Bugly']],
+
+      ['h','2. जानकारी का भंडारण'],
+      ['h3','2.1 जानकारी भंडारण का तरीका और अवधि'],
+      ['p','हम आपकी जानकारी को सुरक्षित तरीके से संग्रहीत करेंगे, जिसमें स्थानीय भंडारण (जैसे डेटा कैशिंग के लिए APP का उपयोग), डेटाबेस और सर्वर लॉग शामिल हैं।'],
+      ['p','आम तौर पर, हम आपकी व्यक्तिगत जानकारी केवल सेवा के उद्देश्य को प्राप्त करने के लिए आवश्यक समय तक या कानूनों और विनियमों द्वारा निर्धारित शर्तों के तहत संग्रहीत करेंगे।'],
+      ['h3','2.2 जानकारी संग्रहीत करने का क्षेत्र'],
+      ['p','हम कानूनों और विनियमों के अनुसार चीन के भीतर एकत्र किए गए उपयोगकर्ता व्यक्तिगत जानकारी को चीन के भीतर संग्रहीत करेंगे।'],
+      ['p','हम वर्तमान में आपकी व्यक्तिगत जानकारी को सीमा पार स्थानांतरित या संग्रहीत नहीं करते हैं। यदि भविष्य में सीमा पार प्रसारण या भंडारण की आवश्यकता होती है, तो हम आपको सूचना हस्तांतरण के उद्देश्य, प्राप्तकर्ताओं, सुरक्षा आश्वासन उपायों और सुरक्षा जोखिमों के बारे में सूचित करेंगे, और आपकी सहमति प्राप्त करेंगे।'],
+      ['h3','2.3 उत्पादों या सेवाओं के संचालन बंद होने पर सूचना'],
+      ['p','जब हमारे उत्पाद या सेवाएँ संचालन बंद कर देंगे, तो हम आपको पुश सूचनाओं, घोषणाओं आदि के रूप में सूचित करेंगे, और उचित अवधि के भीतर आपकी व्यक्तिगत जानकारी को हटा देंगे या अनाम कर देंगे, जब तक कि कानूनों और विनियमों में अन्यथा प्रावधान न हो।'],
+
+      ['h','3. सूचना सुरक्षा'],
+      ['p','हम जानकारी को हानि, अनुचित उपयोग, अनधिकृत पहुँच या प्रकटीकरण से बचाने के लिए विभिन्न सुरक्षा तकनीकों और प्रक्रियाओं का उपयोग करते हैं। उदाहरण के लिए, कुछ सेवाओं में, हम आपके द्वारा प्रदान की गई व्यक्तिगत जानकारी की सुरक्षा के लिए एन्क्रिप्शन तकनीक (जैसे SSL) का उपयोग करेंगे। हालाँकि, कृपया समझें कि तकनीकी सीमाओं और विभिन्न संभावित दुर्भावनापूर्ण साधनों के कारण, इंटरनेट उद्योग में, भले ही हम सुरक्षा उपायों को मजबूत करने का पूरा प्रयास करें, 100% सूचना सुरक्षा की हमेशा गारंटी देना असंभव है। आपको यह समझना होगा कि हमारी सेवाओं तक पहुँचने के लिए आपके द्वारा उपयोग किए जाने वाले सिस्टम और संचार नेटवर्क में हमारे नियंत्रण से परे कारकों के कारण समस्याएँ हो सकती हैं।'],
+
+      ['h','4. हम जानकारी का उपयोग कैसे करते हैं'],
+      ['p','हम आपको सेवाएँ प्रदान करने की प्रक्रिया में एकत्र की गई जानकारी का उपयोग निम्नलिखित उद्देश्यों के लिए कर सकते हैं:'],
+      ['ul',[
+        'आपको सेवाएँ प्रदान करना;',
+        'जब हम सेवाएँ प्रदान करते हैं, तो पहचान सत्यापन, ग्राहक सेवा, सुरक्षा, धोखाधड़ी निगरानी, संग्रहण और बैकअप उद्देश्यों के लिए, ताकि हम आपको प्रदान किए जाने वाले उत्पादों और सेवाओं की सुरक्षा सुनिश्चित कर सकें;',
+        'नई सेवाओं को डिज़ाइन करने और हमारी मौजूदा सेवाओं को बेहतर बनाने में हमारी सहायता करना;',
+        'हमें यह बेहतर ढंग से समझने देना कि आप हमारी सेवाओं तक कैसे पहुँचते हैं और उनका उपयोग कैसे करते हैं, ताकि आपकी व्यक्तिगत आवश्यकताओं, जैसे भाषा सेटिंग्स, स्थान सेटिंग्स, व्यक्तिगत सहायता सेवाओं और निर्देशों का जवाब दिया जा सके, या आपको और अन्य उपयोगकर्ताओं को अन्य सिफ़ारिशें की जा सकें;',
+        'सामान्य रूप से वितरित विज्ञापनों के बजाय आपको अधिक प्रासंगिक विज्ञापन प्रदान करना;',
+        'हमारी सेवाओं में विज्ञापनों और अन्य प्रचार गतिविधियों की प्रभावशीलता का मूल्यांकन करना और उन्हें बेहतर बनाना;',
+        'सॉफ़्टवेयर प्रमाणन या सॉफ़्टवेयर अपग्रेड का प्रबंधन;',
+        'आपको हमारे उत्पादों और सेवाओं के बारे में सर्वेक्षणों में भाग लेने देना।'
+      ]],
+
+      ['h','5. जानकारी साझा करना'],
+      ['p','वर्तमान में, हम सक्रिय रूप से आपकी व्यक्तिगत जानकारी को तृतीय पक्षों के साथ साझा या स्थानांतरित नहीं करेंगे। यदि आपकी व्यक्तिगत जानकारी को साझा या स्थानांतरित करने के अन्य मामले हैं, या आपको आवश्यकता है कि हम आपकी व्यक्तिगत जानकारी किसी तृतीय पक्ष के साथ साझा या स्थानांतरित करें, तो हम सीधे उपरोक्त कार्यों के लिए आपकी स्पष्ट सहमति प्राप्त करेंगे या पुष्टि करेंगे कि तृतीय पक्ष ने इसे प्राप्त कर लिया है।'],
+      ['p','विज्ञापन प्रदर्शित करने, विज्ञापन वितरण प्रभाव का मूल्यांकन और अनुकूलन करने के लिए, हमें आपके डेटा का कुछ हिस्सा विज्ञापनदाताओं और उनके एजेंटों जैसे तृतीय-पक्ष साझेदारों के साथ साझा करने की आवश्यकता है, और उनसे हमारे डेटा गोपनीयता संरक्षण उपायों और आवश्यकताओं का सख्ती से पालन करने की आवश्यकता है, जिसमें डेटा संरक्षण समझौते, प्रतिबद्धता पत्र और संबंधित डेटा प्रसंस्करण नीतियाँ शामिल हैं लेकिन इन्हीं तक सीमित नहीं हैं, ताकि व्यक्तिगत पहचान को पहचानने से बचा जा सके और गोपनीयता सुरक्षा सुनिश्चित की जा सके।'],
+      ['p','जब तक आप स्पष्ट रूप से अधिकृत नहीं करते, हम आपकी व्यक्तिगत रूप से पहचान करने वाली जानकारी (जैसे आपका नाम या ईमेल पता) अपने साझेदारों के साथ साझा नहीं करते हैं।'],
+      ['p','हम अपने द्वारा एकत्र की गई व्यक्तिगत जानकारी को सार्वजनिक रूप से प्रकट नहीं करेंगे। यदि सार्वजनिक प्रकटीकरण आवश्यक है, तो हम आपको सार्वजनिक प्रकटीकरण का उद्देश्य, प्रकट की गई जानकारी का प्रकार और संभावित संवेदनशील जानकारी के बारे में सूचित करेंगे, और आपकी स्पष्ट सहमति प्राप्त करेंगे।'],
+      ['p','जैसे-जैसे हमारा व्यवसाय विकसित होता रहेगा, हम विलय, अधिग्रहण, परिसंपत्ति हस्तांतरण और अन्य लेनदेन कर सकते हैं। हम आपको प्रासंगिक स्थितियों के बारे में सूचित करेंगे और कानूनों और विनियमों और इस गोपनीयता नीति द्वारा आवश्यक से कम नहीं मानकों के अनुसार आपकी व्यक्तिगत जानकारी की रक्षा करना जारी रखेंगे या नए नियंत्रक से इसे जारी रखने की आवश्यकता करेंगे।'],
+      ['p','इसके अलावा, प्रासंगिक कानूनों, विनियमों और राष्ट्रीय मानकों के अनुसार, हम निम्नलिखित परिस्थितियों में आपकी पूर्व प्राधिकरण और सहमति के बिना व्यक्तिगत जानकारी साझा, स्थानांतरित और सार्वजनिक रूप से प्रकट कर सकते हैं:'],
+      ['ul',[
+        'सीधे राष्ट्रीय सुरक्षा और राष्ट्रीय रक्षा सुरक्षा से संबंधित;',
+        'सीधे सार्वजनिक सुरक्षा, सार्वजनिक स्वास्थ्य और प्रमुख सार्वजनिक हितों से संबंधित;',
+        'सीधे आपराधिक जाँच, अभियोजन, मुकदमे और निर्णय निष्पादन से संबंधित;',
+        'व्यक्तिगत जानकारी विषय या अन्य व्यक्तियों के जीवन, संपत्ति और अन्य प्रमुख वैध अधिकारों और हितों की रक्षा के लिए, लेकिन व्यक्ति की सहमति प्राप्त करना मुश्किल हो;',
+        'व्यक्तिगत जानकारी विषय स्वयं अपनी पहल पर व्यक्तिगत जानकारी जनता के सामने प्रकट करता है;',
+        'कानूनी रूप से सार्वजनिक रूप से प्रकट की गई जानकारी से व्यक्तिगत जानकारी एकत्र करना, जैसे कानूनी समाचार रिपोर्ट, सरकारी सूचना प्रकटीकरण और अन्य चैनल।'
+      ]],
+
+      ['h','6. आपके अधिकार'],
+      ['p','हमारी सेवाओं के आपके उपयोग के दौरान, हम उत्पाद की विशिष्ट परिस्थितियों के आधार पर आपको उचित ऑपरेशन सेटिंग्स प्रदान कर सकते हैं ताकि आप अपनी प्रासंगिक व्यक्तिगत जानकारी को क्वेरी, हटा, सुधार या वापस ले सकें। आप संचालन के लिए संबंधित विशिष्ट दिशानिर्देशों का संदर्भ ले सकते हैं। इसके अलावा, हमने शिकायत रिपोर्टिंग चैनल भी स्थापित किया है, और आपकी राय का समय पर समाधान किया जाएगा। यदि आप उपरोक्त चैनलों और तरीकों के माध्यम से अपने व्यक्तिगत जानकारी विषय अधिकारों का प्रयोग करने में असमर्थ हैं, तो आप इस गोपनीयता नीति में दिए गए संपर्क विवरण के माध्यम से अपना अनुरोध कर सकते हैं, और हम कानूनों और विनियमों के अनुसार प्रतिक्रिया देंगे।'],
+      ['p','जब आप हमारे उत्पादों या सेवाओं का उपयोग न करने का निर्णय लेते हैं, तो आप अपना खाता रद्द करने के लिए आवेदन कर सकते हैं। खाता रद्द करने के बाद, हम आपकी व्यक्तिगत जानकारी को हटा देंगे या अनाम कर देंगे, जब तक कि कानूनों और विनियमों में अन्यथा प्रावधान न हो।'],
+
+      ['h','7. परिवर्तन'],
+      ['p','हम समय-समय पर इस गोपनीयता नीति की शर्तों को संशोधित कर सकते हैं। परिवर्तन होने पर, हम संस्करण अपडेट होने पर आपको नई गोपनीयता नीति के साथ सूचित करेंगे और आपको प्रभावी तिथि के बारे में बताएँगे। कृपया परिवर्तित «गोपनीयता नीति» को ध्यान से पढ़ें। यदि आप हमारी सेवाओं का उपयोग जारी रखते हैं, तो आप सहमत हैं कि हम अद्यतन «गोपनीयता नीति» के अनुसार आपकी व्यक्तिगत जानकारी संसाधित करते हैं।'],
+
+      ['h','8. नाबालिगों की सुरक्षा'],
+      ['p','हम माता-पिता या अभिभावकों को प्रोत्साहित करते हैं कि वे अठारह वर्ष से कम उम्र के नाबालिगों को हमारी सेवाओं का उपयोग करने में निर्देश दें। हम नाबालिगों को सलाह देते हैं कि वे अपने माता-पिता या अभिभावकों को इस गोपनीयता नीति को पढ़ने के लिए प्रोत्साहित करें और व्यक्तिगत जानकारी सबमिट करने से पहले अपने माता-पिता या अभिभावकों की सहमति और मार्गदर्शन प्राप्त करें।']
+    ]
+  },
+
+  /* ---------------- Bahasa Indonesia ---------------- */
+  id: {
+    dir:'ltr', title:'Kebijakan Privasi',
+    updated:'Tanggal pembaruan: 2026/11/1', effective:'Tanggal berlaku: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor adalah produk yang disediakan oleh Bapak Xie (selanjutnya disebut «kami»). Saat Anda menggunakan layanan kami, kami dapat mengumpulkan dan menggunakan informasi relevan Anda. Kami berharap dapat menggunakan Kebijakan Privasi ini untuk menjelaskan kepada Anda bagaimana kami mengumpulkan, menggunakan, menyimpan, dan membagikan informasi ini saat Anda menggunakan layanan kami, serta bagaimana kami memberi Anda akses, pembaruan, kontrol, dan perlindungan atas informasi ini. «Kebijakan Privasi» ini sangat terkait dengan layanan alat EditBook-AudioEditor yang Anda gunakan. Kami harap Anda membacanya dengan cermat dan, bila perlu, mengikuti panduan «Kebijakan Privasi» ini untuk membuat pilihan yang Anda anggap tepat. Kami berusaha mengungkapkan istilah teknis terkait dalam Kebijakan Privasi ini sesingkat mungkin dan memberikan tautan ke penjelasan lebih lanjut untuk memudahkan pemahaman Anda.'],
+      ['p','Penggunaan atau penggunaan berkelanjutan Anda atas layanan kami berarti Anda menyetujui pengumpulan, penggunaan, penyimpanan, dan pembagian informasi relevan Anda oleh kami sesuai dengan Kebijakan Privasi ini.'],
+      ['p','Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau hal-hal terkait, silakan hubungi kami di xieh6888@gmail.com.'],
+
+      ['h','1. Informasi yang kami kumpulkan'],
+      ['p','Saat kami atau mitra pihak ketiga kami menyediakan layanan, kami dapat mengumpulkan, menyimpan, dan menggunakan informasi berikut tentang Anda. Jika Anda tidak memberikan informasi yang relevan, Anda mungkin tidak dapat mendaftar sebagai pengguna kami atau menikmati sebagian layanan yang kami sediakan, atau Anda mungkin tidak dapat mencapai efek yang dimaksudkan dari layanan terkait.'],
+      ['p','Informasi pribadi: informasi pribadi relevan yang Anda berikan kepada kami saat mendaftarkan akun atau menggunakan layanan kami, seperti nomor telepon, email, dll.'],
+      ['p','Informasi log: informasi yang dapat dikumpulkan sistem melalui cookie, pengenal, dan teknologi terkait saat Anda menggunakan layanan kami, termasuk informasi perangkat Anda, informasi penjelajahan, dan informasi klik, dan menyimpan informasi tersebut sebagai informasi log untuk memberi Anda pengalaman pengguna yang dipersonalisasi dan memastikan keamanan layanan. Anda dapat menolak atau mengelola penggunaan cookie, pengenal, atau teknologi terkait melalui pengaturan browser Anda.'],
+      ['p','SDK pihak ketiga yang kami akses:'],
+      ['ul',['Statistik Umeng','Bugly']],
+
+      ['h','2. Penyimpanan informasi'],
+      ['h3','2.1 Cara dan jangka waktu penyimpanan informasi'],
+      ['p','Kami akan menyimpan informasi Anda dengan cara yang aman, termasuk penyimpanan lokal (seperti menggunakan APP untuk caching data), basis data, dan log server.'],
+      ['p','Umumnya, kami hanya akan menyimpan informasi pribadi Anda selama waktu yang diperlukan untuk mencapai tujuan layanan atau dalam kondisi yang ditentukan oleh hukum dan peraturan.'],
+      ['h3','2.2 Wilayah tempat informasi disimpan'],
+      ['p','Kami akan menyimpan informasi pribadi pengguna yang dikumpulkan di dalam Tiongkok di wilayah Tiongkok sesuai dengan hukum dan peraturan.'],
+      ['p','Saat ini kami tidak mentransfer atau menyimpan informasi pribadi Anda lintas batas. Jika di masa depan diperlukan transmisi atau penyimpanan lintas batas, kami akan memberi tahu Anda tujuan transfer informasi, penerima, langkah-langkah jaminan keamanan, dan risiko keamanan, serta memperoleh persetujuan Anda.'],
+      ['h3','2.3 Pemberitahuan saat produk atau layanan berhenti beroperasi'],
+      ['p','Ketika produk atau layanan kami berhenti beroperasi, kami akan memberi tahu Anda dalam bentuk notifikasi push, pengumuman, dll., dan menghapus atau menganonimkan informasi pribadi Anda dalam jangka waktu yang wajar, kecuali ditentukan lain oleh hukum dan peraturan.'],
+
+      ['h','3. Keamanan informasi'],
+      ['p','Kami menggunakan berbagai teknologi dan prosedur keamanan untuk melindungi informasi dari kehilangan, penggunaan yang tidak semestinya, akses tidak sah, atau pengungkapan. Misalnya, dalam beberapa layanan, kami akan menggunakan teknologi enkripsi (seperti SSL) untuk melindungi informasi pribadi yang Anda berikan. Namun, mohon pahami bahwa karena keterbatasan teknis dan berbagai kemungkinan cara berbahaya, dalam industri internet, bahkan jika kami melakukan yang terbaik untuk memperkuat langkah-langkah keamanan, tidak mungkin selalu menjamin keamanan informasi 100%. Anda perlu memahami bahwa sistem dan jaringan komunikasi yang Anda gunakan untuk mengakses layanan kami mungkin mengalami masalah karena faktor di luar kendali kami.'],
+
+      ['h','4. Bagaimana kami menggunakan informasi'],
+      ['p','Kami dapat menggunakan informasi yang dikumpulkan dalam proses penyediaan layanan kepada Anda untuk tujuan berikut:'],
+      ['ul',[
+        'Memberikan layanan kepada Anda;',
+        'Saat kami menyediakan layanan, untuk tujuan verifikasi identitas, layanan pelanggan, keamanan, pemantauan penipuan, pengarsipan, dan pencadangan untuk memastikan keamanan produk dan layanan yang kami sediakan kepada Anda;',
+        'Membantu kami merancang layanan baru dan meningkatkan layanan yang ada;',
+        'Memungkinkan kami lebih memahami bagaimana Anda mengakses dan menggunakan layanan kami, sehingga dapat menanggapi kebutuhan personalisasi Anda, seperti pengaturan bahasa, pengaturan lokasi, layanan bantuan dan instruksi yang dipersonalisasi, atau memberikan rekomendasi lain kepada Anda dan pengguna lain;',
+        'Memberikan kepada Anda iklan yang lebih relevan dengan Anda sebagai pengganti iklan yang disampaikan secara umum;',
+        'Mengevaluasi efektivitas iklan dan promosi lain di Layanan kami dan meningkatkannya;',
+        'Sertifikasi perangkat lunak atau manajemen peningkatan perangkat lunak;',
+        'Memungkinkan Anda berpartisipasi dalam survei tentang produk dan layanan kami.'
+      ]],
+
+      ['h','5. Pembagian informasi'],
+      ['p','Saat ini, kami tidak akan secara aktif membagikan atau mentransfer informasi pribadi Anda kepada pihak ketiga. Jika ada pembagian atau transfer lain atas informasi pribadi Anda atau Anda memerlukan kami untuk membagikan atau mentransfer informasi pribadi Anda kepada pihak ketiga, kami akan secara langsung memperoleh persetujuan tegas Anda atas tindakan tersebut atau mengonfirmasi bahwa pihak ketiga telah memperolehnya.'],
+      ['p','Untuk menayangkan iklan, mengevaluasi, dan mengoptimalkan efektivitas penayangan iklan, kami perlu membagikan sebagian data Anda dengan mitra pihak ketiga seperti pengiklan dan agen mereka, dan mewajibkan mereka untuk secara ketat mematuhi langkah-langkah dan persyaratan perlindungan privasi data kami, termasuk namun tidak terbatas pada perjanjian perlindungan data, surat komitmen, dan kebijakan pemrosesan data terkait, untuk menghindari identifikasi identitas pribadi dan memastikan keamanan privasi.'],
+      ['p','Kami tidak membagikan informasi yang mengidentifikasi Anda secara pribadi (seperti nama atau alamat email Anda) kepada mitra kami kecuali Anda secara tegas mengizinkannya.'],
+      ['p','Kami tidak akan mengungkapkan secara publik informasi pribadi yang kami kumpulkan. Jika pengungkapan publik diperlukan, kami akan memberi tahu Anda tujuan pengungkapan publik, jenis informasi yang diungkapkan, dan informasi sensitif yang mungkin terlibat, serta memperoleh persetujuan tegas Anda.'],
+      ['p','Seiring perkembangan bisnis kami yang berkelanjutan, kami dapat melakukan merger, akuisisi, pengalihan aset, dan transaksi lainnya. Kami akan memberi tahu Anda situasi terkait dan terus melindungi atau mewajibkan pengendali baru untuk terus melindungi informasi pribadi Anda sesuai dengan hukum dan peraturan serta standar yang tidak lebih rendah dari yang disyaratkan oleh Kebijakan Privasi ini.'],
+      ['p','Selain itu, sesuai dengan hukum, peraturan, dan standar nasional yang relevan, kami dapat membagikan, mentransfer, dan mengungkapkan secara publik informasi pribadi dalam keadaan berikut tanpa memperoleh otorisasi dan persetujuan Anda sebelumnya:'],
+      ['ul',[
+        'Secara langsung terkait dengan keamanan nasional dan keamanan pertahanan nasional;',
+        'Secara langsung terkait dengan keselamatan publik, kesehatan publik, dan kepentingan publik utama;',
+        'Secara langsung terkait dengan penyelidikan kriminal, penuntutan, persidangan, dan pelaksanaan putusan;',
+        'Untuk melindungi kehidupan, properti, dan hak serta kepentingan sah utama lainnya dari subjek informasi pribadi atau individu lain tetapi sulit memperoleh persetujuan individu;',
+        'Subjek informasi pribadi mengungkapkan informasi pribadi kepada publik atas inisiatif sendiri;',
+        'Mengumpulkan informasi pribadi dari informasi yang diungkapkan secara publik secara sah, seperti laporan berita yang sah, pengungkapan informasi pemerintah, dan saluran lainnya.'
+      ]],
+
+      ['h','6. Hak Anda'],
+      ['p','Selama penggunaan layanan kami, kami dapat memberi Anda pengaturan operasi yang sesuai tergantung pada keadaan spesifik produk sehingga Anda dapat menanyakan, menghapus, memperbaiki, atau menarik informasi pribadi Anda yang relevan. Anda dapat merujuk pada pedoman spesifik yang sesuai untuk pengoperasiannya. Selain itu, kami juga telah menyiapkan saluran pelaporan keluhan, dan pendapat Anda akan ditangani secara tepat waktu. Jika Anda tidak dapat menjalankan hak subjek informasi pribadi Anda melalui saluran dan metode di atas, Anda dapat mengajukan permintaan Anda melalui informasi kontak yang disediakan dalam Kebijakan Privasi ini, dan kami akan memberikan umpan balik sesuai dengan hukum dan peraturan.'],
+      ['p','Ketika Anda memutuskan untuk tidak lagi menggunakan produk atau layanan kami, Anda dapat mengajukan pembatalan akun Anda. Setelah membatalkan akun Anda, kami akan menghapus atau menganonimkan informasi pribadi Anda, kecuali ditentukan lain oleh hukum dan peraturan.'],
+
+      ['h','7. Perubahan'],
+      ['p','Kami dapat merevisi ketentuan Kebijakan Privasi ini dari waktu ke waktu. Ketika terjadi perubahan, kami akan memberi tahu Anda dengan Kebijakan Privasi baru saat versi diperbarui dan menjelaskan tanggal berlakunya kepada Anda. Harap baca «Kebijakan Privasi» yang diubah dengan cermat. Jika Anda terus menggunakan layanan kami, Anda menyetujui bahwa kami memproses informasi pribadi Anda sesuai dengan «Kebijakan Privasi» yang diperbarui.'],
+
+      ['h','8. Perlindungan anak di bawah umur'],
+      ['p','Kami mendorong orang tua atau wali untuk mengarahkan anak di bawah umur di bawah usia delapan belas tahun dalam menggunakan Layanan kami. Kami menyarankan agar anak di bawah umur mendorong orang tua atau wali mereka untuk membaca Kebijakan Privasi ini dan mendapatkan persetujuan serta bimbingan dari orang tua atau wali mereka sebelum mengirimkan informasi pribadi.']
+    ]
+  },
+
+  /* ---------------- Italiano ---------------- */
+  it: {
+    dir:'ltr', title:'Informativa sulla privacy',
+    updated:'Data di aggiornamento: 2026/11/1', effective:'Data di entrata in vigore: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor è un prodotto fornito dal Sig. Xie (di seguito denominato «noi»). Quando utilizzi i nostri servizi, potremmo raccogliere e utilizzare le tue informazioni pertinenti. Desideriamo utilizzare la presente Informativa sulla privacy per spiegarti come raccogliamo, utilizziamo, memorizziamo e condividiamo tali informazioni quando utilizzi i nostri servizi e come ti forniamo accesso, aggiornamento, controllo e protezione di tali informazioni. La presente «Informativa sulla privacy» è strettamente correlata al servizio dello strumento EditBook-AudioEditor che utilizzi. Speriamo che la legga attentamente e, se necessario, segua le linee guida della presente «Informativa sulla privacy» per effettuare le scelte che ritieni appropriate. Cerchiamo di esprimere i termini tecnici pertinenti coinvolti nella presente Informativa sulla privacy nel modo più conciso possibile e di fornire link a ulteriori spiegazioni per facilitarne la comprensione.'],
+      ['p','L’utilizzo o l’utilizzo continuativo dei nostri servizi implica l’accettazione della raccolta, dell’utilizzo, della memorizzazione e della condivisione delle tue informazioni pertinenti da parte nostra in conformità con la presente Informativa sulla privacy.'],
+      ['p','In caso di domande sulla presente Informativa sulla privacy o su questioni correlate, contattaci all’indirizzo xieh6888@gmail.com.'],
+
+      ['h','1. Informazioni che raccogliamo'],
+      ['p','Quando noi o i nostri partner terzi forniamo servizi, potremmo raccogliere, memorizzare e utilizzare le seguenti informazioni che ti riguardano. Se non fornisci le informazioni pertinenti, potresti non essere in grado di registrarti come nostro utente o di usufruire di alcuni dei servizi che offriamo, oppure potresti non essere in grado di ottenere gli effetti previsti dai servizi pertinenti.'],
+      ['p','Informazioni personali: le informazioni personali pertinenti che ci fornisci al momento della registrazione di un account o dell’utilizzo dei nostri servizi, come numero di telefono, e-mail, ecc.'],
+      ['p','Informazioni di registro: informazioni che il sistema può raccogliere tramite cookie, identificatori e tecnologie correlate quando utilizzi i nostri servizi, comprese le informazioni sul tuo dispositivo, le informazioni di navigazione e le informazioni sui clic, e memorizza tali informazioni come informazioni di registro per fornirti un’esperienza utente personalizzata e garantire la sicurezza del servizio. Puoi rifiutare o gestire l’uso di cookie, identificatori o tecnologie correlate tramite le impostazioni del browser.'],
+      ['p','SDK di terze parti a cui accediamo:'],
+      ['ul',['Statistiche Umeng','Bugly']],
+
+      ['h','2. Conservazione delle informazioni'],
+      ['h3','2.1 Modalità e periodo di conservazione delle informazioni'],
+      ['p','Conserviamo le tue informazioni in modo sicuro, inclusi l’archiviazione locale (ad esempio l’utilizzo dell’APP per la memorizzazione nella cache dei dati), i database e i registri del server.'],
+      ['p','Generalmente, conserviamo le tue informazioni personali solo per il tempo necessario a raggiungere lo scopo del servizio o alle condizioni stabilite dalle leggi e dai regolamenti.'],
+      ['h3','2.2 Regione in cui vengono conservate le informazioni'],
+      ['p','Conserviamo in Cina le informazioni personali degli utenti raccolte all’interno della Cina, in conformità con le leggi e i regolamenti.'],
+      ['p','Attualmente non trasferiamo né conserviamo le tue informazioni personali al di fuori dei confini. Se in futuro sarà necessaria una trasmissione o conservazione transfrontaliera, ti informeremo dello scopo del trasferimento delle informazioni, dei destinatari, delle misure di garanzia della sicurezza e dei rischi per la sicurezza, e otterremo il tuo consenso.'],
+      ['h3','2.3 Comunicazione in caso di cessazione dell’operatività di prodotti o servizi'],
+      ['p','Quando i nostri prodotti o servizi cessano l’operatività, ti avviseremo tramite notifiche push, annunci, ecc., ed elimineremo o anonimizzeremo le tue informazioni personali entro un periodo ragionevole, salvo diversa disposizione di legge o regolamento.'],
+
+      ['h','3. Sicurezza delle informazioni'],
+      ['p','Utilizziamo diverse tecnologie e procedure di sicurezza per proteggere le informazioni da perdita, uso improprio, accesso non autorizzato o divulgazione. Ad esempio, in alcuni servizi, utilizziamo tecnologie di crittografia (come SSL) per proteggere le informazioni personali che ci fornisci. Tuttavia, ti preghiamo di comprendere che, a causa dei limiti tecnici e dei vari possibili mezzi malevoli, nel settore di Internet, anche se facciamo del nostro meglio per rafforzare le misure di sicurezza, è impossibile garantire sempre una sicurezza delle informazioni al 100%. Devi comprendere che i sistemi e le reti di comunicazione che utilizzi per accedere ai nostri servizi potrebbero presentare problemi dovuti a fattori al di fuori del nostro controllo.'],
+
+      ['h','4. Come utilizziamo le informazioni'],
+      ['p','Possiamo utilizzare le informazioni raccolte nel processo di fornitura dei servizi per le seguenti finalità:'],
+      ['ul',[
+        'Fornirti servizi;',
+        'Quando forniamo servizi, per finalità di verifica dell’identità, assistenza clienti, sicurezza, monitoraggio delle frodi, archiviazione e backup, al fine di garantire la sicurezza dei prodotti e dei servizi che ti forniamo;',
+        'Aiutarci a progettare nuovi servizi e migliorare i nostri servizi esistenti;',
+        'Consentirci di comprendere meglio come accedi e utilizzi i nostri servizi, al fine di rispondere alle tue esigenze personalizzate, come le impostazioni della lingua, le impostazioni della posizione, i servizi di assistenza personalizzati e le istruzioni, o fornire altri suggerimenti a te e ad altri utenti;',
+        'Fornirti annunci pubblicitari più pertinenti a te invece di annunci diffusi in modo generale;',
+        'Valutare l’efficacia della pubblicità e di altre promozioni sui nostri Servizi e migliorarle;',
+        'Certificazione del software o gestione degli aggiornamenti software;',
+        'Consentirti di partecipare a sondaggi sui nostri prodotti e servizi.'
+      ]],
+
+      ['h','5. Condivisione delle informazioni'],
+      ['p','Attualmente, non condivideremo né trasferiremo attivamente le tue informazioni personali a terzi. Se vi sono altri casi di condivisione o trasferimento delle tue informazioni personali o hai bisogno che condividiamo o trasferiamo le tue informazioni personali a terzi, otterremo direttamente il tuo consenso esplicito per le azioni sopra indicate o confermeremo che il terzo lo ha ottenuto.'],
+      ['p','Per pubblicare annunci pubblicitari, valutare e ottimizzare l’efficacia della pubblicità, dobbiamo condividere parte dei tuoi dati con partner terzi come inserzionisti e loro agenti, e richiedere loro di rispettare rigorosamente le nostre misure e i nostri requisiti di protezione della privacy dei dati, inclusi, a titolo esemplificativo ma non esaustivo, accordi sulla protezione dei dati, lettere di impegno e politiche pertinenti sul trattamento dei dati, al fine di evitare l’identificazione delle persone e garantire la sicurezza della privacy.'],
+      ['p','Non condividiamo con i nostri partner informazioni che ti identificano personalmente (come il tuo nome o indirizzo e-mail) a meno che tu non lo autorizzi espressamente.'],
+      ['p','Non divulgheremo pubblicamente le informazioni personali che raccogliamo. Qualora sia necessaria una divulgazione pubblica, ti informeremo dello scopo della divulgazione pubblica, del tipo di informazioni divulgate e delle informazioni sensibili eventualmente coinvolte, e otterremo il tuo consenso esplicito.'],
+      ['p','Con il continuo sviluppo della nostra attività, potremmo effettuare fusioni, acquisizioni, trasferimenti di attività e altre operazioni. Ti informeremo delle situazioni pertinenti e continueremo a proteggere, o richiederemo al nuovo titolare del trattamento di continuare a proteggere, le tue informazioni personali in conformità con le leggi e i regolamenti e secondo standard non inferiori a quelli richiesti dalla presente Informativa sulla privacy.'],
+      ['p','Inoltre, in conformità con le leggi, i regolamenti e gli standard nazionali pertinenti, possiamo condividere, trasferire e divulgare pubblicamente informazioni personali nelle seguenti circostanze senza ottenere la tua preventiva autorizzazione e il tuo consenso:'],
+      ['ul',[
+        'Direttamente correlati alla sicurezza nazionale e alla sicurezza della difesa nazionale;',
+        'Direttamente correlati alla sicurezza pubblica, alla salute pubblica e ai principali interessi pubblici;',
+        'Direttamente correlati alle indagini penali, all’azione penale, al processo e all’esecuzione delle sentenze;',
+        'Per proteggere la vita, la proprietà e altri importanti diritti e interessi legittimi dell’interessato o di altri individui, ma risulta difficile ottenere il consenso dell’individuo;',
+        'L’interessato divulga spontaneamente le proprie informazioni personali al pubblico;',
+        'Raccolta di informazioni personali da informazioni legalmente divulgate al pubblico, come legittimi servizi giornalistici, divulgazione di informazioni governative e altri canali.'
+      ]],
+
+      ['h','6. I tuoi diritti'],
+      ['p','Durante l’utilizzo dei nostri servizi, potremmo fornirti impostazioni operative corrispondenti in base alle circostanze specifiche del prodotto, in modo che tu possa consultare, eliminare, correggere o revocare le tue informazioni personali pertinenti. Puoi fare riferimento alle specifiche linee guida corrispondenti per l’operazione. Inoltre, abbiamo anche istituito un canale per la presentazione di reclami e segnalazioni, e le tue opinioni saranno gestite in modo tempestivo. Se non sei in grado di esercitare i tuoi diritti di interessato attraverso i canali e i metodi sopra indicati, puoi presentare la tua richiesta tramite le informazioni di contatto fornite nella presente Informativa sulla privacy e ti forniremo un riscontro in conformità con le leggi e i regolamenti.'],
+      ['p','Quando decidi di non utilizzare più i nostri prodotti o servizi, puoi richiedere la cancellazione del tuo account. Dopo la cancellazione dell’account, elimineremo o anonimizzeremo le tue informazioni personali, salvo diversa disposizione di legge o regolamento.'],
+
+      ['h','7. Modifiche'],
+      ['p','Possiamo rivedere i termini della presente Informativa sulla privacy di tanto in tanto. In caso di modifiche, ti avviseremo con la nuova Informativa sulla privacy al momento dell’aggiornamento della versione e ti indicheremo la data di entrata in vigore. Ti preghiamo di leggere attentamente l’«Informativa sulla privacy» modificata. Se continui a utilizzare i nostri servizi, accetti che trattiamo le tue informazioni personali in conformità con l’«Informativa sulla privacy» aggiornata.'],
+
+      ['h','8. Protezione dei minori'],
+      ['p','Incoraggiamo i genitori o i tutori a guidare i minori di età inferiore ai diciotto anni nell’utilizzo dei nostri Servizi. Raccomandiamo ai minori di incoraggiare i propri genitori o tutori a leggere la presente Informativa sulla privacy e di ottenere il consenso e la guida dei propri genitori o tutori prima di inviare informazioni personali.']
+    ]
+  },
+
+  /* ---------------- 日本語 ---------------- */
+  ja: {
+    dir:'ltr', title:'プライバシーポリシー',
+    updated:'更新日：2026/11/1', effective:'発効日：2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor は、Xie 氏（以下「当社」といいます）が提供する製品です。お客様が当社のサービスをご利用になる際、当社はお客様の関連情報を収集および使用する場合があります。本プライバシーポリシーでは、お客様が当社のサービスをご利用になる際に、当社がこれらの情報をどのように収集、使用、保存、共有するか、また、これらの情報へのアクセス、更新、管理、保護をどのように提供するかについて説明します。本「プライバシーポリシー」は、お客様がご利用になる EditBook-AudioEditor ツールサービスに密接に関連しています。よくお読みいただき、必要に応じて本「プライバシーポリシー」のガイドラインに従って、お客様が適切と考える選択を行っていただきますようお願いいたします。当社は、本プライバシーポリシーに関連する技術用語を可能な限り簡潔に表現し、お客様のご理解を容易にするために、詳細な説明へのリンクを提供するよう努めています。'],
+      ['p','お客様が当社のサービスを利用または継続して利用することは、本プライバシーポリシーに従って当社がお客様の関連情報を収集、使用、保存、共有することに同意したものとみなされます。'],
+      ['p','本プライバシーポリシーまたは関連事項についてご質問がある場合は、xieh6888@gmail.com までお問い合わせください。'],
+
+      ['h','1. 当社が収集する情報'],
+      ['p','当社または当社の第三者パートナーがサービスを提供する際、当社はお客様に関する以下の情報を収集、保存、使用する場合があります。関連情報をご提供いただけない場合、お客様は当社のユーザーとして登録できない、または当社が提供する一部のサービスをご利用いただけない、あるいは関連サービスの意図する効果を得られない場合があります。'],
+      ['p','個人情報：お客様がアカウントを登録する際または当社のサービスを利用する際に当社に提供する関連する個人情報をいい、電話番号、メールアドレスなどを含みます。'],
+      ['p','ログ情報：お客様が当社のサービスを利用する際に、システムが Cookie、識別子および関連技術を通じて収集する可能性のある情報をいい、お客様のデバイス情報、閲覧情報、クリック情報などを含み、これらの情報をログ情報として保存し、パーソナライズされたユーザーエクスペリエンスを提供し、サービスの安全性を確保します。お客様は、ブラウザの設定を通じて Cookie、識別子または関連技術の使用を拒否または管理することができます。'],
+      ['p','当社が導入している第三者 SDK：'],
+      ['ul',['Umeng 統計','Bugly']],
+
+      ['h','2. 情報の保存'],
+      ['h3','2.1 情報の保存方法と期間'],
+      ['p','当社は、ローカルストレージ（APP を使用したデータキャッシュなど）、データベース、サーバーログなど、安全な方法でお客様の情報を保存します。'],
+      ['p','通常、当社はサービスの目的を達成するために必要な期間、または法令で定められた条件の下でのみ、お客様の個人情報を保存します。'],
+      ['h3','2.2 情報の保存地域'],
+      ['p','当社は、法令の規定に従い、中国国内で収集したユーザーの個人情報を中国国内に保存します。'],
+      ['p','当社は現在、お客様の個人情報を国境を越えて転送または保存することはありません。将来、越境転送または保存が必要となった場合は、情報の越境の目的、受領者、安全保障措置、セキュリティリスクをお客様にお知らせし、お客様の同意を得ます。'],
+      ['h3','2.3 製品またはサービスの運営停止時の通知'],
+      ['p','当社の製品またはサービスが運営を停止する場合、当社はプッシュ通知、公告などの形式でお客様に通知し、合理的な期間内にお客様の個人情報を削除または匿名化します。ただし、法令に別段の定めがある場合を除きます。'],
+
+      ['h','3. 情報セキュリティ'],
+      ['p','当社は、情報の紛失、不適切な使用、不正アクセスまたは開示を防ぐために、さまざまなセキュリティ技術と手順を採用しています。たとえば、一部のサービスでは、お客様が提供する個人情報を保護するために暗号化技術（SSL など）を利用します。ただし、技術的制約やさまざまな悪意のある手段の可能性により、インターネット業界では、当社が安全対策の強化に最善を尽くしたとしても、情報の 100% の安全性を常に保証することは不可能であることをご理解ください。お客様が当社のサービスにアクセスするために使用するシステムおよび通信ネットワークは、当社の制御が及ばない要因により問題が発生する可能性があることをご理解いただく必要があります。'],
+
+      ['h','4. 情報の利用方法'],
+      ['p','当社は、お客様へのサービスの提供過程で収集した情報を、以下の目的で使用する場合があります：'],
+      ['ul',[
+        'お客様にサービスを提供するため；',
+        '当社がサービスを提供する際、本人確認、カスタマーサービス、セキュリティ、不正監視、アーカイブ、バックアップの目的で、当社がお客様に提供する製品およびサービスの安全性を確保するため；',
+        '当社が新サービスの設計や既存サービスの改善を行うため；',
+        'お客様が当社のサービスにどのようにアクセスし、利用しているかを当社がよりよく理解し、言語設定、位置情報設定、パーソナライズされたヘルプサービスや指示など、お客様の個別のニーズに応えるため、またはお客様や他のユーザーに対してその他の提案を行うため；',
+        '一般的に配信される広告に代えて、お客様にとってより関連性の高い広告を提供するため；',
+        '当社のサービスにおける広告およびその他のプロモーションの効果を評価し、改善するため；',
+        'ソフトウェアの認証またはソフトウェアアップグレードの管理；',
+        'お客様に当社の製品およびサービスに関する調査にご参加いただくため。'
+      ]],
+
+      ['h','5. 情報の共有'],
+      ['p','現在、当社はお客様の個人情報を積極的に第三者と共有または譲渡することはありません。お客様の個人情報の共有または譲渡のその他の状況がある場合、またはお客様の個人情報を第三者と共有または譲渡する必要がある場合、当社は直接または第三者が上記の行為についてお客様の明示的な同意を得たことを確認します。'],
+      ['p','広告の配信、広告配信効果の評価および最適化のために、当社はお客様のデータの一部を広告主およびその代理店などの第三者パートナーと共有する必要があり、個人の特定を回避し、プライバシーの安全を確保するために、データ保護契約、誓約書および関連するデータ処理ポリシーを含む（ただしこれらに限定されない）当社のデータプライバシー保護措置および要件を厳格に遵守するよう彼らに要求します。'],
+      ['p','お客様が明示的に許可しない限り、当社はお客様を個人的に特定する情報（お客様の氏名やメールアドレスなど）をパートナーと共有しません。'],
+      ['p','当社は、収集した個人情報を公に開示することはありません。公開開示が必要な場合は、公開開示の目的、開示する情報の種類、および関連する可能性のある機密情報をお客様にお知らせし、お客様の明示的な同意を得ます。'],
+      ['p','当社の事業の継続的な発展に伴い、当社は合併、買収、資産譲渡などの取引を行う可能性があります。当社はお客様に関連する状況をお知らせし、法令および本プライバシーポリシーで要求される基準を下回らない基準に従って、お客様の個人情報の保護を継続し、または新たな管理者に保護を継続するよう要求します。'],
+      ['p','また、関連する法令および国家標準に従い、以下の状況では、お客様の事前の許可および同意を得ることなく、個人情報を共有、譲渡、公開開示する場合があります：'],
+      ['ul',[
+        '国家安全保障および国防の安全に直接関連する場合；',
+        '公共の安全、公衆衛生、および重大な公共利益に直接関連する場合；',
+        '犯罪捜査、起訴、裁判および判決の執行に直接関連する場合；',
+        '個人情報の主体または他の個人の生命、財産その他の重大な正当な権利および利益を保護するためであるが、本人の同意を得ることが困難な場合；',
+        '個人情報の主体が自ら進んで個人情報を公衆に開示する場合；',
+        '合法的なニュース報道、政府情報公開などのチャネルを通じて合法的に公開された情報から個人情報を収集する場合。'
+      ]],
+
+      ['h','6. お客様の権利'],
+      ['p','お客様が当社のサービスを利用する間、当社は製品の具体的な状況に応じて、お客様が関連する個人情報を照会、削除、訂正または撤回できるよう、対応する操作設定を提供する場合があります。操作については、対応する具体的なガイドラインを参照してください。また、当社は苦情報告チャネルも設置しており、お客様のご意見は適時に処理されます。お客様が上記のチャネルおよび方法を通じて個人情報の主体としての権利を行使できない場合、本プライバシーポリシーに記載の連絡先を通じてご要望をお申し出いただければ、法令に従ってフィードバックいたします。'],
+      ['p','お客様が当社の製品またはサービスの利用を終了することを決定した場合、アカウントの削除を申請することができます。アカウント削除後、当社はお客様の個人情報を削除または匿名化します。ただし、法令に別段の定めがある場合を除きます。'],
+
+      ['h','7. 変更'],
+      ['p','当社は、本プライバシーポリシーの条項を随時改訂する場合があります。変更が生じた場合、バージョン更新時に新しいプライバシーポリシーでお客様に通知し、発効日を説明します。変更後の「プライバシーポリシー」をよくお読みください。お客様が当社のサービスを引き続き利用する場合、更新された「プライバシーポリシー」に従って当社がお客様の個人情報を処理することに同意したものとみなされます。'],
+
+      ['h','8. 未成年者の保護'],
+      ['p','当社は、保護者または後見人が18歳未満の未成年者に当社のサービスの利用を指導することを推奨しています。未成年者は、保護者または後見人に本プライバシーポリシーを読むよう促し、個人情報を送信する前に保護者または後見人の同意と指導を得ることをお勧めします。']
+    ]
+  },
+
+  /* ---------------- 한국어 ---------------- */
+  ko: {
+    dir:'ltr', title:'개인정보 처리방침',
+    updated:'업데이트 날짜: 2026/11/1', effective:'시행 날짜: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor는 Xie 씨(이하 «당사»)가 제공하는 제품입니다. 귀하가 당사 서비스를 이용할 때 당사는 귀하의 관련 정보를 수집 및 사용할 수 있습니다. 당사는 본 개인정보 처리방침을 통해 귀하가 당사 서비스를 이용할 때 당사가 해당 정보를 어떻게 수집, 사용, 저장 및 공유하는지, 그리고 당사가 귀하에게 해당 정보에 대한 접근, 업데이트, 통제 및 보호를 어떻게 제공하는지 설명하고자 합니다. 본 «개인정보 처리방침»은 귀하가 이용하는 EditBook-AudioEditor 도구 서비스와 밀접한 관련이 있습니다. 귀하께서 주의 깊게 읽으시고 필요한 경우 본 «개인정보 처리방침»의 지침에 따라 적절하다고 판단되는 선택을 하시기를 바랍니다. 당사는 본 개인정보 처리방침에 관련된 기술 용어를 가능한 한 간결하게 표현하고 귀하의 이해를 돕기 위해 추가 설명 링크를 제공하기 위해 노력하고 있습니다.'],
+      ['p','귀하가 당사 서비스를 이용하거나 계속 이용하는 것은 본 개인정보 처리방침에 따라 당사가 귀하의 관련 정보를 수집, 사용, 저장 및 공유하는 데 동의함을 의미합니다.'],
+      ['p','본 개인정보 처리방침 또는 관련 사항에 대해 문의사항이 있으시면 xieh6888@gmail.com으로 연락해 주십시오.'],
+
+      ['h','1. 당사가 수집하는 정보'],
+      ['p','당사 또는 당사의 제3자 파트너가 서비스를 제공할 때 당사는 귀하에 관한 다음 정보를 수집, 저장 및 사용할 수 있습니다. 관련 정보를 제공하지 않을 경우 귀하는 당사 사용자로 등록할 수 없거나 당사가 제공하는 일부 서비스를 이용할 수 없거나 관련 서비스의 의도된 효과를 달성할 수 없을 수 있습니다.'],
+      ['p','개인정보: 귀하가 계정을 등록하거나 당사 서비스를 이용할 때 당사에 제공하는 관련 개인 정보를 말하며, 전화번호, 이메일 등을 포함합니다.'],
+      ['p','로그 정보: 귀하가 당사 서비스를 이용할 때 시스템이 쿠키, 식별자 및 관련 기술을 통해 수집할 수 있는 정보를 말하며, 귀하의 기기 정보, 브라우징 정보, 클릭 정보를 포함하고, 이러한 정보를 로그 정보로 저장하여 귀하에게 개인화된 사용자 경험을 제공하고 서비스 보안을 보장합니다. 귀하는 브라우저 설정을 통해 쿠키, 식별자 또는 관련 기술의 사용을 거부하거나 관리할 수 있습니다.'],
+      ['p','당사가 연동하는 제3자 SDK:'],
+      ['ul',['Umeng 통계','Bugly']],
+
+      ['h','2. 정보의 저장'],
+      ['h3','2.1 정보 저장 방식 및 기간'],
+      ['p','당사는 로컬 저장(예: APP을 사용한 데이터 캐싱), 데이터베이스 및 서버 로그를 포함한 안전한 방식으로 귀하의 정보를 저장합니다.'],
+      ['p','일반적으로 당사는 서비스 목적을 달성하기 위해 필요한 기간 동안 또는 법률 및 규정에서 정한 조건에 따라 귀하의 개인정보를 저장합니다.'],
+      ['h3','2.2 정보가 저장되는 지역'],
+      ['p','당사는 법률 및 규정에 따라 중국 내에서 수집된 사용자 개인정보를 중국 내에 저장합니다.'],
+      ['p','당사는 현재 귀하의 개인정보를 국경을 넘어 전송하거나 저장하지 않습니다. 향후 국경 간 전송 또는 저장이 필요한 경우 당사는 정보 이전의 목적, 수신자, 안전 보장 조치 및 보안 위험을 귀하에게 알리고 귀하의 동의를 받을 것입니다.'],
+      ['h3','2.3 제품 또는 서비스 운영 중단 시 통지'],
+      ['p','당사의 제품 또는 서비스가 운영을 중단할 때 당사는 푸시 알림, 공지 등의 형태로 귀하에게 알리고 합리적인 기간 내에 귀하의 개인정보를 삭제하거나 익명화합니다. 단, 법률 및 규정에 달리 정한 경우는 예외입니다.'],
+
+      ['h','3. 정보 보안'],
+      ['p','당사는 정보의 손실, 부적절한 사용, 무단 접근 또는 공개를 방지하기 위해 다양한 보안 기술과 절차를 사용합니다. 예를 들어 일부 서비스에서 당사는 귀하가 제공한 개인정보를 보호하기 위해 암호화 기술(예: SSL)을 활용합니다. 그러나 기술적 한계와 다양한 가능한 악의적 수단으로 인해 인터넷 업계에서는 당사가 보안 조치를 강화하기 위해 최선을 다하더라도 정보 보안을 항상 100% 보장하는 것은 불가능하다는 점을 이해해 주십시오. 귀하는 당사 서비스에 접근하기 위해 사용하는 시스템과 통신 네트워크가 당사의 통제를 벗어난 요인으로 인해 문제가 발생할 수 있음을 이해해야 합니다.'],
+
+      ['h','4. 당사가 정보를 사용하는 방법'],
+      ['p','당사는 귀하에게 서비스를 제공하는 과정에서 수집된 정보를 다음과 같은 목적으로 사용할 수 있습니다:'],
+      ['ul',[
+        '귀하에게 서비스를 제공하기 위해;',
+        '당사가 서비스를 제공할 때 신원 확인, 고객 서비스, 보안, 사기 모니터링, 보관 및 백업 목적으로 당사가 귀하에게 제공하는 제품 및 서비스의 보안을 보장하기 위해;',
+        '당사가 새로운 서비스를 설계하고 기존 서비스를 개선하는 데 도움을 주기 위해;',
+        '귀하가 당사 서비스에 어떻게 접근하고 이용하는지 당사가 더 잘 이해하여 언어 설정, 위치 설정, 개인화된 도움말 서비스 및 지침 등 귀하의 개인화된 요구에 대응하거나 귀하와 다른 사용자에게 다른 권장 사항을 제시하기 위해;',
+        '일반적으로 게재되는 광고 대신 귀하에게 더 관련성 높은 광고를 제공하기 위해;',
+        '당사 서비스의 광고 및 기타 판촉 활동의 효과를 평가하고 개선하기 위해;',
+        '소프트웨어 인증 또는 소프트웨어 업그레이드 관리;',
+        '귀하가 당사 제품 및 서비스에 관한 설문조사에 참여할 수 있도록 하기 위해.'
+      ]],
+
+      ['h','5. 정보 공유'],
+      ['p','현재 당사는 귀하의 개인정보를 제3자에게 적극적으로 공유하거나 이전하지 않습니다. 귀하의 개인정보를 공유하거나 이전하는 다른 상황이 있거나 당사가 귀하의 개인정보를 제3자에게 공유하거나 이전해야 하는 경우, 당사는 직접 또는 제3자가 위 행위에 대해 귀하의 명시적 동의를 받았음을 확인합니다.'],
+      ['p','광고를 게재하고 광고 게재 효과를 평가 및 최적화하기 위해 당사는 귀하의 데이터 일부를 광고주 및 그 대리인 등 제3자 파트너와 공유해야 하며, 개인 식별을 방지하고 개인정보 보안을 보장하기 위해 데이터 보호 계약, 확약서 및 관련 데이터 처리 정책을 포함하되 이에 국한되지 않는 당사의 데이터 개인정보 보호 조치 및 요구사항을 엄격히 준수하도록 요구합니다.'],
+      ['p','당사는 귀하가 명시적으로 승인하지 않는 한 귀하를 개인적으로 식별하는 정보(예: 귀하의 이름 또는 이메일 주소)를 파트너와 공유하지 않습니다.'],
+      ['p','당사는 수집한 개인정보를 공개적으로 공개하지 않습니다. 공개 공개가 필요한 경우 당사는 공개 공개의 목적, 공개되는 정보의 유형 및 관련될 수 있는 민감한 정보를 귀하에게 알리고 귀하의 명시적 동의를 받습니다.'],
+      ['p','당사 사업이 지속적으로 발전함에 따라 당사는 합병, 인수, 자산 이전 및 기타 거래를 수행할 수 있습니다. 당사는 관련 상황을 귀하에게 알리고 법률 및 규정과 본 개인정보 처리방침에서 요구하는 기준 이상에 따라 귀하의 개인정보를 계속 보호하거나 새로운 관리자에게 계속 보호하도록 요구합니다.'],
+      ['p','또한 관련 법률, 규정 및 국가 표준에 따라 다음과 같은 상황에서는 귀하의 사전 승인 및 동의 없이 개인정보를 공유, 이전 및 공개 공개할 수 있습니다:'],
+      ['ul',[
+        '국가 안보 및 국방 안보와 직접 관련된 경우;',
+        '공공 안전, 공중 보건 및 중대한 공공 이익과 직접 관련된 경우;',
+        '범죄 수사, 기소, 재판 및 판결 집행과 직접 관련된 경우;',
+        '개인정보 주체 또는 다른 개인의 생명, 재산 및 기타 중대한 정당한 권리와 이익을 보호하기 위한 것이지만 해당 개인의 동의를 얻기 어려운 경우;',
+        '개인정보 주체가 자발적으로 개인정보를 대중에게 공개하는 경우;',
+        '합법적인 뉴스 보도, 정부 정보 공개 등 채널을 통해 합법적으로 공개된 정보에서 개인정보를 수집하는 경우.'
+      ]],
+
+      ['h','6. 귀하의 권리'],
+      ['p','귀하가 당사 서비스를 이용하는 동안 당사는 제품의 구체적인 상황에 따라 귀하가 관련 개인정보를 조회, 삭제, 정정 또는 철회할 수 있도록 해당 운영 설정을 제공할 수 있습니다. 운영을 위해서는 해당 구체적인 지침을 참조하십시오. 또한 당사는 불만 신고 채널도 마련하고 있으며 귀하의 의견은 적시에 처리됩니다. 귀하가 위 채널과 방법을 통해 개인정보 주체로서의 권리를 행사할 수 없는 경우 본 개인정보 처리방침에 제공된 연락처를 통해 요청하실 수 있으며, 당사는 법률 및 규정에 따라 피드백을 제공할 것입니다.'],
+      ['p','귀하가 당사 제품 또는 서비스를 더 이상 이용하지 않기로 결정한 경우 계정 삭제를 신청할 수 있습니다. 계정 삭제 후 당사는 귀하의 개인정보를 삭제하거나 익명화합니다. 단, 법률 및 규정에 달리 정한 경우는 예외입니다.'],
+
+      ['h','7. 변경'],
+      ['p','당사는 수시로 본 개인정보 처리방침의 조항을 개정할 수 있습니다. 변경이 발생할 경우 당사는 버전 업데이트 시 새로운 개인정보 처리방침으로 귀하에게 알리고 시행 날짜를 설명합니다. 변경된 «개인정보 처리방침»을 주의 깊게 읽어 주십시오. 귀하가 당사 서비스를 계속 이용하는 경우 업데이트된 «개인정보 처리방침»에 따라 당사가 귀하의 개인정보를 처리하는 데 동의하는 것으로 간주됩니다.'],
+
+      ['h','8. 미성년자 보호'],
+      ['p','당사는 부모 또는 보호자가 18세 미만 미성년자에게 당사 서비스 이용을 지도할 것을 권장합니다. 미성년자는 부모 또는 보호자에게 본 개인정보 처리방침을 읽도록 권장하고 개인정보를 제출하기 전에 부모 또는 보호자의 동의와 지도를 받을 것을 권장합니다.']
+    ]
+  },
+
+  /* ---------------- Português ---------------- */
+  pt: {
+    dir:'ltr', title:'Política de Privacidade',
+    updated:'Data de atualização: 2026/11/1', effective:'Data de vigência: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor é um produto fornecido pelo Sr. Xie (doravante denominado «nós»). Quando você usa nossos serviços, podemos coletar e usar suas informações relevantes. Desejamos usar esta Política de Privacidade para explicar a você como coletamos, usamos, armazenamos e compartilhamos essas informações quando você usa nossos serviços, e como fornecemos a você acesso, atualização, controle e proteção dessas informações. Esta «Política de Privacidade» está intimamente relacionada ao serviço da ferramenta EditBook-AudioEditor que você usa. Esperamos que você a leia atentamente e, quando necessário, siga as diretrizes desta «Política de Privacidade» para fazer as escolhas que considerar apropriadas. Procuramos expressar os termos técnicos relevantes envolvidos nesta Política de Privacidade da forma mais concisa possível e fornecer links para explicações adicionais para facilitar sua compreensão.'],
+      ['p','O uso ou uso continuado de nossos serviços significa que você concorda com nossa coleta, uso, armazenamento e compartilhamento de suas informações relevantes de acordo com esta Política de Privacidade.'],
+      ['p','Se você tiver alguma dúvida sobre esta Política de Privacidade ou assuntos relacionados, entre em contato conosco em xieh6888@gmail.com.'],
+
+      ['h','1. Informações que coletamos'],
+      ['p','Quando nós ou nossos parceiros terceiros fornecemos serviços, podemos coletar, armazenar e usar as seguintes informações sobre você. Se você não fornecer as informações relevantes, poderá não conseguir se registrar como nosso usuário ou desfrutar de alguns dos serviços que oferecemos, ou poderá não conseguir alcançar os efeitos pretendidos dos serviços relevantes.'],
+      ['p','Informações pessoais: as informações pessoais relevantes que você nos fornece ao registrar uma conta ou usar nossos serviços, como número de telefone, e-mail, etc.'],
+      ['p','Informações de registro: informações que o sistema pode coletar por meio de cookies, identificadores e tecnologias relacionadas quando você usa nossos serviços, incluindo informações do seu dispositivo, informações de navegação e informações de cliques, e armazena essas informações como informações de registro para fornecer a você uma experiência de usuário personalizada e garantir a segurança do serviço. Você pode recusar ou gerenciar o uso de cookies, identificadores ou tecnologias relacionadas por meio das configurações do seu navegador.'],
+      ['p','SDKs de terceiros que acessamos:'],
+      ['ul',['Estatísticas do Umeng','Bugly']],
+
+      ['h','2. Armazenamento de informações'],
+      ['h3','2.1 Forma e período de armazenamento das informações'],
+      ['p','Armazenaremos suas informações de maneira segura, incluindo armazenamento local (como o uso do APP para cache de dados), bancos de dados e registros do servidor.'],
+      ['p','Geralmente, armazenaremos suas informações pessoais apenas pelo tempo necessário para atingir a finalidade do serviço ou nas condições estipuladas por leis e regulamentos.'],
+      ['h3','2.2 Região onde as informações são armazenadas'],
+      ['p','Armazenaremos na China as informações pessoais dos usuários coletadas dentro da China, em conformidade com as leis e regulamentos.'],
+      ['p','Atualmente, não transferimos nem armazenamos suas informações pessoais além das fronteiras. Se, no futuro, for necessária transmissão ou armazenamento transfronteiriço, informaremos a você a finalidade da transferência das informações, os destinatários, as medidas de garantia de segurança e os riscos de segurança, e obteremos seu consentimento.'],
+      ['h3','2.3 Aviso quando produtos ou serviços cessarem as operações'],
+      ['p','Quando nossos produtos ou serviços cessarem as operações, notificaremos você por meio de notificações push, anúncios, etc., e excluiremos ou anonimizaremos suas informações pessoais dentro de um período razoável, salvo disposição em contrário de leis e regulamentos.'],
+
+      ['h','3. Segurança das informações'],
+      ['p','Utilizamos diversas tecnologias e procedimentos de segurança para proteger as informações contra perda, uso indevido, acesso não autorizado ou divulgação. Por exemplo, em alguns serviços, utilizaremos tecnologia de criptografia (como SSL) para proteger as informações pessoais que você fornece. No entanto, entenda que, devido a limitações técnicas e vários meios maliciosos possíveis, no setor da Internet, mesmo que façamos o possível para reforçar as medidas de segurança, é impossível garantir sempre 100% de segurança das informações. Você precisa entender que os sistemas e redes de comunicação que você usa para acessar nossos serviços podem apresentar problemas devido a fatores fora do nosso controle.'],
+
+      ['h','4. Como usamos as informações'],
+      ['p','Podemos usar as informações coletadas no processo de prestação de serviços a você para as seguintes finalidades:'],
+      ['ul',[
+        'Fornecer serviços a você;',
+        'Quando prestamos serviços, para fins de verificação de identidade, atendimento ao cliente, segurança, monitoramento de fraudes, arquivamento e backup, a fim de garantir a segurança dos produtos e serviços que fornecemos a você;',
+        'Ajudar-nos a projetar novos serviços e melhorar nossos serviços existentes;',
+        'Permitir-nos entender melhor como você acessa e usa nossos serviços, a fim de responder às suas necessidades personalizadas, como configurações de idioma, configurações de localização, serviços de ajuda personalizados e instruções, ou fazer outras recomendações a você e a outros usuários;',
+        'Fornecer a você anúncios mais relevantes para você em vez de anúncios de veiculação geral;',
+        'Avaliar a eficácia de anúncios e outras promoções em nossos Serviços e aprimorá-los;',
+        'Certificação de software ou gerenciamento de atualizações de software;',
+        'Permitir que você participe de pesquisas sobre nossos produtos e serviços.'
+      ]],
+
+      ['h','5. Compartilhamento de informações'],
+      ['p','Atualmente, não compartilharemos nem transferiremos ativamente suas informações pessoais para terceiros. Se houver outro compartilhamento ou transferência de suas informações pessoais ou se você precisar que compartilhemos ou transfiramos suas informações pessoais para um terceiro, obteremos diretamente seu consentimento expresso para as ações acima ou confirmaremos que o terceiro o obteve.'],
+      ['p','Para veicular anúncios, avaliar e otimizar a eficácia da veiculação de anúncios, precisamos compartilhar parte dos seus dados com parceiros terceiros, como anunciantes e seus agentes, e exigir que eles cumpram rigorosamente nossas medidas e requisitos de proteção de privacidade de dados, incluindo, mas não se limitando a acordos de proteção de dados, cartas de compromisso e políticas relevantes de processamento de dados, para evitar a identificação de identidades pessoais e garantir a segurança da privacidade.'],
+      ['p','Não compartilhamos com nossos parceiros informações que identifiquem você pessoalmente (como seu nome ou endereço de e-mail), a menos que você autorize expressamente.'],
+      ['p','Não divulgaremos publicamente as informações pessoais que coletamos. Se a divulgação pública for necessária, informaremos a você a finalidade da divulgação pública, o tipo de informação divulgada e as informações sensíveis que possam estar envolvidas, e obteremos seu consentimento expresso.'],
+      ['p','À medida que nossos negócios continuam a se desenvolver, podemos realizar fusões, aquisições, transferências de ativos e outras transações. Informaremos a você as situações relevantes e continuaremos a proteger ou exigiremos que o novo controlador continue a proteger suas informações pessoais de acordo com as leis, regulamentos e padrões não inferiores aos exigidos por esta Política de Privacidade.'],
+      ['p','Além disso, de acordo com as leis, regulamentos e padrões nacionais relevantes, podemos compartilhar, transferir e divulgar publicamente informações pessoais nas seguintes circunstâncias sem obter sua autorização e consentimento prévios:'],
+      ['ul',[
+        'Diretamente relacionadas à segurança nacional e à segurança da defesa nacional;',
+        'Diretamente relacionadas à segurança pública, saúde pública e importantes interesses públicos;',
+        'Diretamente relacionadas à investigação criminal, acusação, julgamento e execução de sentenças;',
+        'Para proteger a vida, a propriedade e outros direitos e interesses legítimos importantes do titular das informações pessoais ou de outras pessoas, mas é difícil obter o consentimento do indivíduo;',
+        'O titular das informações pessoais divulga suas informações pessoais ao público por iniciativa própria;',
+        'Coletar informações pessoais de informações legalmente divulgadas ao público, como reportagens jornalísticas legais, divulgação de informações governamentais e outros canais.'
+      ]],
+
+      ['h','6. Seus direitos'],
+      ['p','Durante o uso de nossos serviços, podemos fornecer a você configurações operacionais correspondentes, dependendo das circunstâncias específicas do produto, para que você possa consultar, excluir, corrigir ou retirar suas informações pessoais relevantes. Você pode consultar as diretrizes específicas correspondentes para operar. Além disso, também estabelecemos um canal de reclamações e denúncias, e suas opiniões serão tratadas de forma oportuna. Se você não puder exercer seus direitos como titular de informações pessoais por meio dos canais e métodos acima, poderá fazer sua solicitação por meio das informações de contato fornecidas nesta Política de Privacidade, e forneceremos feedback de acordo com as leis e regulamentos.'],
+      ['p','Quando você decidir não usar mais nossos produtos ou serviços, poderá solicitar o cancelamento da sua conta. Após o cancelamento da conta, excluiremos ou anonimizaremos suas informações pessoais, salvo disposição em contrário de leis e regulamentos.'],
+
+      ['h','7. Alterações'],
+      ['p','Podemos revisar os termos desta Política de Privacidade de tempos em tempos. Quando ocorrerem alterações, avisaremos você com a nova Política de Privacidade quando a versão for atualizada e explicaremos a data de vigência. Leia atentamente a «Política de Privacidade» alterada. Se você continuar a usar nossos serviços, concorda que processamos suas informações pessoais de acordo com a «Política de Privacidade» atualizada.'],
+
+      ['h','8. Proteção de menores'],
+      ['p','Incentivamos pais ou responsáveis a orientar menores de dezoito anos no uso de nossos Serviços. Recomendamos que os menores incentivem seus pais ou responsáveis a ler esta Política de Privacidade e obtenham o consentimento e a orientação de seus pais ou responsáveis antes de enviar informações pessoais.']
+    ]
+  },
+
+  /* ---------------- Русский ---------------- */
+  ru: {
+    dir:'ltr', title:'Политика конфиденциальности',
+    updated:'Дата обновления: 2026/11/1', effective:'Дата вступления в силу: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor — это продукт, предоставляемый г-ном Се (далее — «мы»). При использовании вами наших услуг мы можем собирать и использовать соответствующую информацию о вас. С помощью настоящей Политики конфиденциальности мы хотим объяснить вам, как мы собираем, используем, храним и передаём эту информацию при использовании вами наших услуг, а также как мы обеспечиваем вам доступ, обновление, контроль и защиту этой информации. Настоящая «Политика конфиденциальности» тесно связана с услугой инструмента EditBook-AudioEditor, которую вы используете. Мы надеемся, что вы внимательно её прочитаете и, при необходимости, сделаете выбор, который сочтёте целесообразным, следуя рекомендациям настоящей «Политики конфиденциальности». Мы стараемся изложить соответствующие технические термины как можно более кратко и предоставить ссылки на дополнительные пояснения, чтобы облегчить ваше понимание.'],
+      ['p','Использование или продолжение использования вами наших услуг означает, что вы соглашаетесь со сбором, использованием, хранением и передачей вашей соответствующей информации в соответствии с настоящей Политикой конфиденциальности.'],
+      ['p','Если у вас есть какие-либо вопросы относительно настоящей Политики конфиденциальности или связанных с ней вопросов, свяжитесь с нами по адресу xieh6888@gmail.com.'],
+
+      ['h','1. Информация, которую мы собираем'],
+      ['p','Когда мы или наши третьи стороны предоставляем услуги, мы можем собирать, хранить и использовать следующую информацию о вас. Если вы не предоставите соответствующую информацию, вы можете не иметь возможности зарегистрироваться в качестве нашего пользователя или воспользоваться некоторыми предоставляемыми нами услугами либо не сможете достичь предполагаемых результатов соответствующих услуг.'],
+      ['p','Персональная информация — это соответствующая личная информация, которую вы предоставляете нам при регистрации учётной записи или использовании наших услуг, например номер телефона, адрес электронной почты и т. д.'],
+      ['p','Информация журнала — это информация, которую система может собирать с помощью файлов cookie, идентификаторов и связанных технологий при использовании вами наших услуг, включая информацию о вашем устройстве, информацию о просмотре, информацию о кликах, и которая сохраняется в качестве информации журнала для предоставления вам персонализированного пользовательского опыта и обеспечения безопасности услуг. Вы можете отказаться от использования файлов cookie, идентификаторов или связанных технологий или управлять ими через настройки браузера.'],
+      ['p','Сторонние SDK, к которым мы подключаемся:'],
+      ['ul',['Статистика Umeng','Bugly']],
+
+      ['h','2. Хранение информации'],
+      ['h3','2.1 Способ и срок хранения информации'],
+      ['p','Мы храним вашу информацию безопасным способом, включая локальное хранилище (например, кэширование данных с помощью приложения), базы данных и журналы сервера.'],
+      ['p','Как правило, мы храним вашу персональную информацию только в течение времени, необходимого для достижения цели услуги, или в условиях, предусмотренных законами и нормативными актами.'],
+      ['h3','2.2 Регион хранения информации'],
+      ['p','Мы храним персональную информацию пользователей, собранную на территории Китая, на территории Китая в соответствии с законами и нормативными актами.'],
+      ['p','В настоящее время мы не передаём и не храним вашу персональную информацию за границей. Если в будущем потребуется трансграничная передача или хранение, мы сообщим вам о цели передачи информации, получателях, мерах обеспечения безопасности и рисках безопасности и получим ваше согласие.'],
+      ['h3','2.3 Уведомление при прекращении работы продуктов или услуг'],
+      ['p','Когда наши продукты или услуги прекращают работу, мы уведомим вас посредством push-уведомлений, объявлений и т. п., а также удалим или обезличим вашу персональную информацию в разумный срок, если иное не предусмотрено законами и нормативными актами.'],
+
+      ['h','3. Информационная безопасность'],
+      ['p','Мы используем различные технологии и процедуры безопасности для защиты информации от потери, ненадлежащего использования, несанкционированного доступа или раскрытия. Например, в некоторых услугах мы используем технологии шифрования (такие как SSL) для защиты предоставляемой вами персональной информации. Однако учтите, что из-за технических ограничений и различных возможных злонамеренных методов в интернет-индустрии даже при максимальных усилиях по усилению мер безопасности невозможно всегда гарантировать 100 % безопасность информации. Вы должны понимать, что системы и сети связи, которые вы используете для доступа к нашим услугам, могут иметь проблемы из-за факторов, не зависящих от нас.'],
+
+      ['h','4. Как мы используем информацию'],
+      ['p','Мы можем использовать информацию, собранную в процессе предоставления вам услуг, в следующих целях:'],
+      ['ul',[
+        'Предоставление вам услуг;',
+        'При предоставлении услуг для целей проверки личности, обслуживания клиентов, обеспечения безопасности, мониторинга мошенничества, архивирования и резервного копирования, чтобы обеспечить безопасность предоставляемых вам продуктов и услуг;',
+        'Помощь нам в разработке новых услуг и улучшении существующих услуг;',
+        'Позволить нам лучше понимать, как вы получаете доступ к нашим услугам и используете их, чтобы реагировать на ваши индивидуальные потребности, такие как языковые настройки, настройки местоположения, персонализированные справочные услуги и инструкции, или давать другие рекомендации вам и другим пользователям;',
+        'Предоставление вам более актуальной для вас рекламы вместо рекламы общего характера;',
+        'Оценка эффективности рекламы и других промоакций в наших Услугах и их улучшение;',
+        'Сертификация программного обеспечения или управление обновлениями программного обеспечения;',
+        'Предоставление вам возможности участвовать в опросах о наших продуктах и услугах.'
+      ]],
+
+      ['h','5. Передача информации'],
+      ['p','В настоящее время мы не передаём и не предоставляем активно вашу персональную информацию третьим лицам. Если возникнут иные случаи передачи или предоставления вашей персональной информации, или если вам потребуется, чтобы мы передали или предоставили вашу персональную информацию третьему лицу, мы напрямую получим ваше явное согласие на вышеуказанные действия или подтвердим, что третье лицо получило его.'],
+      ['p','Для показа рекламы, оценки и оптимизации эффективности показа рекламы нам необходимо передавать часть ваших данных третьим сторонам, таким как рекламодатели и их агенты, и требовать от них строгого соблюдения наших мер и требований по защите конфиденциальности данных, включая, помимо прочего, соглашения о защите данных, гарантийные письма и соответствующие политики обработки данных, чтобы избежать идентификации личности и обеспечить конфиденциальность.'],
+      ['p','Мы не передаём партнёрам информацию, позволяющую идентифицировать вас лично (например, ваше имя или адрес электронной почты), если вы не дали на это явного разрешения.'],
+      ['p','Мы не раскрываем публично собранную нами персональную информацию. Если публичное раскрытие необходимо, мы сообщим вам цель публичного раскрытия, тип раскрываемой информации и возможную конфиденциальную информацию и получим ваше явное согласие.'],
+      ['p','По мере развития нашего бизнеса мы можем осуществлять слияния, поглощения, передачу активов и другие сделки. Мы сообщим вам о соответствующих обстоятельствах и продолжим защищать или потребуем от нового контроллера продолжать защищать вашу персональную информацию в соответствии с законами, нормативными актами и стандартами не ниже требуемых настоящей Политикой конфиденциальности.'],
+      ['p','Кроме того, в соответствии с соответствующими законами, нормативными актами и национальными стандартами мы можем передавать, предоставлять и публично раскрывать персональную информацию в следующих случаях без получения вашего предварительного разрешения и согласия:'],
+      ['ul',[
+        'Непосредственно связанные с национальной безопасностью и безопасностью обороны;',
+        'Непосредственно связанные с общественной безопасностью, общественным здоровьем и важными общественными интересами;',
+        'Непосредственно связанные с уголовным расследованием, судебным преследованием, судебным разбирательством и исполнением приговоров;',
+        'Для защиты жизни, имущества и других важных законных прав и интересов субъекта персональных данных или других лиц, когда трудно получить согласие лица;',
+        'Субъект персональных данных самостоятельно раскрывает персональную информацию общественности;',
+        'Сбор персональной информации из законно опубликованной информации, например из законных новостных сообщений, раскрытия государственной информации и других каналов.'
+      ]],
+
+      ['h','6. Ваши права'],
+      ['p','Во время использования вами наших услуг мы можем предоставлять вам соответствующие настройки в зависимости от конкретных обстоятельств продукта, чтобы вы могли запрашивать, удалять, исправлять или отзывать вашу соответствующую персональную информацию. Для выполнения операций вы можете обратиться к соответствующим конкретным инструкциям. Кроме того, мы создали канал для подачи жалоб и сообщений, и ваши замечания будут обработаны своевременно. Если вы не можете реализовать свои права как субъекта персональных данных через указанные выше каналы и способы, вы можете направить свой запрос через контактную информацию, указанную в настоящей Политике конфиденциальности, и мы предоставим ответ в соответствии с законами и нормативными актами.'],
+      ['p','Если вы решите больше не использовать наши продукты или услуги, вы можете подать заявку на удаление учётной записи. После удаления учётной записи мы удалим или обезличим вашу персональную информацию, если иное не предусмотрено законами и нормативными актами.'],
+
+      ['h','7. Изменения'],
+      ['p','Мы можем время от времени пересматривать условия настоящей Политики конфиденциальности. В случае изменений мы уведомим вас о новой Политике конфиденциальности при обновлении версии и разъясним вам дату вступления в силу. Пожалуйста, внимательно прочитайте изменённую «Политику конфиденциальности». Если вы продолжаете использовать наши услуги, вы соглашаетесь с тем, что мы обрабатываем вашу персональную информацию в соответствии с обновлённой «Политикой конфиденциальности».'],
+
+      ['h','8. Защита несовершеннолетних'],
+      ['p','Мы призываем родителей или опекунов направлять несовершеннолетних младше восемнадцати лет в использовании наших Услуг. Мы рекомендуем несовершеннолетним побуждать своих родителей или опекунов прочитать настоящую Политику конфиденциальности и получать согласие и руководство своих родителей или опекунов перед отправкой персональной информации.']
+    ]
+  },
+
+  /* ---------------- ไทย ---------------- */
+  th: {
+    dir:'ltr', title:'นโยบายความเป็นส่วนตัว',
+    updated:'วันที่อัปเดต: 2026/11/1', effective:'วันที่เริ่มมีผลบังคับใช้: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor เป็นผลิตภัณฑ์ที่จัดหาโดยคุณ Xie (ต่อไปนี้เรียกว่า «เรา») เมื่อคุณใช้บริการของเรา เราอาจรวบรวมและใช้ข้อมูลที่เกี่ยวข้องของคุณ เราหวังว่าจะใช้นโยบายความเป็นส่วนตัวนี้เพื่ออธิบายให้คุณทราบว่าเราเก็บรวบรวม ใช้ จัดเก็บ และแบ่งปันข้อมูลนี้อย่างไรเมื่อคุณใช้บริการของเรา และเราให้คุณเข้าถึง อัปเดต ควบคุม และปกป้องข้อมูลนี้อย่างไร «นโยบายความเป็นส่วนตัว» นี้เกี่ยวข้องอย่างใกล้ชิดกับบริการเครื่องมือ EditBook-AudioEditor ที่คุณใช้ เราหวังว่าคุณจะอ่านอย่างละเอียดและเมื่อจำเป็นปฏิบัติตามแนวทางของ «นโยบายความเป็นส่วนตัว» นี้เพื่อตัดสินใจในสิ่งที่คุณเห็นว่าเหมาะสม เราพยายามแสดงคำศัพท์ทางเทคนิคที่เกี่ยวข้องให้กระชับที่สุดเท่าที่จะเป็นไปได้และให้ลิงก์ไปยังคำอธิบายเพิ่มเติมเพื่ออำนวยความสะดวกในการทำความเข้าใจของคุณ'],
+      ['p','การใช้หรือการใช้บริการของเราอย่างต่อเนื่องหมายความว่าคุณยินยอมให้เราเก็บรวบรวม ใช้ จัดเก็บ และแบ่งปันข้อมูลที่เกี่ยวข้องของคุณตามนโยบายความเป็นส่วนตัวนี้'],
+      ['p','หากคุณมีคำถามใด ๆ เกี่ยวกับนโยบายความเป็นส่วนตัวนี้หรือเรื่องที่เกี่ยวข้อง โปรดติดต่อเราที่ xieh6888@gmail.com'],
+
+      ['h','1. ข้อมูลที่เราเก็บรวบรวม'],
+      ['p','เมื่อเราหรือพันธมิตรบุคคลที่สามของเราให้บริการ เราอาจเก็บรวบรวม จัดเก็บ และใช้ข้อมูลต่อไปนี้เกี่ยวกับคุณ หากคุณไม่ให้ข้อมูลที่เกี่ยวข้อง คุณอาจไม่สามารถลงทะเบียนเป็นผู้ใช้ของเราหรือเพลิดเพลินกับบริการบางส่วนที่เราให้ได้ หรืออาจไม่สามารถบรรลุผลตามที่ตั้งใจไว้ของบริการที่เกี่ยวข้อง'],
+      ['p','ข้อมูลส่วนบุคคล: ข้อมูลส่วนบุคคลที่เกี่ยวข้องที่คุณให้กับเราเมื่อลงทะเบียนบัญชีหรือใช้บริการของเรา เช่น หมายเลขโทรศัพท์ อีเมล ฯลฯ'],
+      ['p','ข้อมูลบันทึก: ข้อมูลที่ระบบอาจรวบรวมผ่านคุกกี้ ตัวระบุ และเทคโนโลยีที่เกี่ยวข้องเมื่อคุณใช้บริการของเรา รวมถึงข้อมูลอุปกรณ์ของคุณ ข้อมูลการเรียกดู ข้อมูลการคลิก และจัดเก็บข้อมูลดังกล่าวเป็นข้อมูลบันทึกเพื่อให้คุณได้รับประสบการณ์ผู้ใช้ที่เป็นส่วนตัวและรับประกันความปลอดภัยของบริการ คุณสามารถปฏิเสธหรือจัดการการใช้คุกกี้ ตัวระบุ หรือเทคโนโลยีที่เกี่ยวข้องผ่านการตั้งค่าเบราว์เซอร์ของคุณ'],
+      ['p','SDK ของบุคคลที่สามที่เราเข้าถึง:'],
+      ['ul',['สถิติ Umeng','Bugly']],
+
+      ['h','2. การจัดเก็บข้อมูล'],
+      ['h3','2.1 วิธีการและระยะเวลาการจัดเก็บข้อมูล'],
+      ['p','เราจะจัดเก็บข้อมูลของคุณอย่างปลอดภัย รวมถึงการจัดเก็บในเครื่อง (เช่น การใช้แอปสำหรับแคชข้อมูล) ฐานข้อมูล และบันทึกของเซิร์ฟเวอร์'],
+      ['p','โดยทั่วไป เราจะจัดเก็บข้อมูลส่วนบุคคลของคุณเฉพาะในช่วงเวลาที่จำเป็นเพื่อให้บรรลุวัตถุประสงค์ของบริการหรือภายใต้เงื่อนไขที่กฎหมายและข้อบังคับกำหนด'],
+      ['h3','2.2 ภูมิภาคที่จัดเก็บข้อมูล'],
+      ['p','เราจะจัดเก็บข้อมูลส่วนบุคคลของผู้ใช้ที่เก็บรวบรวมภายในประเทศจีนในประเทศจีนตามกฎหมายและข้อบังคับ'],
+      ['p','ปัจจุบันเราไม่ถ่ายโอนหรือจัดเก็บข้อมูลส่วนบุคคลของคุณข้ามพรมแดน หากในอนาคตจำเป็นต้องมีการส่งหรือจัดเก็บข้ามพรมแดน เราจะแจ้งให้คุณทราบถึงวัตถุประสงค์ของการถ่ายโอนข้อมูล ผู้รับ มาตรการรับประกันความปลอดภัย และความเสี่ยงด้านความปลอดภัย และขอความยินยอมจากคุณ'],
+      ['h3','2.3 การแจ้งเตือนเมื่อผลิตภัณฑ์หรือบริการหยุดดำเนินการ'],
+      ['p','เมื่อผลิตภัณฑ์หรือบริการของเราหยุดดำเนินการ เราจะแจ้งให้คุณทราบในรูปแบบของการแจ้งเตือนแบบพุช ประกาศ ฯลฯ และลบหรือทำให้ข้อมูลส่วนบุคคลของคุณเป็นนิรนามภายในระยะเวลาที่สมเหตุสมผล เว้นแต่กฎหมายและข้อบังคับจะกำหนดไว้เป็นอย่างอื่น'],
+
+      ['h','3. ความปลอดภัยของข้อมูล'],
+      ['p','เราใช้เทคโนโลยีและขั้นตอนด้านความปลอดภัยที่หลากหลายเพื่อปกป้องข้อมูลจากการสูญหาย การใช้งานที่ไม่เหมาะสม การเข้าถึงโดยไม่ได้รับอนุญาต หรือการเปิดเผย ตัวอย่างเช่น ในบางบริการ เราจะใช้เทคโนโลยีการเข้ารหัส (เช่น SSL) เพื่อปกป้องข้อมูลส่วนบุคคลที่คุณให้ไว้ อย่างไรก็ตาม โปรดเข้าใจว่าเนื่องจากข้อจำกัดทางเทคนิคและวิธีการที่เป็นอันตรายต่าง ๆ ที่เป็นไปได้ ในอุตสาหกรรมอินเทอร์เน็ต แม้ว่าเราจะพยายามอย่างเต็มที่ในการเสริมสร้างมาตรการรักษาความปลอดภัย ก็เป็นไปไม่ได้ที่จะรับประกันความปลอดภัยของข้อมูล 100% เสมอไป คุณต้องเข้าใจว่าระบบและเครือข่ายการสื่อสารที่คุณใช้เข้าถึงบริการของเราอาจมีปัญหาเนื่องจากปัจจัยที่อยู่นอกเหนือการควบคุมของเรา'],
+
+      ['h','4. วิธีที่เราใช้ข้อมูล'],
+      ['p','เราอาจใช้ข้อมูลที่เก็บรวบรวมในกระบวนการให้บริการแก่คุณเพื่อวัตถุประสงค์ดังต่อไปนี้:'],
+      ['ul',[
+        'ให้บริการแก่คุณ',
+        'เมื่อเราให้บริการ เพื่อวัตถุประสงค์ในการตรวจสอบตัวตน การบริการลูกค้า ความปลอดภัย การตรวจสอบการฉ้อโกง การเก็บถาวร และการสำรองข้อมูล เพื่อรับประกันความปลอดภัยของผลิตภัณฑ์และบริการที่เราให้แก่คุณ',
+        'ช่วยเราในการออกแบบบริการใหม่และปรับปรุงบริการที่มีอยู่ของเรา',
+        'ทำให้เราเข้าใจดีขึ้นว่าคุณเข้าถึงและใช้บริการของเราอย่างไร เพื่อตอบสนองความต้องการเฉพาะบุคคลของคุณ เช่น การตั้งค่าภาษา การตั้งค่าตำแหน่ง บริการช่วยเหลือและคำแนะนำเฉพาะบุคคล หรือให้คำแนะนำอื่น ๆ แก่คุณและผู้ใช้อื่น ๆ',
+        'ให้โฆษณาที่เกี่ยวข้องกับคุณมากขึ้นแทนโฆษณาที่เผยแพร่ทั่วไป',
+        'ประเมินประสิทธิผลของโฆษณาและโปรโมชั่นอื่น ๆ ในบริการของเราและปรับปรุงให้ดีขึ้น',
+        'การรับรองซอฟต์แวร์หรือการจัดการอัปเกรดซอฟต์แวร์',
+        'ให้คุณมีส่วนร่วมในการสำรวจเกี่ยวกับผลิตภัณฑ์และบริการของเรา'
+      ]],
+
+      ['h','5. การแบ่งปันข้อมูล'],
+      ['p','ปัจจุบัน เราจะไม่แบ่งปันหรือถ่ายโอนข้อมูลส่วนบุคคลของคุณไปยังบุคคลที่สามโดยอ้างอิงเอง หากมีกรณีอื่นในการแบ่งปันหรือถ่ายโอนข้อมูลส่วนบุคคลของคุณ หรือคุณต้องการให้เราแบ่งปันหรือถ่ายโอนข้อมูลส่วนบุคคลของคุณไปยังบุคคลที่สาม เราจะขอความยินยอมอย่างชัดแจ้งจากคุณโดยตรงสำหรับการกระทำดังกล่าวหรือยืนยันว่าบุคคลที่สามได้รับความยินยอมนั้นแล้ว'],
+      ['p','เพื่อแสดงโฆษณา ประเมินและเพิ่มประสิทธิภาพผลของการแสดงโฆษณา เราจำเป็นต้องแบ่งปันข้อมูลบางส่วนของคุณกับพันธมิตรบุคคลที่สาม เช่น ผู้ลงโฆษณาและตัวแทนของพวกเขา และกำหนดให้พวกเขาปฏิบัติตามมาตรการและข้อกำหนดการปกป้องความเป็นส่วนตัวของข้อมูลของเราอย่างเคร่งครัด รวมถึงแต่ไม่จำกัดเพียงข้อตกลงการปกป้องข้อมูล จดหมายให้คำมั่น และนโยบายการประมวลผลข้อมูลที่เกี่ยวข้อง เพื่อหลีกเลี่ยงการระบุตัวตนส่วนบุคคลและรับประกันความปลอดภัยของความเป็นส่วนตัว'],
+      ['p','เราไม่แบ่งปันข้อมูลที่ระบุตัวตนของคุณเป็นการส่วนตัว (เช่น ชื่อหรือที่อยู่อีเมลของคุณ) กับพันธมิตรของเรา เว้นแต่คุณจะอนุญาตอย่างชัดแจ้ง'],
+      ['p','เราจะไม่เปิดเผยข้อมูลส่วนบุคคลที่เราเก็บรวบรวมต่อสาธารณะ หากจำเป็นต้องเปิดเผยต่อสาธารณะ เราจะแจ้งให้คุณทราบถึงวัตถุประสงค์ของการเปิดเผยต่อสาธารณะ ประเภทของข้อมูลที่เปิดเผย และข้อมูลที่ละเอียดอ่อนที่อาจเกี่ยวข้อง และขอความยินยอมอย่างชัดแจ้งจากคุณ'],
+      ['p','เมื่อธุรกิจของเราพัฒนาอย่างต่อเนื่อง เราอาจดำเนินการควบรวมกิจการ การเข้าซื้อกิจการ การโอนสินทรัพย์ และธุรกรรมอื่น ๆ เราจะแจ้งให้คุณทราบถึงสถานการณ์ที่เกี่ยวข้องและดำเนินการปกป้องหรือกำหนดให้ผู้ควบคุมใหม่ดำเนินการปกป้องข้อมูลส่วนบุคคลของคุณต่อไปตามกฎหมาย ข้อบังคับ และมาตรฐานที่ไม่ต่ำกว่าที่กำหนดโดยนโยบายความเป็นส่วนตัวนี้'],
+      ['p','นอกจากนี้ ตามกฎหมาย ข้อบังคับ และมาตรฐานระดับชาติที่เกี่ยวข้อง เราอาจแบ่งปัน ถ่ายโอน และเปิดเผยข้อมูลส่วนบุคคลต่อสาธารณะในสถานการณ์ดังต่อไปนี้โดยไม่ได้รับการอนุญาตและความยินยอมล่วงหน้าจากคุณ:'],
+      ['ul',[
+        'ที่เกี่ยวข้องโดยตรงกับความมั่นคงแห่งชาติและความมั่นคงด้านการป้องกันประเทศ',
+        'ที่เกี่ยวข้องโดยตรงกับความปลอดภัยสาธารณะ สาธารณสุข และผลประโยชน์สาธารณะที่สำคัญ',
+        'ที่เกี่ยวข้องโดยตรงกับการสอบสวนคดีอาญา การฟ้องร้อง การพิจารณาคดี และการบังคับใช้คำพิพากษา',
+        'เพื่อปกป้องชีวิต ทรัพย์สิน และสิทธิและผลประโยชน์อันชอบด้วยกฎหมายที่สำคัญอื่น ๆ ของเจ้าของข้อมูลส่วนบุคคลหรือบุคคลอื่น แต่เป็นการยากที่จะได้รับความยินยอมจากบุคคลนั้น',
+        'เจ้าของข้อมูลส่วนบุคคลเปิดเผยข้อมูลส่วนบุคคลต่อสาธารณะด้วยตนเอง',
+        'การเก็บรวบรวมข้อมูลส่วนบุคคลจากข้อมูลที่เปิดเผยต่อสาธารณะอย่างถูกกฎหมาย เช่น รายงานข่าวที่ถูกกฎหมาย การเปิดเผยข้อมูลของรัฐบาล และช่องทางอื่น ๆ'
+      ]],
+
+      ['h','6. สิทธิของคุณ'],
+      ['p','ในระหว่างการใช้บริการของเรา เราอาจให้การตั้งค่าการดำเนินการที่เหมาะสมแก่คุณตามสถานการณ์เฉพาะของผลิตภัณฑ์ เพื่อให้คุณสามารถสอบถาม ลบ แก้ไข หรือเพิกถอนข้อมูลส่วนบุคคลที่เกี่ยวข้องของคุณได้ คุณสามารถอ้างอิงแนวทางเฉพาะที่เกี่ยวข้องสำหรับการดำเนินการ นอกจากนี้เรายังได้จัดตั้งช่องทางการร้องเรียนและการรายงาน และความคิดเห็นของคุณจะได้รับการดำเนินการอย่างทันท่วงที หากคุณไม่สามารถใช้สิทธิในฐานะเจ้าของข้อมูลส่วนบุคคลผ่านช่องทางและวิธีการข้างต้น คุณสามารถยื่นคำขอของคุณผ่านข้อมูลการติดต่อที่ให้ไว้ในนโยบายความเป็นส่วนตัวนี้ และเราจะให้ข้อเสนอแนะตามกฎหมายและข้อบังคับ'],
+      ['p','เมื่อคุณตัดสินใจที่จะไม่ใช้ผลิตภัณฑ์หรือบริการของเราอีกต่อไป คุณสามารถยื่นคำขอยกเลิกบัญชีของคุณได้ หลังจากยกเลิกบัญชีแล้ว เราจะลบหรือทำให้ข้อมูลส่วนบุคคลของคุณเป็นนิรนาม เว้นแต่กฎหมายและข้อบังคับจะกำหนดไว้เป็นอย่างอื่น'],
+
+      ['h','7. การเปลี่ยนแปลง'],
+      ['p','เราอาจแก้ไขข้อกำหนดของนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว เมื่อมีการเปลี่ยนแปลง เราจะแจ้งให้คุณทราบด้วยนโยบายความเป็นส่วนตัวใหม่เมื่อมีการอัปเดตเวอร์ชันและอธิบายวันที่เริ่มมีผลบังคับใช้ให้คุณทราบ โปรดอ่าน «นโยบายความเป็นส่วนตัว» ที่เปลี่ยนแปลงอย่างละเอียด หากคุณยังคงใช้บริการของเราต่อไป ถือว่าคุณยินยอมให้เราประมวลผลข้อมูลส่วนบุคคลของคุณตาม «นโยบายความเป็นส่วนตัว» ที่อัปเดตแล้ว'],
+
+      ['h','8. การคุ้มครองผู้เยาว์'],
+      ['p','เราสนับสนุนให้ผู้ปกครองหรือผู้ดูแลแนะนำผู้เยาว์ที่มีอายุต่ำกว่าสิบแปดปีในการใช้บริการของเรา เราขอแนะนำให้ผู้เยาว์สนับสนุนให้ผู้ปกครองหรือผู้ดูแลอ่านนโยบายความเป็นส่วนตัวนี้และขอความยินยอมและคำแนะนำจากผู้ปกครองหรือผู้ดูแลก่อนส่งข้อมูลส่วนบุคคล']
+    ]
+  },
+
+  /* ---------------- Türkçe ---------------- */
+  tr: {
+    dir:'ltr', title:'Gizlilik Politikası',
+    updated:'Güncelleme tarihi: 2026/11/1', effective:'Yürürlük tarihi: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor, Bay Xie (bundan sonra «biz» olarak anılacaktır) tarafından sağlanan bir üründür. Hizmetlerimizi kullandığınızda ilgili bilgilerinizi toplayabilir ve kullanabiliriz. Bu Gizlilik Politikası aracılığıyla, hizmetlerimizi kullandığınızda bu bilgileri nasıl topladığımızı, kullandığımızı, sakladığımızı ve paylaştığımızı ve bu bilgilere erişim, güncelleme, kontrol ve koruma sağlamayı size açıklamak istiyoruz. Bu «Gizlilik Politikası», kullandığınız EditBook-AudioEditor aracı hizmetiyle yakından ilgilidir. Lütfen dikkatlice okumanızı ve gerektiğinde bu «Gizlilik Politikası»nın yönergelerini izleyerek uygun gördüğünüz seçimleri yapmanızı umuyoruz. Bu Gizlilik Politikası’nda yer alan ilgili teknik terimleri olabildiğince kısa bir şekilde ifade etmeye ve anlamanızı kolaylaştırmak için daha fazla açıklamaya bağlantılar sağlamaya çalışıyoruz.'],
+      ['p','Hizmetlerimizi kullanmanız veya kullanmaya devam etmeniz, ilgili bilgilerinizi bu Gizlilik Politikası’na uygun olarak toplamamızı, kullanmamızı, saklamamızı ve paylaşmamızı kabul ettiğiniz anlamına gelir.'],
+      ['p','Bu Gizlilik Politikası veya ilgili konular hakkında herhangi bir sorunuz varsa, lütfen xieh6888@gmail.com adresinden bizimle iletişime geçin.'],
+
+      ['h','1. Topladığımız bilgiler'],
+      ['p','Biz veya üçüncü taraf ortaklarımız hizmet sağladığında, sizinle ilgili aşağıdaki bilgileri toplayabilir, saklayabilir ve kullanabiliriz. İlgili bilgileri sağlamamanız durumunda, kullanıcımız olarak kaydolamayabilir veya sunduğumuz hizmetlerin bir kısmından yararlanamayabilir ya da ilgili hizmetlerin amaçlanan etkilerini elde edemeyebilirsiniz.'],
+      ['p','Kişisel bilgiler: bir hesap kaydederken veya hizmetlerimizi kullanırken bize sağladığınız ilgili kişisel bilgiler, örneğin telefon numarası, e-posta vb.'],
+      ['p','Günlük bilgileri: hizmetlerimizi kullandığınızda sistemin çerezler, tanımlayıcılar ve ilgili teknolojiler aracılığıyla toplayabileceği bilgiler olup cihaz bilgileriniz, tarama bilgileriniz ve tıklama bilgileriniz dahildir; bu bilgiler size kişiselleştirilmiş bir kullanıcı deneyimi sunmak ve hizmet güvenliğini sağlamak için günlük bilgisi olarak saklanır. Tarayıcı ayarlarınız aracılığıyla çerezlerin, tanımlayıcıların veya ilgili teknolojilerin kullanımını reddedebilir veya yönetebilirsiniz.'],
+      ['p','Eriştiğimiz üçüncü taraf SDK’ları:'],
+      ['ul',['Umeng istatistikleri','Bugly']],
+
+      ['h','2. Bilgilerin saklanması'],
+      ['h3','2.1 Bilgilerin saklanma şekli ve süresi'],
+      ['p','Bilgilerinizi yerel depolama (örneğin veri önbelleğe alma için APP kullanımı), veritabanları ve sunucu günlükleri dahil olmak üzere güvenli bir şekilde saklarız.'],
+      ['p','Genellikle kişisel bilgilerinizi yalnızca hizmetin amacına ulaşmak için gerekli olan süre boyunca veya kanunlar ve yönetmeliklerde öngörülen koşullar altında saklarız.'],
+      ['h3','2.2 Bilgilerin saklandığı bölge'],
+      ['p','Çin içinde toplanan kullanıcı kişisel bilgilerini kanunlar ve yönetmelikler uyarınca Çin içinde saklarız.'],
+      ['p','Şu anda kişisel bilgilerinizi sınır ötesine aktarmıyor veya saklamıyoruz. Gelecekte sınır ötesi iletim veya saklama gerekirse, bilgi aktarımının amacı, alıcılar, güvenlik güvence önlemleri ve güvenlik riskleri hakkında sizi bilgilendireceğiz ve onayınızı alacağız.'],
+      ['h3','2.3 Ürün veya hizmetlerin faaliyetlerinin durdurulması durumunda bildirim'],
+      ['p','Ürünlerimiz veya hizmetlerimiz faaliyetlerini durdurduğunda, sizi push bildirimleri, duyurular vb. yoluyla bilgilendireceğiz ve kanunlar ve yönetmeliklerde aksi belirtilmedikçe kişisel bilgilerinizi makul bir süre içinde sileceğiz veya anonim hale getireceğiz.'],
+
+      ['h','3. Bilgi güvenliği'],
+      ['p','Bilgileri kayıp, uygunsuz kullanım, yetkisiz erişim veya ifşaya karşı korumak için çeşitli güvenlik teknolojileri ve prosedürleri kullanıyoruz. Örneğin, bazı hizmetlerde sağladığınız kişisel bilgileri korumak için şifreleme teknolojileri (SSL gibi) kullanırız. Ancak, teknik sınırlamalar ve çeşitli olası kötü niyetli yöntemler nedeniyle, internet sektöründe güvenlik önlemlerini güçlendirmek için elimizden gelenin en iyisini yapsak bile, bilgi güvenliğini her zaman %100 garanti etmenin imkânsız olduğunu lütfen anlayın. Hizmetlerimize erişmek için kullandığınız sistemlerin ve iletişim ağlarının, kontrolümüz dışındaki faktörler nedeniyle sorun yaşayabileceğini anlamanız gerekir.'],
+
+      ['h','4. Bilgileri nasıl kullanıyoruz'],
+      ['p','Size hizmet sunma sürecinde toplanan bilgileri aşağıdaki amaçlarla kullanabiliriz:'],
+      ['ul',[
+        'Size hizmet sağlamak;',
+        'Hizmet sunarken, size sağladığımız ürün ve hizmetlerin güvenliğini sağlamak amacıyla kimlik doğrulama, müşteri hizmetleri, güvenlik, dolandırıcılık izleme, arşivleme ve yedekleme amacıyla;',
+        'Yeni hizmetler tasarlamamıza ve mevcut hizmetlerimizi iyileştirmemize yardımcı olmak;',
+        'Dil ayarları, konum ayarları, kişiselleştirilmiş yardım hizmetleri ve talimatlar gibi kişiselleştirilmiş ihtiyaçlarınıza yanıt vermek veya size ve diğer kullanıcılara diğer önerilerde bulunmak amacıyla hizmetlerimize nasıl eriştiğinizi ve bunları nasıl kullandığınızı daha iyi anlamamızı sağlamak;',
+        'Genel olarak yayınlanan reklamlar yerine size daha alakalı reklamlar sunmak;',
+        'Hizmetlerimizdeki reklamların ve diğer promosyonların etkinliğini değerlendirmek ve bunları iyileştirmek;',
+        'Yazılım sertifikasyonu veya yazılım yükseltmelerinin yönetimi;',
+        'Ürünlerimiz ve hizmetlerimizle ilgili anketlere katılmanızı sağlamak.'
+      ]],
+
+      ['h','5. Bilgi paylaşımı'],
+      ['p','Şu anda kişisel bilgilerinizi üçüncü taraflarla aktif olarak paylaşmayacak veya aktarmayacağız. Kişisel bilgilerinizin paylaşılması veya aktarılmasıyla ilgili başka durumlar varsa veya kişisel bilgilerinizi bir üçüncü tarafla paylaşmamız veya aktarmamız gerekiyorsa, yukarıdaki eylemler için doğrudan açık onayınızı alacağız veya üçüncü tarafın bunu aldığını teyit edeceğiz.'],
+      ['p','Reklam yayınlamak, reklam yayınlama etkinliğini değerlendirmek ve optimize etmek için verilerinizin bir kısmını reklamverenler ve acenteleri gibi üçüncü taraf ortaklarla paylaşmamız gerekir ve kişisel kimliklerin tanımlanmasını önlemek ve gizlilik güvenliğini sağlamak için veri koruma anlaşmaları, taahhüt mektupları ve ilgili veri işleme politikaları dahil ancak bunlarla sınırlı olmamak üzere veri gizliliği koruma önlemlerimize ve gereksinimlerimize kesinlikle uymalarını talep ederiz.'],
+      ['p','Açıkça yetki vermediğiniz sürece, sizi kişisel olarak tanımlayan bilgileri (adınız veya e-posta adresiniz gibi) ortaklarımızla paylaşmayız.'],
+      ['p','Topladığımız kişisel bilgileri kamuya açıklamayacağız. Kamuya açıklama gerekliyse, kamuya açıklamanın amacını, açıklanan bilgilerin türünü ve ilgili olabilecek hassas bilgileri size bildireceğiz ve açık onayınızı alacağız.'],
+      ['p','İşimiz gelişmeye devam ettikçe birleşmeler, devralmalar, varlık transferleri ve diğer işlemleri gerçekleştirebiliriz. İlgili durumlar hakkında sizi bilgilendireceğiz ve kanunlar ve yönetmelikler ile bu Gizlilik Politikası’nın gerektirdiğinden daha düşük olmayan standartlara uygun olarak kişisel bilgilerinizi korumaya devam edeceğiz veya yeni denetleyicinin korumaya devam etmesini talep edeceğiz.'],
+      ['p','Ayrıca, ilgili kanunlar, yönetmelikler ve ulusal standartlar uyarınca, aşağıdaki durumlarda önceden izin ve onayınızı almadan kişisel bilgileri paylaşabilir, aktarabilir ve kamuya açıklayabiliriz:'],
+      ['ul',[
+        'Ulusal güvenlik ve ulusal savunma güvenliğiyle doğrudan ilgili olanlar;',
+        'Kamu güvenliği, kamu sağlığı ve önemli kamu yararlarıyla doğrudan ilgili olanlar;',
+        'Ceza soruşturması, kovuşturma, yargılama ve karar infazıyla doğrudan ilgili olanlar;',
+        'Kişisel bilgi sahibinin veya diğer kişilerin yaşamı, malı ve diğer önemli meşru hak ve menfaatlerini korumak için olup kişinin onayını almanın zor olduğu durumlar;',
+        'Kişisel bilgi sahibinin kişisel bilgilerini kendi inisiyatifiyle kamuya açıklaması;',
+        'Yasal haber raporları, hükümet bilgi açıklaması ve diğer kanallar gibi yasal olarak kamuya açıklanmış bilgilerden kişisel bilgi toplanması.'
+      ]],
+
+      ['h','6. Haklarınız'],
+      ['p','Hizmetlerimizi kullanımınız sırasında, ürünün özel koşullarına bağlı olarak ilgili kişisel bilgilerinizi sorgulayabilmeniz, silebilmeniz, düzeltebilmeniz veya geri çekebilmeniz için size uygun işlem ayarları sağlayabiliriz. İşlem için ilgili özel yönergelere başvurabilirsiniz. Ayrıca bir şikâyet ve bildirim kanalı da oluşturduk ve görüşleriniz zamanında işleme alınacaktır. Yukarıdaki kanallar ve yöntemler aracılığıyla kişisel bilgi sahibi olarak haklarınızı kullanamıyorsanız, talebinizi bu Gizlilik Politikası’nda sağlanan iletişim bilgileri aracılığıyla iletebilirsiniz ve kanunlar ve yönetmelikler uyarınca geri bildirimde bulunacağız.'],
+      ['p','Ürünlerimizi veya hizmetlerimizi artık kullanmamaya karar verdiğinizde hesabınızın iptali için başvurabilirsiniz. Hesabınızı iptal ettikten sonra, kanunlar ve yönetmeliklerde aksi belirtilmedikçe kişisel bilgilerinizi siler veya anonim hale getiririz.'],
+
+      ['h','7. Değişiklikler'],
+      ['p','Bu Gizlilik Politikası’nın koşullarını zaman zaman revize edebiliriz. Değişiklikler meydana geldiğinde, sürüm güncellendiğinde yeni Gizlilik Politikası ile sizi bilgilendireceğiz ve yürürlük tarihini açıklayacağız. Lütfen değiştirilen «Gizlilik Politikası»nı dikkatlice okuyun. Hizmetlerimizi kullanmaya devam ederseniz, kişisel bilgilerinizi güncellenmiş «Gizlilik Politikası»na uygun olarak işlememizi kabul etmiş olursunuz.'],
+
+      ['h','8. Küçüklerin korunması'],
+      ['p','Ebeveynleri veya vasileri, on sekiz yaşın altındaki küçüklere Hizmetlerimizi kullanma konusunda rehberlik etmeye teşvik ediyoruz. Küçüklerin ebeveynlerini veya vasilerini bu Gizlilik Politikası’nı okumaya teşvik etmelerini ve kişisel bilgilerini göndermeden önce ebeveynlerinin veya vasilerinin onayını ve rehberliğini almalarını öneriyoruz.']
+    ]
+  },
+
+  /* ---------------- Tiếng Việt ---------------- */
+  vi: {
+    dir:'ltr', title:'Chính sách quyền riêng tư',
+    updated:'Ngày cập nhật: 2026/11/1', effective:'Ngày có hiệu lực: 2026/11/1',
+    blocks:[
+      ['p','EditBook-AudioEditor là sản phẩm do ông Xie (sau đây gọi là «chúng tôi») cung cấp. Khi bạn sử dụng dịch vụ của chúng tôi, chúng tôi có thể thu thập và sử dụng thông tin liên quan của bạn. Chúng tôi mong muốn sử dụng Chính sách quyền riêng tư này để giải thích cho bạn cách chúng tôi thu thập, sử dụng, lưu trữ và chia sẻ thông tin này khi bạn sử dụng dịch vụ của chúng tôi, cũng như cách chúng tôi cung cấp cho bạn quyền truy cập, cập nhật, kiểm soát và bảo vệ thông tin này. «Chính sách quyền riêng tư» này có liên quan chặt chẽ đến dịch vụ công cụ EditBook-AudioEditor mà bạn sử dụng. Chúng tôi hy vọng bạn đọc kỹ và khi cần thiết, hãy làm theo hướng dẫn của «Chính sách quyền riêng tư» này để đưa ra những lựa chọn mà bạn cho là phù hợp. Chúng tôi cố gắng diễn đạt các thuật ngữ kỹ thuật liên quan một cách ngắn gọn nhất có thể và cung cấp liên kết đến các giải thích thêm để thuận tiện cho việc hiểu của bạn.'],
+      ['p','Việc bạn sử dụng hoặc tiếp tục sử dụng dịch vụ của chúng tôi có nghĩa là bạn đồng ý với việc chúng tôi thu thập, sử dụng, lưu trữ và chia sẻ thông tin liên quan của bạn theo Chính sách quyền riêng tư này.'],
+      ['p','Nếu bạn có bất kỳ câu hỏi nào về Chính sách quyền riêng tư này hoặc các vấn đề liên quan, vui lòng liên hệ với chúng tôi tại xieh6888@gmail.com.'],
+
+      ['h','1. Thông tin chúng tôi thu thập'],
+      ['p','Khi chúng tôi hoặc đối tác bên thứ ba của chúng tôi cung cấp dịch vụ, chúng tôi có thể thu thập, lưu trữ và sử dụng các thông tin sau về bạn. Nếu bạn không cung cấp thông tin liên quan, bạn có thể không đăng ký được làm người dùng của chúng tôi hoặc không thể tận hưởng một số dịch vụ do chúng tôi cung cấp, hoặc không thể đạt được hiệu quả dự kiến của các dịch vụ liên quan.'],
+      ['p','Thông tin cá nhân: thông tin cá nhân liên quan mà bạn cung cấp cho chúng tôi khi đăng ký tài khoản hoặc sử dụng dịch vụ của chúng tôi, chẳng hạn như số điện thoại, email, v.v.'],
+      ['p','Thông tin nhật ký: thông tin mà hệ thống có thể thu thập thông qua cookie, mã định danh và các công nghệ liên quan khi bạn sử dụng dịch vụ của chúng tôi, bao gồm thông tin thiết bị của bạn, thông tin duyệt web, thông tin nhấp chuột, và lưu trữ thông tin đó dưới dạng thông tin nhật ký để cung cấp cho bạn trải nghiệm người dùng được cá nhân hóa và đảm bảo an toàn dịch vụ. Bạn có thể từ chối hoặc quản lý việc sử dụng cookie, mã định danh hoặc công nghệ liên quan thông qua cài đặt trình duyệt của bạn.'],
+      ['p','SDK bên thứ ba mà chúng tôi truy cập:'],
+      ['ul',['Thống kê Umeng','Bugly']],
+
+      ['h','2. Lưu trữ thông tin'],
+      ['h3','2.1 Cách thức và thời hạn lưu trữ thông tin'],
+      ['p','Chúng tôi sẽ lưu trữ thông tin của bạn một cách an toàn, bao gồm lưu trữ cục bộ (chẳng hạn như sử dụng APP để lưu bộ nhớ đệm dữ liệu), cơ sở dữ liệu và nhật ký máy chủ.'],
+      ['p','Thông thường, chúng tôi chỉ lưu trữ thông tin cá nhân của bạn trong thời gian cần thiết để đạt được mục đích của dịch vụ hoặc theo các điều kiện do pháp luật và quy định quy định.'],
+      ['h3','2.2 Khu vực lưu trữ thông tin'],
+      ['p','Chúng tôi sẽ lưu trữ thông tin cá nhân của người dùng được thu thập trong lãnh thổ Trung Quốc tại Trung Quốc theo quy định của pháp luật và quy định.'],
+      ['p','Hiện tại chúng tôi không chuyển hoặc lưu trữ thông tin cá nhân của bạn qua biên giới. Nếu trong tương lai cần truyền hoặc lưu trữ xuyên biên giới, chúng tôi sẽ thông báo cho bạn về mục đích chuyển thông tin, người nhận, biện pháp đảm bảo an toàn và rủi ro bảo mật, đồng thời lấy sự đồng ý của bạn.'],
+      ['h3','2.3 Thông báo khi sản phẩm hoặc dịch vụ ngừng hoạt động'],
+      ['p','Khi sản phẩm hoặc dịch vụ của chúng tôi ngừng hoạt động, chúng tôi sẽ thông báo cho bạn dưới hình thức thông báo đẩy, thông báo công khai, v.v., và xóa hoặc ẩn danh thông tin cá nhân của bạn trong một khoảng thời gian hợp lý, trừ khi pháp luật và quy định có quy định khác.'],
+
+      ['h','3. An toàn thông tin'],
+      ['p','Chúng tôi sử dụng nhiều công nghệ và quy trình bảo mật khác nhau để bảo vệ thông tin khỏi bị mất, sử dụng không đúng cách, truy cập trái phép hoặc tiết lộ. Ví dụ, trong một số dịch vụ, chúng tôi sẽ sử dụng công nghệ mã hóa (như SSL) để bảo vệ thông tin cá nhân mà bạn cung cấp. Tuy nhiên, xin hiểu rằng do hạn chế về kỹ thuật và các phương thức độc hại có thể xảy ra, trong ngành internet, ngay cả khi chúng tôi cố gắng hết sức để tăng cường các biện pháp bảo mật, cũng không thể luôn đảm bảo an toàn thông tin 100%. Bạn cần hiểu rằng các hệ thống và mạng truyền thông mà bạn sử dụng để truy cập dịch vụ của chúng tôi có thể gặp sự cố do các yếu tố ngoài tầm kiểm soát của chúng tôi.'],
+
+      ['h','4. Cách chúng tôi sử dụng thông tin'],
+      ['p','Chúng tôi có thể sử dụng thông tin được thu thập trong quá trình cung cấp dịch vụ cho bạn cho các mục đích sau:'],
+      ['ul',[
+        'Cung cấp dịch vụ cho bạn;',
+        'Khi chúng tôi cung cấp dịch vụ, cho mục đích xác minh danh tính, chăm sóc khách hàng, bảo mật, giám sát gian lận, lưu trữ và sao lưu, nhằm đảm bảo an toàn cho các sản phẩm và dịch vụ mà chúng tôi cung cấp cho bạn;',
+        'Giúp chúng tôi thiết kế các dịch vụ mới và cải thiện các dịch vụ hiện có;',
+        'Cho phép chúng tôi hiểu rõ hơn cách bạn truy cập và sử dụng dịch vụ của chúng tôi, từ đó đáp ứng nhu cầu cá nhân hóa của bạn, chẳng hạn như cài đặt ngôn ngữ, cài đặt vị trí, dịch vụ trợ giúp và hướng dẫn được cá nhân hóa, hoặc đưa ra các đề xuất khác cho bạn và người dùng khác;',
+        'Cung cấp cho bạn quảng cáo phù hợp hơn với bạn thay vì quảng cáo được phân phối rộng rãi;',
+        'Đánh giá hiệu quả của quảng cáo và các chương trình khuyến mãi khác trong Dịch vụ của chúng tôi và cải thiện chúng;',
+        'Chứng nhận phần mềm hoặc quản lý nâng cấp phần mềm;',
+        'Cho phép bạn tham gia các khảo sát về sản phẩm và dịch vụ của chúng tôi.'
+      ]],
+
+      ['h','5. Chia sẻ thông tin'],
+      ['p','Hiện tại, chúng tôi sẽ không chủ động chia sẻ hoặc chuyển giao thông tin cá nhân của bạn cho bên thứ ba. Nếu có các trường hợp chia sẻ hoặc chuyển giao thông tin cá nhân khác của bạn hoặc bạn cần chúng tôi chia sẻ hoặc chuyển giao thông tin cá nhân của bạn cho bên thứ ba, chúng tôi sẽ trực tiếp lấy sự đồng ý rõ ràng của bạn đối với các hành động trên hoặc xác nhận rằng bên thứ ba đã có được sự đồng ý đó.'],
+      ['p','Để đăng quảng cáo, đánh giá và tối ưu hóa hiệu quả phân phối quảng cáo, chúng tôi cần chia sẻ một phần dữ liệu của bạn với các đối tác bên thứ ba như nhà quảng cáo và đại lý của họ, đồng thời yêu cầu họ tuân thủ nghiêm ngặt các biện pháp và yêu cầu bảo vệ quyền riêng tư dữ liệu của chúng tôi, bao gồm nhưng không giới hạn ở các thỏa thuận bảo vệ dữ liệu, thư cam kết và các chính sách xử lý dữ liệu liên quan, để tránh nhận dạng danh tính cá nhân và đảm bảo an toàn quyền riêng tư.'],
+      ['p','Chúng tôi không chia sẻ thông tin nhận dạng cá nhân của bạn (như tên hoặc địa chỉ email của bạn) với các đối tác trừ khi bạn cho phép rõ ràng.'],
+      ['p','Chúng tôi sẽ không công khai thông tin cá nhân mà chúng tôi thu thập. Nếu cần công khai, chúng tôi sẽ thông báo cho bạn về mục đích công khai, loại thông tin được công bố và thông tin nhạy cảm có thể liên quan, đồng thời lấy sự đồng ý rõ ràng của bạn.'],
+      ['p','Khi hoạt động kinh doanh của chúng tôi tiếp tục phát triển, chúng tôi có thể thực hiện các giao dịch sáp nhập, mua lại, chuyển nhượng tài sản và các giao dịch khác. Chúng tôi sẽ thông báo cho bạn về các tình huống liên quan và tiếp tục bảo vệ hoặc yêu cầu người kiểm soát mới tiếp tục bảo vệ thông tin cá nhân của bạn theo pháp luật, quy định và các tiêu chuẩn không thấp hơn các tiêu chuẩn do Chính sách quyền riêng tư này yêu cầu.'],
+      ['p','Ngoài ra, theo các luật, quy định và tiêu chuẩn quốc gia liên quan, chúng tôi có thể chia sẻ, chuyển giao và công khai thông tin cá nhân trong các trường hợp sau mà không cần có sự cho phép và đồng ý trước của bạn:'],
+      ['ul',[
+        'Liên quan trực tiếp đến an ninh quốc gia và an ninh quốc phòng;',
+        'Liên quan trực tiếp đến an toàn công cộng, sức khỏe cộng đồng và lợi ích công cộng quan trọng;',
+        'Liên quan trực tiếp đến điều tra tội phạm, truy tố, xét xử và thi hành án;',
+        'Để bảo vệ tính mạng, tài sản và các quyền và lợi ích hợp pháp quan trọng khác của chủ thể thông tin cá nhân hoặc cá nhân khác nhưng khó có được sự đồng ý của cá nhân đó;',
+        'Chủ thể thông tin cá nhân tự nguyện công khai thông tin cá nhân của mình cho công chúng;',
+        'Thu thập thông tin cá nhân từ thông tin được công khai hợp pháp, chẳng hạn như bản tin hợp pháp, công bố thông tin của chính phủ và các kênh khác.'
+      ]],
+
+      ['h','6. Quyền của bạn'],
+      ['p','Trong quá trình bạn sử dụng dịch vụ của chúng tôi, chúng tôi có thể cung cấp cho bạn các cài đặt thao tác tương ứng tùy theo tình hình cụ thể của sản phẩm để bạn có thể truy vấn, xóa, chỉnh sửa hoặc rút lại thông tin cá nhân liên quan của mình. Bạn có thể tham khảo các hướng dẫn cụ thể tương ứng để thao tác. Ngoài ra, chúng tôi cũng đã thiết lập kênh khiếu nại và báo cáo, ý kiến của bạn sẽ được xử lý kịp thời. Nếu bạn không thể thực hiện quyền của chủ thể thông tin cá nhân thông qua các kênh và phương thức trên, bạn có thể đưa ra yêu cầu của mình thông qua thông tin liên hệ được cung cấp trong Chính sách quyền riêng tư này và chúng tôi sẽ phản hồi theo quy định của pháp luật và quy định.'],
+      ['p','Khi bạn quyết định không sử dụng sản phẩm hoặc dịch vụ của chúng tôi nữa, bạn có thể đăng ký hủy tài khoản của mình. Sau khi hủy tài khoản, chúng tôi sẽ xóa hoặc ẩn danh thông tin cá nhân của bạn, trừ khi pháp luật và quy định có quy định khác.'],
+
+      ['h','7. Thay đổi'],
+      ['p','Chúng tôi có thể sửa đổi các điều khoản của Chính sách quyền riêng tư này theo thời gian. Khi có thay đổi, chúng tôi sẽ thông báo cho bạn bằng Chính sách quyền riêng tư mới khi phiên bản được cập nhật và giải thích ngày có hiệu lực cho bạn. Vui lòng đọc kỹ «Chính sách quyền riêng tư» đã thay đổi. Nếu bạn tiếp tục sử dụng dịch vụ của chúng tôi, bạn đồng ý rằng chúng tôi xử lý thông tin cá nhân của bạn theo «Chính sách quyền riêng tư» đã cập nhật.'],
+
+      ['h','8. Bảo vệ người chưa thành niên'],
+      ['p','Chúng tôi khuyến khích cha mẹ hoặc người giám hộ hướng dẫn người chưa thành niên dưới mười tám tuổi sử dụng Dịch vụ của chúng tôi. Chúng tôi khuyên người chưa thành niên khuyến khích cha mẹ hoặc người giám hộ của mình đọc Chính sách quyền riêng tư này và nhận được sự đồng ý và hướng dẫn của cha mẹ hoặc người giám hộ trước khi gửi thông tin cá nhân.']
+    ]
+  }
+};
+
+/* ==========================================================================
+   3. 语言解析
+   规则：URL 参数 > 浏览器语言列表 > 英文兜底
+   ========================================================================== */
+const DEFAULT_LANG = 'en';
+
+// 全部用小写做 key，统一映射到 I18N 里的 key
+const LANG_ALIAS = {
+  'zh':      'zh-Hans',
+  'zh-hans': 'zh-Hans',
+  'zh-cn':   'zh-Hans',
+  'zh-sg':   'zh-Hans',
+  'zh-my':   'zh-Hans',
+  'zh-hant': 'zh-Hant',
+  'zh-tw':   'zh-Hant',
+  'zh-hk':   'zh-Hant',
+  'zh-mo':   'zh-Hant'
+};
+
+// 小写 -> I18N 真实 key（如 'zh-hans' -> 'zh-Hans'）
+const I18N_KEY_BY_LOWER = Object.keys(I18N).reduce((map, k) => {
+  map[k.toLowerCase()] = k;
+  return map;
+}, {});
+
+/** 返回受支持的语言 key；不支持则返回 null */
+function normalizeLang(raw){
+  if(!raw) return null;
+  const v = String(raw).trim().toLowerCase().replace(/_/g, '-');
+  if(!v) return null;
+
+  // 1. 别名（含 zh-CN / zh-TW / zh-HK 等）
+  if(LANG_ALIAS[v]) return LANG_ALIAS[v];
+
+  // 2. 完全匹配
+  if(I18N_KEY_BY_LOWER[v]) return I18N_KEY_BY_LOWER[v];
+
+  // 3. 带脚本/地区的中文，如 zh-Hans-CN、zh-Hant-TW
+  if(v.startsWith('zh-hant')) return 'zh-Hant';
+  if(v.startsWith('zh')) return 'zh-Hans';
+
+  // 4. 取主语言，如 fr-CA -> fr、pt-BR -> pt
+  const base = v.split('-')[0];
+  if(I18N_KEY_BY_LOWER[base]) return I18N_KEY_BY_LOWER[base];
+
+  return null;
+}
+
+function detectLang(){
+  // 1. URL 参数 ?lang=xx（App 跳转时使用）
+  try {
+    const param = new URLSearchParams(location.search).get('lang');
+    const fromParam = normalizeLang(param);
+    if(fromParam) return fromParam;
+  } catch(e) {}
+
+  // 2. 浏览器语言列表，按优先级逐个尝试
+  try {
+    const list = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage];
+    for(const n of list){
+      const m = normalizeLang(n);
+      if(m) return m;
+    }
+  } catch(e) {}
+
+  // 3. 没有匹配或检测不到，默认英文
+  return DEFAULT_LANG;
+}
+
+/* ==========================================================================
+   4. 渲染
+   ========================================================================== */
+const elTitle     = document.getElementById('pageTitle');
+const elUpdated   = document.getElementById('updated');
+const elEffective = document.getElementById('effective');
+const elContent   = document.getElementById('content');
+const elSelect    = document.getElementById('langSelect');
+
+function buildSelect(){
+  const frag = document.createDocumentFragment();
+  LANGUAGES.forEach(l => {
+    const opt = document.createElement('option');
+    opt.value = l.code;
+    opt.textContent = l.label;
+    frag.appendChild(opt);
+  });
+  elSelect.appendChild(frag);
+}
+
+function render(code){
+  const data = I18N[code] || I18N[DEFAULT_LANG];
+
+  document.documentElement.lang = code;
+  document.documentElement.dir  = data.dir;
+  document.title = data.title + ' · EditBook-AudioEditor';
+
+  elTitle.textContent     = data.title;
+  elUpdated.textContent   = data.updated;
+  elEffective.textContent = data.effective;
+
+  const frag = document.createDocumentFragment();
+  data.blocks.forEach(block => {
+    const type = block[0];
+
+    if(type === 'ul'){
+      const ul = document.createElement('ul');
+      block[1].forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      frag.appendChild(ul);
+      return;
+    }
+
+    const tag = type === 'h3' ? 'h3' : (type === 'h' ? 'h2' : 'p');
+    const node = document.createElement(tag);
+    node.textContent = block[1];
+
+    // 邮箱自动转链接
+    if(tag === 'p' && block[1].includes('xieh6888@gmail.com')){
+      node.textContent = '';
+      const parts = block[1].split('xieh6888@gmail.com');
+      parts.forEach((part, i) => {
+        node.appendChild(document.createTextNode(part));
+        if(i < parts.length - 1){
+          const a = document.createElement('a');
+          a.href = 'mailto:xieh6888@gmail.com';
+          a.textContent = 'xieh6888@gmail.com';
+          node.appendChild(a);
+        }
+      });
+    }
+
+    frag.appendChild(node);
+  });
+
+  elContent.replaceChildren(frag);
+  elSelect.value = code;
+}
+
+function syncUrl(code){
+  const url = new URL(location.href);
+  if(code === DEFAULT_LANG && !url.searchParams.has('lang')){
+    return;
+  }
+  url.searchParams.set('lang', code);
+  history.replaceState(null, '', url.toString());
+}
+
+/* ==========================================================================
+   5. 启动
+   ========================================================================== */
+buildSelect();
+
+let current = detectLang();
+render(current);
+syncUrl(current);
+
+elSelect.addEventListener('change', e => {
+  current = e.target.value;
+  render(current);
+  syncUrl(current);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
