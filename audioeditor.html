@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<meta name="format-detection" content="telephone=no">
+<title>EditBook: Audio Editor · 专业音频剪辑</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f6f8fa;
+    --card:#f7f9fa;
+    --card-border:#e6eaee;
+    --cyan:#00a892;
+    --violet:#6b4dff;
+    --text:#0d1117;
+    --muted:#5b6570;
+    --radius:20px;
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+    --safe-top:env(safe-area-inset-top,0px);
+    --soft:#f2f2f2;
+    --line:#e6eaee;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+  html{
+    background:var(--bg);
+    color-scheme:light;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Microsoft YaHei","Noto Sans Arabic","Noto Sans Thai","Noto Sans Devanagari","Noto Sans JP","Noto Sans KR",sans-serif;
+    color:var(--text);
+    min-height:100vh;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-size-adjust:100%;
+  }
+
+  a,button{touch-action:manipulation;cursor:pointer}
+
+  /* ——— 动态背景（浅色） ——— */
+  .bg-glow{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,168,146,.10), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 85% 40%, rgba(107,77,255,.07), transparent 60%),
+      radial-gradient(ellipse 50% 30% at 10% 80%, rgba(0,168,146,.05), transparent 60%);
+  }
+
+  .bg-grid{
+    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;
+    background-image:
+      linear-gradient(rgba(13,17,23,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(13,17,23,.045) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 70%);
+  }
+
+  /* ——— 声波装饰 ——— */
+  .wave-rail{
+    position:fixed;left:0;right:0;bottom:0;height:180px;z-index:0;pointer-events:none;
+    display:flex;align-items:flex-end;justify-content:center;gap:4px;
+    opacity:.14;overflow:hidden;
+  }
+  .wave-rail span{
+    width:3px;border-radius:3px;background:var(--cyan);
+    animation:wavePulse 2.8s ease-in-out infinite;
+    flex-shrink:0;
+    will-change:height;
+  }
+  @keyframes wavePulse{
+    0%,100%{height:12px;opacity:.35}
+    50%{height:90px;opacity:1}
+  }
+
+  .page{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:0 20px calc(48px + var(--safe-bottom))}
+
+  /* ——— 顶栏：品牌 + 语言选择器 ——— */
+  .top-bar{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:calc(20px + var(--safe-top)) 0 8px;
+    position:relative;z-index:60;
+  }
+  .brand{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:600;letter-spacing:.08em;
+    color:var(--muted);text-transform:uppercase;
+    direction:ltr;
+    flex-shrink:1;
+    min-width:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .brand-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px rgba(0,168,146,.6);flex:none}
+
+  /* ——— 语言选择器 ——— */
+  .lang-picker{position:relative;z-index:50;flex:none}
+  .lang-btn{display:flex;align-items:center;gap:7px;border:1px solid var(--cyan);border-radius:999px;padding:6px 11px;background:#fff;color:var(--cyan);font:inherit;font-size:13px;line-height:1.2;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .lang-btn svg{width:16px;height:16px;fill:var(--cyan);flex:none}
+  .lang-btn .cur{max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lang-btn .chev{border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--cyan);transition:transform .15s}
+  .lang-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+  .lang-menu{display:none;position:absolute;top:calc(100% + 6px);inset-inline-end:0;width:220px;max-width:calc(100vw - 32px);max-height:min(60vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin:0;padding:6px;list-style:none;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+  .lang-menu.open{display:block}
+  .lang-menu li{margin:0;padding:11px 14px;border-radius:8px;font-size:15px;line-height:1.3;cursor:pointer;color:var(--text);-webkit-tap-highlight-color:transparent}
+  .lang-menu li:hover{background:var(--soft)}
+  .lang-menu li[aria-selected="true"]{background:rgba(0,168,146,.10);color:var(--cyan);font-weight:600}
+
+  /* ——— 主视觉 ——— */
+  .hero{text-align:center;padding:20px 0 36px}
+
+  .app-icon-wrap{
+    width:92px;height:92px;margin:0 auto 22px;border-radius:24px;
+    background:#fff;overflow:hidden;
+    border:1px solid rgba(13,17,23,.06);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 28px -8px rgba(13,17,23,.18), 0 2px 8px -2px rgba(13,17,23,.08);
+    position:relative;
+  }
+  .app-icon-wrap img{
+    width:100%;height:100%;display:block;object-fit:cover;border-radius:23px;
+  }
+
+  .app-title{
+    font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:6px;
+    background:linear-gradient(135deg,#0d1117 15%,#0a8f7d 60%,#5b3df5);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .app-subtitle{
+    font-size:14px;color:var(--muted);font-weight:400;letter-spacing:.02em;
+    margin-bottom:28px;
+  }
+
+  /* ——— 下载按钮 ——— */
+  .download-group{
+    display:flex;flex-direction:column;gap:12px;margin-bottom:14px;
+  }
+  .store-btn{
+    display:flex;align-items:center;gap:14px;
+    width:100%;padding:14px 20px;border-radius:16px;
+    text-decoration:none;color:#fff;
+    background:#101419;
+    border:1px solid #101419;
+    box-shadow:0 6px 20px -10px rgba(13,17,23,.55);
+    transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+    position:relative;overflow:hidden;
+  }
+  .store-btn:active{transform:scale(.975)}
+  .store-btn::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(0,229,195,.16),transparent 55%);
+    opacity:0;transition:opacity .2s;
+  }
+
+  .store-icon{
+    width:38px;height:38px;flex-shrink:0;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.10);
+  }
+  .store-icon svg{width:22px;height:22px}
+
+  .store-text{flex:1;text-align:left;min-width:0}
+  .store-small{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:500;line-height:1.3;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .store-name{font-size:16px;font-weight:700;line-height:1.3;margin-top:1px;color:#fff;display:block}
+
+  .store-arrow{
+    flex-shrink:0;opacity:.45;transition:transform .18s,opacity .18s;color:#fff;
+  }
+
+  .btn-google .store-icon{background:rgba(66,133,244,.22)}
+  .btn-apple .store-icon{background:rgba(255,255,255,.12)}
+
+  .download-hint{
+    text-align:center;font-size:12px;color:var(--muted);margin-bottom:48px;
+    letter-spacing:.02em;
+  }
+
+  /* ——— 区块通用 ——— */
+  .section{margin-bottom:44px}
+  .section-label{
+    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;
+  }
+  .section-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(13,17,23,.12),transparent)}
+
+  /* ——— 功能卡片 ——— */
+  .feature-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  }
+  .feature-card{
+    padding:18px 16px;border-radius:var(--radius);
+    background:var(--card);border:1px solid var(--card-border);
+    transition:border-color .2s,background .2s,box-shadow .2s;
+  }
+  .feature-icon{
+    width:34px;height:34px;border-radius:10px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;font-size:16px;
+    background:rgba(0,168,146,.10);
+  }
+  .feature-card:nth-child(2) .feature-icon{background:rgba(107,77,255,.10)}
+  .feature-card:nth-child(3) .feature-icon{background:rgba(255,160,40,.14)}
+  .feature-card:nth-child(4) .feature-icon{background:rgba(0,168,146,.08)}
+  .feature-card:nth-child(5) .feature-icon{background:rgba(107,77,255,.09)}
+  .feature-card:nth-child(6) .feature-icon{background:rgba(255,160,40,.11)}
+  .feature-title{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text);letter-spacing:-.01em}
+  .feature-desc{font-size:12px;color:var(--muted);line-height:1.55}
+
+  /* ——— 页脚 ——— */
+  .footer{
+    text-align:center;padding-top:8px;
+    font-size:11px;color:rgba(13,17,23,.5);line-height:1.8;
+  }
+  .footer a{
+    color:rgba(13,17,23,.62);text-decoration:none;
+    border-bottom:1px solid rgba(13,17,23,.14);
+    transition:color .2s,border-color .2s;
+  }
+
+  /* ——— 入场动画 ——— */
+  .reveal{opacity:0;transform:translateY(16px);animation:revealUp .7s cubic-bezier(.2,.7,.3,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}
+  .d4{animation-delay:.28s}.d5{animation-delay:.36s}
+  @keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+  /* ——— 桌面端 hover 效果 ——— */
+  @media (hover:hover) and (pointer:fine){
+    .store-btn:hover::before{opacity:1}
+    .store-btn:hover{box-shadow:0 10px 26px -10px rgba(13,17,23,.7)}
+    .store-btn:hover .store-arrow{transform:translateX(3px);opacity:.9}
+    .feature-card:hover{
+      border-color:rgba(0,168,146,.30);
+      background:#fff;
+      box-shadow:0 10px 24px -14px rgba(13,17,23,.25);
+    }
+    .footer a:hover{color:var(--cyan);border-color:rgba(0,168,146,.4)}
+  }
+
+  /* ——— RTL 基础适配 ——— */
+  [dir="rtl"] .store-text{text-align:right}
+  [dir="rtl"] .store-arrow{transform:scaleX(-1)}
+  [dir="rtl"] .store-btn:hover .store-arrow{transform:scaleX(-1) translateX(-3px)}
+  [dir="rtl"] .brand{direction:ltr;justify-content:flex-end}
+  [dir="rtl"] .section-label::after{background:linear-gradient(270deg,rgba(13,17,23,.12),transparent)}
+  /* 阿拉伯文无大小写，取消 uppercase 与 letter-spacing，避免字距异常 */
+  [dir="rtl"] .store-small{text-transform:none;letter-spacing:0;font-size:12px;font-weight:400}
+  [dir="rtl"] .section-label{letter-spacing:0}
+
+  /* ——— 小屏适配 ——— */
+  @media (max-width:360px){
+    .app-title{font-size:26px}
+    .feature-grid{gap:8px}
+    .feature-card{padding:14px 13px}
+    .store-btn{padding:13px 16px;gap:12px}
+    .store-icon{width:34px;height:34px}
+    .brand{font-size:12px;letter-spacing:.05em}
+    .lang-btn{font-size:12px;padding:5px 9px;gap:6px}
+    .lang-btn .cur{max-width:80px}
+    .store-small{font-size:9px;letter-spacing:.06em}
+  }
+
+  @media (max-width:340px){
+    .feature-grid{grid-template-columns:1fr}
+    .app-title{font-size:24px}
+    .download-group{gap:10px}
+    .brand{font-size:11px}
+    .lang-btn .cur{max-width:70px}
+    .store-small{font-size:9px}
+  }
+
+  /* ——— 减少动画 ——— */
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;animation:none}
+    .wave-rail{display:none}
+    .store-btn,.feature-card,.footer a{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+<div class="wave-rail" id="waveRail"></div>
+
+<div class="page">
+
+  <!-- 顶栏：品牌 + 语言选择器 -->
+  <div class="top-bar reveal d1">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      EditBook · Audio Editor
+    </div>
+    <div class="lang-picker" id="langPicker">
+      <button type="button" class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 6h-2.95a15.6 15.6 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8ZM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96ZM4.26 14a8.1 8.1 0 0 1 0-4h3.38a16.5 16.5 0 0 0 0 4H4.26Zm.81 2h2.95c.32 1.25.78 2.45 1.38 3.56A8.03 8.03 0 0 1 5.07 16Zm2.95-8H5.07a8.03 8.03 0 0 1 4.33-3.56A15.6 15.6 0 0 0 8.02 8ZM12 19.96a13.7 13.7 0 0 1-1.91-3.96h3.82A13.7 13.7 0 0 1 12 19.96ZM14.34 14H9.66a14.6 14.6 0 0 1 0-4h4.68a14.6 14.6 0 0 1 0 4Zm.26 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56ZM16.36 14a16.5 16.5 0 0 0 0-4h3.38a8.1 8.1 0 0 1 0 4h-3.38Z"/></svg>
+        <span class="cur" id="langCur"></span><span class="chev" aria-hidden="true"></span>
+      </button>
+      <ul class="lang-menu" id="langMenu" role="listbox" tabindex="-1"></ul>
+    </div>
+  </div>
+
+  <!-- 主视觉 -->
+  <header class="hero">
+    <div class="app-icon-wrap reveal d1">
+      <img src="https://play-lh.googleusercontent.com/NFDwNGOwhcGmV_kokz2-ewxldrmr2k7nwfpY9h7Qqjt0O2T3YKMDpbVGk5PMY0ok35fVqWoAcbt1Oo3RikftWg=w480-h960-rw"
+           alt="EditBook: Audio Editor 应用图标"
+           width="92" height="92"
+           loading="eager" decoding="async" referrerpolicy="no-referrer">
+    </div>
+
+    <h1 class="app-title reveal d2">EditBook: Audio Editor</h1>
+    <p class="app-subtitle reveal d2" id="subtitle"></p>
+
+    <!-- 下载按钮 -->
+    <div class="download-group reveal d3">
+      <!-- Google Play -->
+      <a class="store-btn btn-google"
+         href="https://play.google.com/store/apps/details?id=com.editbook.audioeditor"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Download EditBook: Audio Editor on Google Play">
+        <span class="store-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3.6 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.5 1.4l9.1-9.2L3.6 2.4z" fill="#42A5F5"/>
+            <path d="M16.8 8.6L5.5 2.2c-.5-.3-1-.3-1.4-.1l9.1 9.2 3.6-2.7z" fill="#66BB6A"/>
+            <path d="M16.8 15.4l-3.6-2.7-9.1 9.2c.4.2.9.2 1.4-.1l11.3-6.4z" fill="#EF5350"/>
+            <path d="M20.4 10.7l-3.6-2.1-3.6 2.7 3.6 2.7 3.6-2.1c1.1-.6 1.1-1.6 0-2.2z" fill="#FFCA28"/>
+          </svg>
+        </span>
+        <span class="store-text">
+          <span class="store-small" id="googleSmall">GET IT ON</span>
+          <span class="store-name">Google Play</span>
+        </span>
+        <svg class="store-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+
+      <!-- App Store -->
+      <a class="store-btn btn-apple"
+         href="https://apps.apple.com/app/id6829688795"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Download EditBook: Audio Editor on the App Store">
+        <span class="store-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+        </span>
+        <span class="store-text">
+          <span class="store-small" id="appleSmall">Download on the</span>
+          <span class="store-name">App Store</span>
+        </span>
+        <svg class="store-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+    </div>
+    <p class="download-hint reveal d3" id="downloadHint"></p>
+  </header>
+
+  <!-- 核心功能 -->
+  <section class="section reveal d4">
+    <div class="section-label" id="featuresLabel"></div>
+    <div class="feature-grid" id="featureGrid"></div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer reveal d5">
+    <p id="footerSlogan"></p>
+    <p style="margin-top:4px">
+      <a href="https://play.google.com/store/apps/details?id=com.editbook.audioeditor" target="_blank" rel="noopener noreferrer">Google Play</a>
+      &nbsp;·&nbsp;
+      <a href="https://apps.apple.com/app/id6829688795" target="_blank" rel="noopener noreferrer">App Store</a>
+    </p>
+  </footer>
+
+</div>
+
+<script>
+/* ==================== 语言列表 ==================== */
+const LANGUAGES=[
+  {code:'en',label:'English'},
+  {code:'ar',label:'العربية'},
+  {code:'de',label:'Deutsch'},
+  {code:'es',label:'Español'},
+  {code:'fr',label:'Français'},
+  {code:'hi',label:'हिन्दी'},
+  {code:'id',label:'Bahasa Indonesia'},
+  {code:'it',label:'Italiano'},
+  {code:'ja',label:'日本語'},
+  {code:'ko',label:'한국어'},
+  {code:'pt',label:'Português'},
+  {code:'ru',label:'Русский'},
+  {code:'th',label:'ไทย'},
+  {code:'tr',label:'Türkçe'},
+  {code:'vi',label:'Tiếng Việt'},
+  {code:'zh-Hans',label:'简体中文'},
+  {code:'zh-Hant',label:'繁體中文'}
+];
+
+const DEFAULT_LANG='en';
+const ALIAS={
+  zh:'zh-Hans','zh-hans':'zh-Hans','zh-cn':'zh-Hans','zh-sg':'zh-Hans','zh-my':'zh-Hans',
+  'zh-hant':'zh-Hant','zh-tw':'zh-Hant','zh-hk':'zh-Hant','zh-mo':'zh-Hant'
+};
+const SUPPORTED=LANGUAGES.reduce((m,l)=>(m[l.code.toLowerCase()]=l.code,m),{});
+
+function normalizeLang(raw){
+  if(!raw)return null;
+  const v=String(raw).trim().toLowerCase().replace(/_/g,'-');
+  if(!v)return null;
+  if(ALIAS[v])return ALIAS[v];
+  if(SUPPORTED[v])return SUPPORTED[v];
+  if(v.startsWith('zh-hant'))return 'zh-Hant';
+  if(v.startsWith('zh'))return 'zh-Hans';
+  const b=v.split('-')[0];
+  return SUPPORTED[b]||null;
+}
+
+function detectLang(){
+  try{
+    const p=normalizeLang(new URLSearchParams(location.search).get('lang'));
+    if(p)return p;
+  }catch(e){}
+  try{
+    const list=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language];
+    for(const n of list){
+      const m=normalizeLang(n);
+      if(m)return m;
+    }
+  }catch(e){}
+  return DEFAULT_LANG;
+}
+
+/* ==================== 分享页多语言文案 ==================== */
+const I18N={
+/* 简体中文 */
+'zh-Hans':{dir:'ltr',subtitle:'全能音频剪辑 & 音乐编辑器',googleSmall:'获取自',appleSmall:'下载于',downloadHint:'免费下载 · 双平台同步更新',featuresLabel:'核心功能',features:[
+  {icon:'✂️',title:'精准裁剪',desc:'0.1 秒级精度，波形可视化，剪辑随心所欲'},
+  {icon:'🎚️',title:'多轨混音',desc:'多段音频自由融合，格式不同也能轻松合并'},
+  {icon:'⚡',title:'变速变调',desc:'独立调节速度与音高，释放创作空间'},
+  {icon:'🔇',title:'AI 降噪',desc:'智能消除环境噪音，输出干净清晰音质'},
+  {icon:'🎬',title:'音频提取',desc:'从视频快速分离音频，短视频配乐利器'},
+  {icon:'🔄',title:'格式转换',desc:'MP3 / WAV / FLAC / AAC / OGG 全兼容'}
+],footerSlogan:'让每一段声音都被认真对待'},
+
+/* 繁體中文 */
+'zh-Hant':{dir:'ltr',subtitle:'全能音訊剪輯 & 音樂編輯器',googleSmall:'取得自',appleSmall:'下載於',downloadHint:'免費下載 · 雙平台同步更新',featuresLabel:'核心功能',features:[
+  {icon:'✂️',title:'精準裁剪',desc:'0.1 秒級精度，波形視覺化，剪輯隨心所欲'},
+  {icon:'🎚️',title:'多軌混音',desc:'多段音訊自由融合，格式不同也能輕鬆合併'},
+  {icon:'⚡',title:'變速變調',desc:'獨立調節速度與音高，釋放創作空間'},
+  {icon:'🔇',title:'AI 降噪',desc:'智能消除環境噪音，輸出乾淨清晰音質'},
+  {icon:'🎬',title:'音訊提取',desc:'從影片快速分離音訊，短影音配樂利器'},
+  {icon:'🔄',title:'格式轉換',desc:'MP3 / WAV / FLAC / AAC / OGG 全相容'}
+],footerSlogan:'讓每一段聲音都被認真對待'},
+
+/* English */
+en:{dir:'ltr',subtitle:'All-in-One Audio Editor & Music Maker',googleSmall:'GET IT ON',appleSmall:'Download on the',downloadHint:'Free download · Available on both platforms',featuresLabel:'Key Features',features:[
+  {icon:'✂️',title:'Precision Trimming',desc:'0.1s accuracy with waveform visualization, edit freely'},
+  {icon:'🎚️',title:'Multi-track Mixing',desc:'Merge multiple audio clips and formats with ease'},
+  {icon:'⚡',title:'Speed & Pitch',desc:'Adjust tempo and pitch independently for creative freedom'},
+  {icon:'🔇',title:'AI Noise Reduction',desc:'Intelligently remove background noise for clear sound'},
+  {icon:'🎬',title:'Audio Extraction',desc:'Extract audio from video quickly for short-video soundtracks'},
+  {icon:'🔄',title:'Format Conversion',desc:'Full support for MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Every sound deserves to be treated with care'},
+
+/* العربية */
+ar:{dir:'rtl',subtitle:'محرر صوتي وموسيقي شامل',googleSmall:'احصل عليه من',appleSmall:'قم بتنزيله من',downloadHint:'تحميل مجاني · متوفر على المنصتين',featuresLabel:'الميزات الرئيسية',features:[
+  {icon:'✂️',title:'قص دقيق',desc:'دقة 0.1 ثانية مع عرض الموجات الصوتية، حرر كما تشاء'},
+  {icon:'🎚️',title:'مزج متعدد المسارات',desc:'دمج مقاطع صوتية وتنسيقات متعددة بسهولة'},
+  {icon:'⚡',title:'تغيير السرعة والنغمة',desc:'تحكم مستقل في الإيقاع والنغمة لإطلاق العنان للإبداع'},
+  {icon:'🔇',title:'إزالة الضوضاء بالذكاء الاصطناعي',desc:'إزالة ذكية لضوضاء الخلفية للحصول على صوت نقي'},
+  {icon:'🎬',title:'استخراج الصوت',desc:'استخرج الصوت من الفيديو بسرعة لموسيقى الفيديو القصير'},
+  {icon:'🔄',title:'تحويل الصيغة',desc:'دعم كامل لـ MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'كل صوت يستحق العناية'},
+
+/* Deutsch */
+de:{dir:'ltr',subtitle:'All-in-One Audio-Editor & Musikstudio',googleSmall:'JETZT BEI',appleSmall:'Lade im',downloadHint:'Kostenloser Download · Auf beiden Plattformen verfügbar',featuresLabel:'Hauptfunktionen',features:[
+  {icon:'✂️',title:'Präzises Schneiden',desc:'0,1-Sekunden-Genauigkeit mit Wellenform-Visualisierung, frei bearbeiten'},
+  {icon:'🎚️',title:'Mehrspur-Mixing',desc:'Mehrere Audioclips und Formate mühelos zusammenführen'},
+  {icon:'⚡',title:'Geschwindigkeit & Tonhöhe',desc:'Tempo und Tonhöhe unabhängig anpassen für kreative Freiheit'},
+  {icon:'🔇',title:'KI-Rauschunterdrückung',desc:'Hintergrundgeräusche intelligent entfernen für klaren Sound'},
+  {icon:'🎬',title:'Audio-Extraktion',desc:'Audio schnell aus Videos extrahieren für Kurzvideo-Soundtracks'},
+  {icon:'🔄',title:'Formatkonvertierung',desc:'Volle Unterstützung für MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Jeder Klang verdient Aufmerksamkeit'},
+
+/* Español */
+es:{dir:'ltr',subtitle:'Editor de audio y música todo en uno',googleSmall:'DISPONIBLE EN',appleSmall:'Descárgalo en el',downloadHint:'Descarga gratuita · Disponible en ambas plataformas',featuresLabel:'Funciones principales',features:[
+  {icon:'✂️',title:'Recorte de precisión',desc:'Precisión de 0,1 s con visualización de onda, edita libremente'},
+  {icon:'🎚️',title:'Mezcla multipista',desc:'Fusiona varios clips y formatos de audio fácilmente'},
+  {icon:'⚡',title:'Velocidad y tono',desc:'Ajusta tempo y tono de forma independiente para crear libremente'},
+  {icon:'🔇',title:'Reducción de ruido IA',desc:'Elimina inteligentemente el ruido de fondo para un sonido claro'},
+  {icon:'🎬',title:'Extracción de audio',desc:'Extrae audio de vídeos rápidamente para bandas sonoras'},
+  {icon:'🔄',title:'Conversión de formato',desc:'Compatibilidad total con MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Cada sonido merece ser cuidado'},
+
+/* Français */
+fr:{dir:'ltr',subtitle:'Éditeur audio et musical tout-en-un',googleSmall:'DISPONIBLE SUR',appleSmall:"Télécharger sur l'",downloadHint:'Téléchargement gratuit · Disponible sur les deux plateformes',featuresLabel:'Fonctionnalités clés',features:[
+  {icon:'✂️',title:'Découpe précise',desc:'Précision de 0,1 s avec visualisation de la forme d’onde, éditez librement'},
+  {icon:'🎚️',title:'Mixage multipiste',desc:'Fusionnez facilement plusieurs clips et formats audio'},
+  {icon:'⚡',title:'Vitesse et hauteur',desc:'Ajustez indépendamment le tempo et la hauteur pour libérer votre créativité'},
+  {icon:'🔇',title:'Réduction de bruit IA',desc:'Éliminez intelligemment le bruit de fond pour un son clair'},
+  {icon:'🎬',title:'Extraction audio',desc:'Extrayez rapidement l’audio d’une vidéo pour vos bandes sonores'},
+  {icon:'🔄',title:'Conversion de format',desc:'Prise en charge complète de MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Chaque son mérite d’être soigné'},
+
+/* हिन्दी */
+hi:{dir:'ltr',subtitle:'ऑल-इन-वन ऑडियो एडिटर और म्यूज़िक मेकर',googleSmall:'यहाँ से प्राप्त करें',appleSmall:'यहाँ से डाउनलोड करें',downloadHint:'मुफ़्त डाउनलोड · दोनों प्लेटफ़ॉर्म पर उपलब्ध',featuresLabel:'मुख्य विशेषताएँ',features:[
+  {icon:'✂️',title:'सटीक ट्रिमिंग',desc:'0.1 सेकंड सटीकता के साथ वेवफ़ॉर्म विज़ुअलाइज़ेशन, मनचाहे ढंग से एडिट करें'},
+  {icon:'🎚️',title:'मल्टी-ट्रैक मिक्सिंग',desc:'कई ऑडियो क्लिप और फ़ॉर्मेट आसानी से मिलाएँ'},
+  {icon:'⚡',title:'गति और पिच',desc:'रचनात्मक स्वतंत्रता के लिए गति और पिच को अलग-अलग समायोजित करें'},
+  {icon:'🔇',title:'AI शोर में कमी',desc:'साफ़ ध्वनि के लिए पृष्ठभूमि शोर को बुद्धिमानी से हटाएँ'},
+  {icon:'🎬',title:'ऑडियो निष्कर्षण',desc:'शॉर्ट वीडियो साउंडट्रैक के लिए वीडियो से ऑडियो तेज़ी से निकालें'},
+  {icon:'🔄',title:'फ़ॉर्मेट रूपांतरण',desc:'MP3 / WAV / FLAC / AAC / OGG का पूर्ण समर्थन'}
+],footerSlogan:'हर ध्वनि को सम्मान मिलना चाहिए'},
+
+/* Bahasa Indonesia */
+id:{dir:'ltr',subtitle:'Editor Audio & Musik Serba Bisa',googleSmall:'DAPATKAN DI',appleSmall:'Unduh di',downloadHint:'Unduhan gratis · Tersedia di kedua platform',featuresLabel:'Fitur Utama',features:[
+  {icon:'✂️',title:'Pemangkasan Presisi',desc:'Akurasi 0,1 detik dengan visualisasi gelombang, edit sesuka hati'},
+  {icon:'🎚️',title:'Pencampuran Multi-track',desc:'Gabungkan beberapa klip dan format audio dengan mudah'},
+  {icon:'⚡',title:'Kecepatan & Nada',desc:'Sesuaikan tempo dan nada secara independen untuk kebebasan berkarya'},
+  {icon:'🔇',title:'Pengurangan Noise AI',desc:'Hilangkan kebisingan latar secara cerdas untuk suara jernih'},
+  {icon:'🎬',title:'Ekstraksi Audio',desc:'Ekstrak audio dari video dengan cepat untuk soundtrack video pendek'},
+  {icon:'🔄',title:'Konversi Format',desc:'Dukungan penuh untuk MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Setiap suara layak dirawat'},
+
+/* Italiano */
+it:{dir:'ltr',subtitle:'Editor audio e musicale tutto-in-uno',googleSmall:'DISPONIBILE SU',appleSmall:'Scarica su',downloadHint:'Download gratuito · Disponibile su entrambe le piattaforme',featuresLabel:'Funzioni principali',features:[
+  {icon:'✂️',title:'Taglio di precisione',desc:'Precisione di 0,1 s con visualizzazione della forma d’onda, modifica liberamente'},
+  {icon:'🎚️',title:'Missaggio multitraccia',desc:'Unisci più clip e formati audio con facilità'},
+  {icon:'⚡',title:'Velocità e intonazione',desc:'Regola tempo e intonazione in modo indipendente per liberare la creatività'},
+  {icon:'🔇',title:'Riduzione rumore IA',desc:'Rimuovi intelligentemente il rumore di fondo per un suono pulito'},
+  {icon:'🎬',title:'Estrazione audio',desc:'Estrai rapidamente l’audio dai video per le colonne sonore'},
+  {icon:'🔄',title:'Conversione formato',desc:'Supporto completo per MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Ogni suono merita cura'},
+
+/* 日本語 */
+ja:{dir:'ltr',subtitle:'オールインワン音声編集＆音楽制作',googleSmall:'で入手',appleSmall:'ダウンロード',downloadHint:'無料ダウンロード · 両プラットフォームで配信',featuresLabel:'主な機能',features:[
+  {icon:'✂️',title:'精密トリミング',desc:'0.1秒単位の精度と波形表示で自由に編集'},
+  {icon:'🎚️',title:'マルチトラックミックス',desc:'複数の音声クリップや形式を簡単に結合'},
+  {icon:'⚡',title:'速度とピッチ',desc:'テンポとピッチを個別に調整して創作の幅を広げる'},
+  {icon:'🔇',title:'AIノイズ除去',desc:'背景ノイズをインテリジェントに除去しクリアな音質に'},
+  {icon:'🎬',title:'音声抽出',desc:'動画から音声をすばやく抽出してショート動画のBGMに'},
+  {icon:'🔄',title:'形式変換',desc:'MP3 / WAV / FLAC / AAC / OGG に完全対応'}
+],footerSlogan:'すべての音に真摯に向き合う'},
+
+/* 한국어 */
+ko:{dir:'ltr',subtitle:'올인원 오디오 편집 및 음악 제작',googleSmall:'다음에서 다운로드',appleSmall:'다운로드',downloadHint:'무료 다운로드 · 두 플랫폼 모두 제공',featuresLabel:'주요 기능',features:[
+  {icon:'✂️',title:'정밀 트리밍',desc:'0.1초 정밀도와 파형 시각화로 자유롭게 편집'},
+  {icon:'🎚️',title:'멀티트랙 믹싱',desc:'여러 오디오 클립과 형식을 손쉽게 병합'},
+  {icon:'⚡',title:'속도 및 피치',desc:'템포와 피치를 독립적으로 조절하여 창작의 자유를'},
+  {icon:'🔇',title:'AI 노이즈 제거',desc:'배경 소음을 지능적으로 제거하여 깨끗한 사운드 제공'},
+  {icon:'🎬',title:'오디오 추출',desc:'동영상에서 오디오를 빠르게 추출해 숏폼 배경음악으로'},
+  {icon:'🔄',title:'형식 변환',desc:'MP3 / WAV / FLAC / AAC / OGG 완벽 지원'}
+],footerSlogan:'모든 소리는 소중히 다뤄져야 합니다'},
+
+/* Português */
+pt:{dir:'ltr',subtitle:'Editor de áudio e música tudo-em-um',googleSmall:'DISPONÍVEL NO',appleSmall:'Baixe na',downloadHint:'Download gratuito · Disponível nas duas plataformas',featuresLabel:'Principais recursos',features:[
+  {icon:'✂️',title:'Corte de precisão',desc:'Precisão de 0,1 s com visualização de forma de onda, edite livremente'},
+  {icon:'🎚️',title:'Mixagem multipista',desc:'Combine vários clipes e formatos de áudio com facilidade'},
+  {icon:'⚡',title:'Velocidade e tom',desc:'Ajuste tempo e tom independentemente para liberar a criatividade'},
+  {icon:'🔇',title:'Redução de ruído IA',desc:'Remova inteligentemente o ruído de fundo para um som limpo'},
+  {icon:'🎬',title:'Extração de áudio',desc:'Extraia áudio de vídeos rapidamente para trilhas sonoras'},
+  {icon:'🔄',title:'Conversão de formato',desc:'Suporte completo para MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Cada som merece cuidado'},
+
+/* Русский */
+ru:{dir:'ltr',subtitle:'Универсальный аудиоредактор и музыкальная студия',googleSmall:'ДОСТУПНО В',appleSmall:'Загрузите в',downloadHint:'Бесплатное скачивание · Доступно на обеих платформах',featuresLabel:'Основные функции',features:[
+  {icon:'✂️',title:'Точная обрезка',desc:'Точность 0,1 с с визуализацией волновой формы, редактируйте свободно'},
+  {icon:'🎚️',title:'Многодорожечный микс',desc:'Легко объединяйте несколько аудиоклипов и форматов'},
+  {icon:'⚡',title:'Скорость и высота тона',desc:'Независимо настраивайте темп и высоту тона для творческой свободы'},
+  {icon:'🔇',title:'ИИ-шумоподавление',desc:'Интеллектуально удаляйте фоновый шум для чистого звука'},
+  {icon:'🎬',title:'Извлечение аудио',desc:'Быстро извлекайте аудио из видео для саундтреков'},
+  {icon:'🔄',title:'Конвертация форматов',desc:'Полная поддержка MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Каждый звук заслуживает внимания'},
+
+/* ไทย */
+th:{dir:'ltr',subtitle:'เครื่องมือตัดต่อเสียงและทำเพลงครบวงจร',googleSmall:'ดาวน์โหลดได้ที่',appleSmall:'ดาวน์โหลดบน',downloadHint:'ดาวน์โหลดฟรี · มีให้บริการทั้งสองแพลตฟอร์ม',featuresLabel:'ฟีเจอร์หลัก',features:[
+  {icon:'✂️',title:'ตัดต่อแม่นยำ',desc:'ความแม่นยำระดับ 0.1 วินาที พร้อมแสดงรูปคลื่น แก้ไขได้ตามใจ'},
+  {icon:'🎚️',title:'มิกซ์หลายแทร็ก',desc:'รวมคลิปเสียงและรูปแบบต่าง ๆ ได้อย่างง่ายดาย'},
+  {icon:'⚡',title:'ความเร็วและระดับเสียง',desc:'ปรับความเร็วและระดับเสียงแยกกันเพื่อปลดปล่อยความคิดสร้างสรรค์'},
+  {icon:'🔇',title:'ตัดเสียงรบกวนด้วย AI',desc:'กำจัดเสียงรบกวนพื้นหลังอย่างชาญฉลาดเพื่อเสียงที่ใสสะอาด'},
+  {icon:'🎬',title:'แยกเสียง',desc:'แยกเสียงจากวิดีโอได้อย่างรวดเร็วสำหรับเพลงประกอบวิดีโอสั้น'},
+  {icon:'🔄',title:'แปลงรูปแบบ',desc:'รองรับ MP3 / WAV / FLAC / AAC / OGG อย่างเต็มรูปแบบ'}
+],footerSlogan:'ทุกเสียงสมควรได้รับการใส่ใจ'},
+
+/* Türkçe */
+tr:{dir:'ltr',subtitle:'Hepsi Bir Arada Ses Düzenleyici ve Müzik Stüdyosu',googleSmall:'ŞURADAN EDİNİN',appleSmall:'İndirin',downloadHint:'Ücretsiz indirme · Her iki platformda da mevcut',featuresLabel:'Temel Özellikler',features:[
+  {icon:'✂️',title:'Hassas Kırpma',desc:'0,1 saniye hassasiyet ve dalga formu görselleştirmesi ile özgürce düzenleyin'},
+  {icon:'🎚️',title:'Çok Kanallı Miks',desc:'Birden fazla ses klibini ve formatı kolayca birleştirin'},
+  {icon:'⚡',title:'Hız ve Perde',desc:'Yaratıcı özgürlük için tempo ve perdeyi bağımsız olarak ayarlayın'},
+  {icon:'🔇',title:'AI Gürültü Azaltma',desc:'Temiz ses için arka plan gürültüsünü akıllıca kaldırın'},
+  {icon:'🎬',title:'Ses Çıkarma',desc:'Kısa video müzikleri için videodan sesi hızlıca çıkarın'},
+  {icon:'🔄',title:'Format Dönüştürme',desc:'MP3 / WAV / FLAC / AAC / OGG için tam destek'}
+],footerSlogan:'Her ses özenle ele alınmayı hak eder'},
+
+/* Tiếng Việt */
+vi:{dir:'ltr',subtitle:'Trình chỉnh sửa âm thanh và sáng tác nhạc tất cả trong một',googleSmall:'TẢI TRÊN',appleSmall:'Tải trên',downloadHint:'Tải xuống miễn phí · Có mặt trên cả hai nền tảng',featuresLabel:'Tính năng chính',features:[
+  {icon:'✂️',title:'Cắt chính xác',desc:'Độ chính xác 0,1 giây với hiển thị dạng sóng, chỉnh sửa tùy ý'},
+  {icon:'🎚️',title:'Trộn đa rãnh',desc:'Hợp nhất nhiều đoạn âm thanh và định dạng một cách dễ dàng'},
+  {icon:'⚡',title:'Tốc độ và cao độ',desc:'Điều chỉnh nhịp độ và cao độ độc lập để thỏa sức sáng tạo'},
+  {icon:'🔇',title:'Giảm nhiễu AI',desc:'Loại bỏ nhiễu nền thông minh để có âm thanh trong trẻo'},
+  {icon:'🎬',title:'Trích xuất âm thanh',desc:'Trích xuất âm thanh từ video nhanh chóng cho nhạc nền video ngắn'},
+  {icon:'🔄',title:'Chuyển đổi định dạng',desc:'Hỗ trợ đầy đủ MP3 / WAV / FLAC / AAC / OGG'}
+],footerSlogan:'Mỗi âm thanh đều xứng đáng được trân trọng'}
+};
+
+/* ==================== 渲染与语言切换 ==================== */
+const btn=document.getElementById('langBtn');
+const menu=document.getElementById('langMenu');
+const cur=document.getElementById('langCur');
+const picker=document.getElementById('langPicker');
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function setSelected(code){
+  const l=LANGUAGES.find(x=>x.code===code)||LANGUAGES[0];
+  cur.textContent=l.label;
+  menu.querySelectorAll('li').forEach(li=>li.setAttribute('aria-selected',li.dataset.code===code?'true':'false'));
+}
+
+function renderPage(code){
+  const key=I18N[code]?code:DEFAULT_LANG;
+  const d=I18N[key];
+
+  document.documentElement.lang=key;
+  document.documentElement.dir=d.dir;
+  document.title='EditBook: Audio Editor · '+d.subtitle;
+
+  document.getElementById('subtitle').textContent=d.subtitle;
+  document.getElementById('downloadHint').textContent=d.downloadHint;
+  document.getElementById('featuresLabel').textContent=d.featuresLabel;
+
+  /* 平台引导文案多语言 */
+  document.getElementById('googleSmall').textContent=d.googleSmall;
+  document.getElementById('appleSmall').textContent=d.appleSmall;
+
+  document.getElementById('featureGrid').innerHTML=d.features.map(f=>
+    '<div class="feature-card">'+
+      '<div class="feature-icon" aria-hidden="true">'+f.icon+'</div>'+
+      '<div class="feature-title">'+esc(f.title)+'</div>'+
+      '<div class="feature-desc">'+esc(f.desc)+'</div>'+
+    '</div>'
+  ).join('');
+
+  document.getElementById('footerSlogan').textContent='EditBook: Audio Editor · '+d.footerSlogan;
+
+  setSelected(key);
+}
+
+function syncUrl(code){
+  const u=new URL(location.href);
+  if(code===DEFAULT_LANG&&!u.searchParams.has('lang'))return;
+  u.searchParams.set('lang',code);
+  try{history.replaceState(null,'',u.toString());}catch(e){}
+}
+
+/* 构建语言菜单 */
+LANGUAGES.forEach(l=>{
+  const li=document.createElement('li');
+  li.setAttribute('role','option');
+  li.dataset.code=l.code;
+  li.lang=l.code;
+  li.textContent=l.label;
+  menu.appendChild(li);
+});
+
+function openMenu(o){
+  menu.classList.toggle('open',o);
+  btn.setAttribute('aria-expanded',o?'true':'false');
+  if(o){
+    const s=menu.querySelector('[aria-selected="true"]');
+    if(s)menu.scrollTop=s.offsetTop-menu.clientHeight/2+s.offsetHeight/2;
+  }
+}
+
+let currentLang=detectLang();
+renderPage(currentLang);
+syncUrl(currentLang);
+
+btn.addEventListener('click',e=>{
+  e.stopPropagation();
+  openMenu(!menu.classList.contains('open'));
+});
+
+menu.addEventListener('click',e=>{
+  const li=e.target.closest('li');
+  if(!li)return;
+  currentLang=li.dataset.code;
+  renderPage(currentLang);
+  syncUrl(currentLang);
+  openMenu(false);
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+document.addEventListener('click',e=>{
+  if(!picker.contains(e.target))openMenu(false);
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    openMenu(false);
+    btn.focus();
+  }
+});
+
+/* ==================== 声波装饰 ==================== */
+(function(){
+  var rail=document.getElementById('waveRail');
+  var timer=null;
+
+  function buildWave(){
+    if(!rail)return;
+    rail.innerHTML='';
+    var count=Math.floor(window.innerWidth/10);
+    for(var i=0;i<count;i++){
+      var s=document.createElement('span');
+      s.style.animationDelay=(i*0.11%2.8)+'s';
+      s.style.height=(12+Math.random()*30)+'px';
+      s.style.opacity=0.3+Math.random()*0.5;
+      rail.appendChild(s);
+    }
+  }
+
+  function onResize(){
+    clearTimeout(timer);
+    timer=setTimeout(buildWave,180);
+  }
+
+  buildWave();
+  window.addEventListener('resize',onResize);
+  window.addEventListener('orientationchange',onResize);
+})();
+</script>
+
+</body>
+</html>
