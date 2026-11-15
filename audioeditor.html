@@ -6,7 +6,28 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
 <meta name="format-detection" content="telephone=no">
-<title>EditBook: Audio Editor · 专业音频剪辑</title>
+<title>EditBook: Audio Editor</title>
+<meta name="description" content="All-in-One Audio Editor & Music Maker">
+
+<!-- Open Graph：WhatsApp / Facebook / Telegram 等 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EditBook: Audio Editor">
+<meta property="og:title" content="EditBook: Audio Editor">
+<meta property="og:description" content="All-in-One Audio Editor & Music Maker">
+<meta property="og:image" content="https://xieh123.github.io/EditBook/AudioEditor.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:url" content="https://xieh123.github.io/EditBook/audioeditor.html">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EditBook: Audio Editor">
+<meta name="twitter:image" content="https://xieh123.github.io/EditBook/AudioEditor.png">
+
+<!-- 图标 -->
+<link rel="icon" href="https://xieh123.github.io/EditBook/AudioEditor.png">
+<link rel="apple-touch-icon" href="https://xieh123.github.io/EditBook/AudioEditor.png">
+
 <style>
   :root{
     --bg:#ffffff;
@@ -176,8 +197,10 @@
     flex-shrink:0;opacity:.45;transition:transform .18s,opacity .18s;color:#fff;
   }
 
-  .btn-google .store-icon{background:rgba(66,133,244,.22)}
   .btn-apple .store-icon{background:rgba(255,255,255,.12)}
+  .btn-google .store-icon{background:rgba(66,133,244,.22)}
+  .btn-apk .store-icon{background:rgba(61,220,132,.22)}
+  .store-btn[hidden]{display:none}
 
   .download-hint{
     text-align:center;font-size:12px;color:var(--muted);margin-bottom:48px;
@@ -321,6 +344,25 @@
 
     <!-- 下载按钮 -->
     <div class="download-group reveal d3">
+      <!-- App Store -->
+      <a class="store-btn btn-apple"
+         href="https://apps.apple.com/app/id6829688795"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Download EditBook: Audio Editor on the App Store">
+        <span class="store-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+        </span>
+        <span class="store-text">
+          <span class="store-small" id="appleSmall">Download on the</span>
+          <span class="store-name">App Store</span>
+        </span>
+        <svg class="store-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </a>
+
       <!-- Google Play -->
       <a class="store-btn btn-google"
          href="https://play.google.com/store/apps/details?id=com.editbook.audioeditor"
@@ -343,19 +385,19 @@
         </svg>
       </a>
 
-      <!-- App Store -->
-      <a class="store-btn btn-apple"
-         href="https://apps.apple.com/app/id6829688795"
+      <!-- 普通 APK（仅中国大陆 + 简体中文显示） -->
+      <a class="store-btn btn-apk" id="apkBtn" hidden
+         href="https://www.pgyer.com/EditBook-AudioEditor"
          target="_blank" rel="noopener noreferrer"
-         aria-label="Download EditBook: Audio Editor on the App Store">
+         aria-label="下载 EditBook: Audio Editor 安装包 APK">
         <span class="store-icon">
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          <svg viewBox="0 0 24 24" fill="#3DDC84" aria-hidden="true">
+            <path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.87 3.24A11.4 11.4 0 0 0 12 8.1c-1.7 0-3.3.38-4.91 1.06L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48C3.25 11.2 1.1 14.4.8 18.2h22.4c-.3-3.8-2.45-7-5.6-8.72zM7 15.8a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
           </svg>
         </span>
         <span class="store-text">
-          <span class="store-small" id="appleSmall">Download on the</span>
-          <span class="store-name">App Store</span>
+          <span class="store-small">直接下载</span>
+          <span class="store-name">下载安装包 APK</span>
         </span>
         <svg class="store-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M9 18l6-6-6-6"/>
@@ -438,6 +480,20 @@ function detectLang(){
   }catch(e){}
   return DEFAULT_LANG;
 }
+
+/* 是否中国大陆：优先用时区（港澳台时区不同），兜底用 zh-CN 语言 */
+const IS_CN=(function(){
+  try{
+    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+    if(/^(Asia\/(Shanghai|Chongqing|Harbin|Urumqi|Kashgar)|PRC)$/.test(tz))return true;
+    if(tz)return false;
+  }catch(e){}
+  try{
+    var l=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language]);
+    return l.some(function(x){return /^zh-cn$/i.test(x);});
+  }catch(e){}
+  return false;
+})();
 
 /* ==================== 分享页多语言文案 ==================== */
 const I18N={
@@ -651,6 +707,9 @@ function renderPage(code){
   ).join('');
 
   document.getElementById('footerSlogan').textContent='EditBook: Audio Editor · '+d.footerSlogan;
+
+  /* 仅 中国大陆 + 简体中文 显示 APK 下载；切换语言时自动显示/隐藏 */
+  document.getElementById('apkBtn').hidden=!(IS_CN&&key==='zh-Hans');
 
   setSelected(key);
 }
