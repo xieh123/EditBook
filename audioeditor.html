@@ -7,21 +7,24 @@
 <meta name="color-scheme" content="light">
 <meta name="format-detection" content="telephone=no">
 <title>EditBook: Audio Editor</title>
-<meta name="description" content="All-in-One Audio Editor & Music Maker">
+<meta name="description" id="metaDesc" content="All-in-One Audio Editor & Music Maker">
 
 <!-- Open Graph：WhatsApp / Facebook / Telegram 等 -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EditBook: Audio Editor">
-<meta property="og:title" content="EditBook: Audio Editor">
-<meta property="og:description" content="All-in-One Audio Editor & Music Maker">
+<meta property="og:title" id="ogTitle" content="EditBook: Audio Editor">
+<meta property="og:description" id="ogDesc" content="All-in-One Audio Editor & Music Maker">
+<meta property="og:locale" id="ogLocale" content="en_US">
 <meta property="og:image" content="https://xieh123.github.io/EditBook/AudioEditor.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
-<meta property="og:url" content="https://xieh123.github.io/EditBook/audioeditor.html">
+<meta property="og:url" id="ogUrl" content="https://xieh123.github.io/EditBook/audioeditor.html">
+
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EditBook: Audio Editor">
+<meta name="twitter:title" id="twTitle" content="EditBook: Audio Editor">
+<meta name="twitter:description" id="twDesc" content="All-in-One Audio Editor & Music Maker">
 <meta name="twitter:image" content="https://xieh123.github.io/EditBook/AudioEditor.png">
 
 <!-- 图标 -->
@@ -668,6 +671,26 @@ vi:{dir:'ltr',subtitle:'Trình chỉnh sửa âm thanh và sáng tác nhạc t�
 ],footerSlogan:'Mỗi âm thanh đều xứng đáng được trân trọng'}
 };
 
+const OG_LOCALE={en:'en_US',ar:'ar_AR',de:'de_DE',es:'es_ES',fr:'fr_FR',hi:'hi_IN',id:'id_ID',it:'it_IT',ja:'ja_JP',ko:'ko_KR',pt:'pt_BR',ru:'ru_RU',th:'th_TH',tr:'tr_TR',vi:'vi_VN','zh-Hans':'zh_CN','zh-Hant':'zh_TW'};
+const BASE_URL='https://xieh123.github.io/EditBook/audioeditor.html';
+const APP_NAME='EditBook: Audio Editor';
+
+function setMeta(id,v){
+  const el=document.getElementById(id);
+  if(el)el.setAttribute('content',v);
+}
+
+function updateMeta(key,d){
+  const desc=d.subtitle;
+  setMeta('metaDesc',desc);
+  setMeta('ogTitle',APP_NAME);
+  setMeta('ogDesc',desc);
+  setMeta('ogLocale',OG_LOCALE[key]||'en_US');
+  setMeta('ogUrl',key===DEFAULT_LANG?BASE_URL:BASE_URL+'?lang='+key);
+  setMeta('twTitle',APP_NAME);
+  setMeta('twDesc',desc);
+}
+
 /* ==================== 渲染与语言切换 ==================== */
 const btn=document.getElementById('langBtn');
 const menu=document.getElementById('langMenu');
@@ -688,7 +711,8 @@ function renderPage(code){
 
   document.documentElement.lang=key;
   document.documentElement.dir=d.dir;
-  document.title='EditBook: Audio Editor · '+d.subtitle;
+  document.title=APP_NAME+' · '+d.subtitle;
+  updateMeta(key,d);
 
   document.getElementById('subtitle').textContent=d.subtitle;
   document.getElementById('downloadHint').textContent=d.downloadHint;
